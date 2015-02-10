@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FEF7F13A-5B70-4A0C-ACB0-BA23319F4AC7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Algorithms</RootNamespace>
+    <AssemblyName>Algorithms</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AVLTree\AvlTree.cs" />
+    <Compile Include="Codity.cs" />
+    <Compile Include="Concept_DynamicPrograming_Memoization.cs" />
+    <Compile Include="DataStructure_AVLTree.cs" />
+    <Compile Include="DataStructure_Hash.cs" />
+    <Compile Include="DataStructure_QuickSort.cs" />
+    <Compile Include="Problems_FindNumberOfRotations.cs" />
+    <Compile Include="RedBlackTree\DataStructureException.cs" />
+    <Compile Include="DataStructure_Tries.cs" />
+    <Compile Include="DesignPattern_AbstractFactory.cs" />
+    <Compile Include="DesignPattern_Adapter.cs" />
+    <Compile Include="DesignPattern_Bridge.cs" />
+    <Compile Include="DesignPattern_Builder.cs" />
+    <Compile Include="DesignPattern_ChainOfResponsibility.cs" />
+    <Compile Include="DesignPattern_Command.cs" />
+    <Compile Include="DesignPattern_Composite.cs" />
+    <Compile Include="DesignPattern_Composite_with_Decorator.cs" />
+    <Compile Include="DesignPattern_Decorator.cs" />
+    <Compile Include="DesignPattern_Facade.cs" />
+    <Compile Include="DesignPattern_Factory.cs" />
+    <Compile Include="DesignPattern_Flyweight.cs" />
+    <Compile Include="DesignPattern_Interpreter.cs" />
+    <Compile Include="DesignPattern_Iterator.cs" />
+    <Compile Include="DesignPattern_Mediator.cs" />
+    <Compile Include="DesignPattern_Memento.cs" />
+    <Compile Include="DesignPattern_Observer.cs" />
+    <Compile Include="DesignPattern_Prototype.cs" />
+    <Compile Include="DesignPattern_Proxy.cs" />
+    <Compile Include="DesignPattern_State.cs" />
+    <Compile Include="DesignPattern_Stradegy.cs" />
+    <Compile Include="DesignPattern_Flyweight_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DesignPattern_Flyweight_Form.Designer.cs">
+      <DependentUpon>DesignPattern_Flyweight_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DesignPattern_Template.cs" />
+    <Compile Include="DesignPattern_Visitor.cs" />
+    <Compile Include="DataStructure_Heap.cs" />
+    <Compile Include="InterfaceTests.cs" />
+    <Compile Include="DataStructure_MergeSort.cs" />
+    <Compile Include="Problems_MergeSortedArrays.cs" />
+    <Compile Include="Problems_PrintSpiralMatrix.cs" />
+    <Compile Include="DesignPattern_Singleton.cs" />
+    <Compile Include="DataStructure_Tree.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RedBlackTree\NodeColor.cs" />
+    <Compile Include="RedBlackTree\RedBlackEnumerator.cs" />
+    <Compile Include="RedBlackTree\RedBlackNode.cs" />
+    <Compile Include="RedBlackTree\RedBlackTree.cs" />
+    <Compile Include="SplayTree\SplayTree.cs" />
+    <EmbeddedResource Include="DesignPattern_Flyweight_Form.resx">
+      <DependentUpon>DesignPattern_Flyweight_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="RedBlackTree\RedBlackTree.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EnglishScrabbleWordList.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

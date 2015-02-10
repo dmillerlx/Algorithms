@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="DataStructureLibrary.RedBlackTree.RedBlackEnumerator&lt;KeyType, DataType&gt;" Collapsed="true">
+    <Position X="1.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <FileName>RedBlackTree\RedBlackEnumerator.cs</FileName>
+      <HashCode>ABAAAAAAAAAAAAQAAACgAAEAAAAEAAAAIAAgAAAAAJA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataStructureLibrary.RedBlackTree.RedBlackNode&lt;KeyType, DataType&gt;" Collapsed="true">
+    <Position X="1.5" Y="2" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>RedBlackTree\RedBlackNode.cs</FileName>
+      <HashCode>AAAAAAAABAAIAAQAAACARAAAAAACABAACACBgAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataStructureLibrary.RedBlackTree.RedBlackTree&lt;KeyType, DataType&gt;" Collapsed="true">
+    <Position X="1.5" Y="1.25" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>RedBlackTree\RedBlackTree.cs</FileName>
+      <HashCode>AAJAAAAAEAgAgBAEjAAChQAAKAAAAIgBAACpAQFAIAk=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="DataStructureLibrary.RedBlackTree.NodeColor" Collapsed="true">
+    <Position X="1.5" Y="2.75" Width="1.25" />
+    <TypeIdentifier>
+      <FileName>RedBlackTree\NodeColor.cs</FileName>
+      <HashCode>AAAEAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>
