@@ -1,5 +1,5 @@
 # Algorithms
-Algorithms, Design Patterns (Gang of Four), Data Structures
+<h1>Algorithms, Design Patterns (Gang of Four), Data Structures</h1>
 
 While studying data structures, algorithms, and design patterns I decided to create code samples with Visual Studio.
 
