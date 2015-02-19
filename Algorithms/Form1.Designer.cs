@@ -76,9 +76,9 @@
             this.button35 = new System.Windows.Forms.Button();
             this.button34 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button44 = new System.Windows.Forms.Button();
             this.button42 = new System.Windows.Forms.Button();
             this.button40 = new System.Windows.Forms.Button();
-            this.button44 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -191,7 +191,7 @@
             // 
             this.button10.Location = new System.Drawing.Point(20, 84);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(230, 23);
+            this.button10.Size = new System.Drawing.Size(230, 35);
             this.button10.TabIndex = 10;
             this.button10.Text = "Problem - Merge K Sorted Arrays w/ Max Heap";
             this.button10.UseVisualStyleBackColor = true;
@@ -219,7 +219,7 @@
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(20, 113);
+            this.button13.Location = new System.Drawing.Point(20, 125);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(230, 23);
             this.button13.TabIndex = 13;
@@ -606,9 +606,19 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Practice Problems";
             // 
+            // button44
+            // 
+            this.button44.Location = new System.Drawing.Point(20, 271);
+            this.button44.Name = "button44";
+            this.button44.Size = new System.Drawing.Size(218, 27);
+            this.button44.TabIndex = 48;
+            this.button44.Text = "Is Sub String";
+            this.button44.UseVisualStyleBackColor = true;
+            this.button44.Click += new System.EventHandler(this.button44_Click);
+            // 
             // button42
             // 
-            this.button42.Location = new System.Drawing.Point(20, 196);
+            this.button42.Location = new System.Drawing.Point(20, 208);
             this.button42.Name = "button42";
             this.button42.Size = new System.Drawing.Size(218, 27);
             this.button42.TabIndex = 47;
@@ -618,23 +628,13 @@
             // 
             // button40
             // 
-            this.button40.Location = new System.Drawing.Point(20, 142);
+            this.button40.Location = new System.Drawing.Point(20, 154);
             this.button40.Name = "button40";
             this.button40.Size = new System.Drawing.Size(230, 23);
             this.button40.TabIndex = 14;
             this.button40.Text = "Problem - Find number of rotations";
             this.button40.UseVisualStyleBackColor = true;
             this.button40.Click += new System.EventHandler(this.button40_Click);
-            // 
-            // button44
-            // 
-            this.button44.Location = new System.Drawing.Point(20, 259);
-            this.button44.Name = "button44";
-            this.button44.Size = new System.Drawing.Size(218, 27);
-            this.button44.TabIndex = 48;
-            this.button44.Text = "Is Sub String";
-            this.button44.UseVisualStyleBackColor = true;
-            this.button44.Click += new System.EventHandler(this.button44_Click);
             // 
             // Form1
             // 
