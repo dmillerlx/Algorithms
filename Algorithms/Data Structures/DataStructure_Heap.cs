@@ -214,6 +214,13 @@ namespace Algorithms
             return ret;
         }
 
+        public I Peek()
+        {
+            I ret = data[headIndex];
+            
+            return ret;
+        }
+
         public void DoubleHeapSize()
         {
             I []newData = new I[data.Length * 2 + 1];

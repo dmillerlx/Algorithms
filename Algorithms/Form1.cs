@@ -559,5 +559,183 @@ namespace Algorithms
         {
 
         }
+
+        private void button45_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedList_RemoveDuplicates test = new Solved_Problems.Problems_LinkedList_RemoveDuplicates();
+            test.RemoveDuplicates();
+        }
+
+        private void button46_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedList_FindNthLastItem test = new Solved_Problems.Problems_LinkedList_FindNthLastItem();
+            test.Run();
+        }
+
+        private void button47_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedList_AddNumbersInList test = new Solved_Problems.Problems_LinkedList_AddNumbersInList();
+            test.Run();
+        }
+
+        private void button48_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedList_ReverseSinglyLinkedList test = new Solved_Problems.Problems_LinkedList_ReverseSinglyLinkedList();
+            test.Run();
+        }
+
+        private void button49_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedList_FindLoop test = new Solved_Problems.Problems_LinkedList_FindLoop();
+
+            test.Run();
+        }
+
+        private void button50_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Stacks_3Stacks_SingleArray test = new Solved_Problems.Problems_Stacks_3Stacks_SingleArray();
+            test.Run();
+        }
+
+        private void button51_Click(object sender, EventArgs e)
+        {
+            Problems_Amazon_PrintTree test = new Problems_Amazon_PrintTree();
+            test.main();
+        }
+
+        private void button52_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Stacks_PushPopMin test = new Solved_Problems.Problems_Stacks_PushPopMin();
+            test.Run();
+        }
+
+        private void button53_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Stacks_SetOfStacks test = new Solved_Problems.Problems_Stacks_SetOfStacks();
+            test.Run();
+        }
+
+        private void button54_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_DynamicProgramming_LongestSubSequence test = new Solved_Problems.Problems_DynamicProgramming_LongestSubSequence();
+            test.Run();
+        }
+
+        private void button55_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_DynamicProgramming_TextWrap test = new Solved_Problems.Problems_DynamicProgramming_TextWrap();
+            test.Run();
+            
+        }
+
+        private void button56_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Stacks_TowersOfHanoi test = new Solved_Problems.Problems_Stacks_TowersOfHanoi();
+            test.Run();
+        }
+
+        private void button57_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Stacks_ImplementQueueUsingStacks test = new Solved_Problems.Problems_Stacks_ImplementQueueUsingStacks();
+            test.Run();
+        }
+
+        private void button58_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Stacks_Sort test = new Solved_Problems.Problems_Stacks_Sort();
+            test.Run();
+        }
+
+        private void button59_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Stacks_AnimalShelter test = new Solved_Problems.Problems_Stacks_AnimalShelter();
+
+            test.Run2();
+        }
+
+        private void button60_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Trees_DetectBalanced test = new Solved_Problems.Problems_Trees_DetectBalanced();
+            test.Run();
+        }
+
+        private void button61_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Trees_FindIfRouteExists test = new Solved_Problems.Problems_Trees_FindIfRouteExists();
+
+            test.Run();
+        }
+
+        private void button62_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Trees_SortedArrayToBST test = new Solved_Problems.Problems_Trees_SortedArrayToBST();
+            test.Run();
+        }
+
+        private void button63_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Trees_CheckIfTreeIsBST test = new Solved_Problems.Problems_Trees_CheckIfTreeIsBST();
+            test.Run();
+        }
+
+        private void button64_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Trees_FindNextNodeSuccessor test = new Solved_Problems.Problems_Trees_FindNextNodeSuccessor();
+            test.Run();
+        }
+
+        private void button65_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Trees_FindCommonAncestor test = new Solved_Problems.Problems_Trees_FindCommonAncestor();
+            test.Run();
+        }
+
+        private void button66_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Trees_IsSubTree test = new Solved_Problems.Problems_Trees_IsSubTree();
+
+            test.Run();
+        }
+
+        private void button67_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Trees_SumNodesToValue test = new Solved_Problems.Problems_Trees_SumNodesToValue();
+            test.Run();
+        }
+
+        private void button55_Click_1(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_DynamicProgramming_TextWrap test = new Solved_Problems.Problems_DynamicProgramming_TextWrap();
+            test.Run();
+        }
+
+        private void button54_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button68_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Amazon_StringConcatCost test = new Solved_Problems.Problems_Amazon_StringConcatCost();
+            test.Run();
+        }
+
+        private void button69_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Amazon_IntegerMaxNumberFromDigits test = new Solved_Problems.Problems_Amazon_IntegerMaxNumberFromDigits();
+            test.Run();
+        }
+
+        private void button70_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Amazon_ParityBits test = new Solved_Problems.Problems_Amazon_ParityBits();
+            test.Run();
+        }
+
+        private void button71_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Amazon_SumDistinctIntegers test = new Solved_Problems.Problems_Amazon_SumDistinctIntegers();
+            test.Run();
+        }
     }
 }

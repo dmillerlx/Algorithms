@@ -13,6 +13,21 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -46,51 +61,65 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AVLTree\AvlTree.cs" />
+    <Compile Include="Data Structures\3rd Party Trees\AVLTree\AvlTree.cs" />
     <Compile Include="Codity.cs" />
-    <Compile Include="Concept_DynamicPrograming_Memoization.cs" />
-    <Compile Include="DataStructure_AVLTree.cs" />
-    <Compile Include="DataStructure_Hash.cs" />
-    <Compile Include="DataStructure_QuickSort.cs" />
-    <Compile Include="Problems_FindNumberOfRotations.cs" />
-    <Compile Include="RedBlackTree\DataStructureException.cs" />
-    <Compile Include="DataStructure_Tries.cs" />
-    <Compile Include="DesignPattern_AbstractFactory.cs" />
-    <Compile Include="DesignPattern_Adapter.cs" />
-    <Compile Include="DesignPattern_Bridge.cs" />
-    <Compile Include="DesignPattern_Builder.cs" />
-    <Compile Include="DesignPattern_ChainOfResponsibility.cs" />
-    <Compile Include="DesignPattern_Command.cs" />
-    <Compile Include="DesignPattern_Composite.cs" />
-    <Compile Include="DesignPattern_Composite_with_Decorator.cs" />
-    <Compile Include="DesignPattern_Decorator.cs" />
-    <Compile Include="DesignPattern_Facade.cs" />
-    <Compile Include="DesignPattern_Factory.cs" />
-    <Compile Include="DesignPattern_Flyweight.cs" />
-    <Compile Include="DesignPattern_Interpreter.cs" />
-    <Compile Include="DesignPattern_Iterator.cs" />
-    <Compile Include="DesignPattern_Mediator.cs" />
-    <Compile Include="DesignPattern_Memento.cs" />
-    <Compile Include="DesignPattern_Observer.cs" />
-    <Compile Include="DesignPattern_Prototype.cs" />
-    <Compile Include="DesignPattern_Proxy.cs" />
-    <Compile Include="DesignPattern_State.cs" />
-    <Compile Include="DesignPattern_Stradegy.cs" />
-    <Compile Include="DesignPattern_Flyweight_Form.cs">
+    <Compile Include="Data Structures\DataStructure_LinkedList.cs" />
+    <Compile Include="Solved Problems\Problems_Amazon_FindMaxMatrixMult.cs" />
+    <Compile Include="Solved Problems\Problems_Amazon_IntegerMaxNumberFromDigits.cs" />
+    <Compile Include="Solved Problems\Problems_Amazon_ParityBits.cs" />
+    <Compile Include="Solved Problems\Problems_Amazon_PrintTree.cs" />
+    <Compile Include="Solved Problems\Concept_DynamicPrograming_Memoization.cs" />
+    <Compile Include="Data Structures\DataStructure_AVLTree.cs" />
+    <Compile Include="Data Structures\DataStructure_Hash.cs" />
+    <Compile Include="Data Structures\DataStructure_QuickSort.cs" />
+    <Compile Include="Solved Problems\Problems_Amazon_StringConcatCost.cs" />
+    <Compile Include="Solved Problems\Problems_Amazon_SumDistinctIntegers.cs" />
+    <Compile Include="Solved Problems\Problems_DynamicProgramming_LongestSubSequence.cs" />
+    <Compile Include="Solved Problems\Problems_DynamicProgramming_TextWrap.cs" />
+    <Compile Include="Solved Problems\Problems_FindNumberOfRotations.cs" />
+    <Compile Include="Data Structures\3rd Party Trees\RedBlackTree\DataStructureException.cs" />
+    <Compile Include="Data Structures\DataStructure_Tries.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_AbstractFactory.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Adapter.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Bridge.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Builder.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_ChainOfResponsibility.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Command.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Composite.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Composite_with_Decorator.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Decorator.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Facade.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Factory.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Flyweight.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Interpreter.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Iterator.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Mediator.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Memento.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Observer.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Prototype.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Proxy.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_State.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Stradegy.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Flyweight_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DesignPattern_Flyweight_Form.Designer.cs">
+    <Compile Include="GOF Design Patterns\DesignPattern_Flyweight_Form.Designer.cs">
       <DependentUpon>DesignPattern_Flyweight_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="DesignPattern_Template.cs" />
-    <Compile Include="DesignPattern_Visitor.cs" />
-    <Compile Include="DataStructure_Heap.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Template.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Visitor.cs" />
+    <Compile Include="Data Structures\DataStructure_Heap.cs" />
     <Compile Include="InterfaceTests.cs" />
-    <Compile Include="DataStructure_MergeSort.cs" />
-    <Compile Include="Problems_MergeSortedArrays.cs" />
-    <Compile Include="Problems_PrintSpiralMatrix.cs" />
-    <Compile Include="DesignPattern_Singleton.cs" />
-    <Compile Include="DataStructure_Tree.cs" />
+    <Compile Include="Data Structures\DataStructure_MergeSort.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedList_AddNumbersInList.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedList_FindLoop.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedList_FindNthLastItem.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedList_RemoveDuplicates.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedList_ReverseSinglyLinkedList.cs" />
+    <Compile Include="Solved Problems\Problems_MergeSortedArrays.cs" />
+    <Compile Include="Solved Problems\Problems_PrintSpiralMatrix.cs" />
+    <Compile Include="GOF Design Patterns\DesignPattern_Singleton.cs" />
+    <Compile Include="Data Structures\DataStructure_Tree.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,12 +128,27 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RedBlackTree\NodeColor.cs" />
-    <Compile Include="RedBlackTree\RedBlackEnumerator.cs" />
-    <Compile Include="RedBlackTree\RedBlackNode.cs" />
-    <Compile Include="RedBlackTree\RedBlackTree.cs" />
-    <Compile Include="SplayTree\SplayTree.cs" />
-    <EmbeddedResource Include="DesignPattern_Flyweight_Form.resx">
+    <Compile Include="Data Structures\3rd Party Trees\RedBlackTree\NodeColor.cs" />
+    <Compile Include="Data Structures\3rd Party Trees\RedBlackTree\RedBlackEnumerator.cs" />
+    <Compile Include="Data Structures\3rd Party Trees\RedBlackTree\RedBlackNode.cs" />
+    <Compile Include="Data Structures\3rd Party Trees\RedBlackTree\RedBlackTree.cs" />
+    <Compile Include="Data Structures\3rd Party Trees\SplayTree\SplayTree.cs" />
+    <Compile Include="Solved Problems\Problems_Stacks_3Stacks_SingleArray.cs" />
+    <Compile Include="Solved Problems\Problems_Stacks_AnimalShelter.cs" />
+    <Compile Include="Solved Problems\Problems_Stacks_ImplementQueueUsingStacks.cs" />
+    <Compile Include="Solved Problems\Problems_Stacks_PushPopMin.cs" />
+    <Compile Include="Solved Problems\Problems_Stacks_SetOfStacks.cs" />
+    <Compile Include="Solved Problems\Problems_Stacks_Sort.cs" />
+    <Compile Include="Solved Problems\Problems_Stacks_TowersOfHanoi.cs" />
+    <Compile Include="Solved Problems\Problems_Trees_CheckIfTreeIsBST.cs" />
+    <Compile Include="Solved Problems\Problems_Trees_DetectBalanced.cs" />
+    <Compile Include="Solved Problems\Problems_Trees_FindCommonAncestor.cs" />
+    <Compile Include="Solved Problems\Problems_Trees_FindIfRouteExists.cs" />
+    <Compile Include="Solved Problems\Problems_Trees_FindNextNodeSuccessor.cs" />
+    <Compile Include="Solved Problems\Problems_Trees_IsSubTree.cs" />
+    <Compile Include="Solved Problems\Problems_Trees_SortedArrayToBST.cs" />
+    <Compile Include="Solved Problems\Problems_Trees_SumNodesToValue.cs" />
+    <EmbeddedResource Include="GOF Design Patterns\DesignPattern_Flyweight_Form.resx">
       <DependentUpon>DesignPattern_Flyweight_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
@@ -128,12 +172,34 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="RedBlackTree\RedBlackTree.cd" />
+    <None Include="Data Structures\3rd Party Trees\RedBlackTree\RedBlackTree.cd" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="EnglishScrabbleWordList.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

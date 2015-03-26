@@ -76,15 +76,44 @@
             this.button35 = new System.Windows.Forms.Button();
             this.button34 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button49 = new System.Windows.Forms.Button();
+            this.button48 = new System.Windows.Forms.Button();
+            this.button47 = new System.Windows.Forms.Button();
+            this.button46 = new System.Windows.Forms.Button();
+            this.button45 = new System.Windows.Forms.Button();
             this.button44 = new System.Windows.Forms.Button();
             this.button42 = new System.Windows.Forms.Button();
             this.button40 = new System.Windows.Forms.Button();
+            this.button51 = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.button67 = new System.Windows.Forms.Button();
+            this.button66 = new System.Windows.Forms.Button();
+            this.button65 = new System.Windows.Forms.Button();
+            this.button64 = new System.Windows.Forms.Button();
+            this.button63 = new System.Windows.Forms.Button();
+            this.button62 = new System.Windows.Forms.Button();
+            this.button61 = new System.Windows.Forms.Button();
+            this.button60 = new System.Windows.Forms.Button();
+            this.button59 = new System.Windows.Forms.Button();
+            this.button58 = new System.Windows.Forms.Button();
+            this.button57 = new System.Windows.Forms.Button();
+            this.button56 = new System.Windows.Forms.Button();
+            this.button55 = new System.Windows.Forms.Button();
+            this.button54 = new System.Windows.Forms.Button();
+            this.button53 = new System.Windows.Forms.Button();
+            this.button52 = new System.Windows.Forms.Button();
+            this.button50 = new System.Windows.Forms.Button();
+            this.button68 = new System.Windows.Forms.Button();
+            this.button69 = new System.Windows.Forms.Button();
+            this.button70 = new System.Windows.Forms.Button();
+            this.button71 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -592,6 +621,12 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.button71);
+            this.groupBox6.Controls.Add(this.button49);
+            this.groupBox6.Controls.Add(this.button48);
+            this.groupBox6.Controls.Add(this.button47);
+            this.groupBox6.Controls.Add(this.button46);
+            this.groupBox6.Controls.Add(this.button45);
             this.groupBox6.Controls.Add(this.button44);
             this.groupBox6.Controls.Add(this.button42);
             this.groupBox6.Controls.Add(this.button40);
@@ -601,14 +636,64 @@
             this.groupBox6.Controls.Add(this.button8);
             this.groupBox6.Location = new System.Drawing.Point(680, 12);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(287, 408);
+            this.groupBox6.Size = new System.Drawing.Size(287, 590);
             this.groupBox6.TabIndex = 39;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Practice Problems";
             // 
+            // button49
+            // 
+            this.button49.Location = new System.Drawing.Point(20, 355);
+            this.button49.Name = "button49";
+            this.button49.Size = new System.Drawing.Size(230, 23);
+            this.button49.TabIndex = 52;
+            this.button49.Text = "Problem - Linked List - Find Loop";
+            this.button49.UseVisualStyleBackColor = true;
+            this.button49.Click += new System.EventHandler(this.button49_Click);
+            // 
+            // button48
+            // 
+            this.button48.Location = new System.Drawing.Point(20, 326);
+            this.button48.Name = "button48";
+            this.button48.Size = new System.Drawing.Size(230, 23);
+            this.button48.TabIndex = 51;
+            this.button48.Text = "Problem - Revese Linked List";
+            this.button48.UseVisualStyleBackColor = true;
+            this.button48.Click += new System.EventHandler(this.button48_Click);
+            // 
+            // button47
+            // 
+            this.button47.Location = new System.Drawing.Point(20, 301);
+            this.button47.Name = "button47";
+            this.button47.Size = new System.Drawing.Size(230, 23);
+            this.button47.TabIndex = 50;
+            this.button47.Text = "Problem - Add Linked List numbers";
+            this.button47.UseVisualStyleBackColor = true;
+            this.button47.Click += new System.EventHandler(this.button47_Click);
+            // 
+            // button46
+            // 
+            this.button46.Location = new System.Drawing.Point(20, 274);
+            this.button46.Name = "button46";
+            this.button46.Size = new System.Drawing.Size(230, 23);
+            this.button46.TabIndex = 49;
+            this.button46.Text = "Problem - Find Nth Last Item";
+            this.button46.UseVisualStyleBackColor = true;
+            this.button46.Click += new System.EventHandler(this.button46_Click);
+            // 
+            // button45
+            // 
+            this.button45.Location = new System.Drawing.Point(20, 245);
+            this.button45.Name = "button45";
+            this.button45.Size = new System.Drawing.Size(230, 23);
+            this.button45.TabIndex = 40;
+            this.button45.Text = "Problem - Remove Dups";
+            this.button45.UseVisualStyleBackColor = true;
+            this.button45.Click += new System.EventHandler(this.button45_Click);
+            // 
             // button44
             // 
-            this.button44.Location = new System.Drawing.Point(20, 271);
+            this.button44.Location = new System.Drawing.Point(20, 212);
             this.button44.Name = "button44";
             this.button44.Size = new System.Drawing.Size(218, 27);
             this.button44.TabIndex = 48;
@@ -618,7 +703,7 @@
             // 
             // button42
             // 
-            this.button42.Location = new System.Drawing.Point(20, 208);
+            this.button42.Location = new System.Drawing.Point(20, 183);
             this.button42.Name = "button42";
             this.button42.Size = new System.Drawing.Size(218, 27);
             this.button42.TabIndex = 47;
@@ -636,11 +721,253 @@
             this.button40.UseVisualStyleBackColor = true;
             this.button40.Click += new System.EventHandler(this.button40_Click);
             // 
+            // button51
+            // 
+            this.button51.Location = new System.Drawing.Point(113, 536);
+            this.button51.Name = "button51";
+            this.button51.Size = new System.Drawing.Size(230, 23);
+            this.button51.TabIndex = 54;
+            this.button51.Text = "Problem - Amazon";
+            this.button51.UseVisualStyleBackColor = true;
+            this.button51.Click += new System.EventHandler(this.button51_Click);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.button70);
+            this.groupBox7.Controls.Add(this.button69);
+            this.groupBox7.Controls.Add(this.button68);
+            this.groupBox7.Controls.Add(this.button67);
+            this.groupBox7.Controls.Add(this.button66);
+            this.groupBox7.Controls.Add(this.button65);
+            this.groupBox7.Controls.Add(this.button64);
+            this.groupBox7.Controls.Add(this.button63);
+            this.groupBox7.Controls.Add(this.button62);
+            this.groupBox7.Controls.Add(this.button61);
+            this.groupBox7.Controls.Add(this.button60);
+            this.groupBox7.Controls.Add(this.button59);
+            this.groupBox7.Controls.Add(this.button58);
+            this.groupBox7.Controls.Add(this.button57);
+            this.groupBox7.Controls.Add(this.button56);
+            this.groupBox7.Controls.Add(this.button55);
+            this.groupBox7.Controls.Add(this.button54);
+            this.groupBox7.Controls.Add(this.button53);
+            this.groupBox7.Controls.Add(this.button52);
+            this.groupBox7.Controls.Add(this.button50);
+            this.groupBox7.Location = new System.Drawing.Point(983, 13);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(248, 589);
+            this.groupBox7.TabIndex = 55;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "groupBox7";
+            // 
+            // button67
+            // 
+            this.button67.Location = new System.Drawing.Point(6, 475);
+            this.button67.Name = "button67";
+            this.button67.Size = new System.Drawing.Size(230, 23);
+            this.button67.TabIndex = 80;
+            this.button67.Text = "Problem - Tree - Find Path For Sum";
+            this.button67.UseVisualStyleBackColor = true;
+            this.button67.Click += new System.EventHandler(this.button67_Click);
+            // 
+            // button66
+            // 
+            this.button66.Location = new System.Drawing.Point(6, 446);
+            this.button66.Name = "button66";
+            this.button66.Size = new System.Drawing.Size(230, 23);
+            this.button66.TabIndex = 79;
+            this.button66.Text = "Problem - Tree - Is Sub Tree";
+            this.button66.UseVisualStyleBackColor = true;
+            this.button66.Click += new System.EventHandler(this.button66_Click);
+            // 
+            // button65
+            // 
+            this.button65.Location = new System.Drawing.Point(6, 417);
+            this.button65.Name = "button65";
+            this.button65.Size = new System.Drawing.Size(230, 23);
+            this.button65.TabIndex = 78;
+            this.button65.Text = "Problem - Tree - Find Common Ancestor";
+            this.button65.UseVisualStyleBackColor = true;
+            this.button65.Click += new System.EventHandler(this.button65_Click);
+            // 
+            // button64
+            // 
+            this.button64.Location = new System.Drawing.Point(6, 388);
+            this.button64.Name = "button64";
+            this.button64.Size = new System.Drawing.Size(230, 23);
+            this.button64.TabIndex = 77;
+            this.button64.Text = "Problem - Tree - Find Next Successor";
+            this.button64.UseVisualStyleBackColor = true;
+            this.button64.Click += new System.EventHandler(this.button64_Click);
+            // 
+            // button63
+            // 
+            this.button63.Location = new System.Drawing.Point(6, 362);
+            this.button63.Name = "button63";
+            this.button63.Size = new System.Drawing.Size(230, 23);
+            this.button63.TabIndex = 76;
+            this.button63.Text = "Problem - Tree - Is Tree BST";
+            this.button63.UseVisualStyleBackColor = true;
+            this.button63.Click += new System.EventHandler(this.button63_Click);
+            // 
+            // button62
+            // 
+            this.button62.Location = new System.Drawing.Point(6, 333);
+            this.button62.Name = "button62";
+            this.button62.Size = new System.Drawing.Size(230, 23);
+            this.button62.TabIndex = 75;
+            this.button62.Text = "Problem - Tree - Array to Tree";
+            this.button62.UseVisualStyleBackColor = true;
+            this.button62.Click += new System.EventHandler(this.button62_Click);
+            // 
+            // button61
+            // 
+            this.button61.Location = new System.Drawing.Point(6, 304);
+            this.button61.Name = "button61";
+            this.button61.Size = new System.Drawing.Size(230, 23);
+            this.button61.TabIndex = 74;
+            this.button61.Text = "Problem - Tree  Graph - Path Exists";
+            this.button61.UseVisualStyleBackColor = true;
+            // 
+            // button60
+            // 
+            this.button60.Location = new System.Drawing.Point(6, 275);
+            this.button60.Name = "button60";
+            this.button60.Size = new System.Drawing.Size(230, 23);
+            this.button60.TabIndex = 73;
+            this.button60.Text = "Problem - Tree - IsBalanced";
+            this.button60.UseVisualStyleBackColor = true;
+            // 
+            // button59
+            // 
+            this.button59.Location = new System.Drawing.Point(6, 246);
+            this.button59.Name = "button59";
+            this.button59.Size = new System.Drawing.Size(230, 23);
+            this.button59.TabIndex = 72;
+            this.button59.Text = "Problem - Stack - Animal Shelter";
+            this.button59.UseVisualStyleBackColor = true;
+            // 
+            // button58
+            // 
+            this.button58.Location = new System.Drawing.Point(6, 217);
+            this.button58.Name = "button58";
+            this.button58.Size = new System.Drawing.Size(230, 23);
+            this.button58.TabIndex = 71;
+            this.button58.Text = "Problem - Stacls - Sort with 2 Stacks";
+            this.button58.UseVisualStyleBackColor = true;
+            // 
+            // button57
+            // 
+            this.button57.Location = new System.Drawing.Point(6, 192);
+            this.button57.Name = "button57";
+            this.button57.Size = new System.Drawing.Size(230, 23);
+            this.button57.TabIndex = 70;
+            this.button57.Text = "Problem - Stacks - Implement Queue With 2 Stacks";
+            this.button57.UseVisualStyleBackColor = true;
+            // 
+            // button56
+            // 
+            this.button56.Location = new System.Drawing.Point(6, 163);
+            this.button56.Name = "button56";
+            this.button56.Size = new System.Drawing.Size(230, 23);
+            this.button56.TabIndex = 69;
+            this.button56.Text = "Problem - Stacks - Towers";
+            this.button56.UseVisualStyleBackColor = true;
+            // 
+            // button55
+            // 
+            this.button55.Location = new System.Drawing.Point(6, 134);
+            this.button55.Name = "button55";
+            this.button55.Size = new System.Drawing.Size(230, 23);
+            this.button55.TabIndex = 68;
+            this.button55.Text = "Problem - DP - Word Wrap";
+            this.button55.UseVisualStyleBackColor = true;
+            this.button55.Click += new System.EventHandler(this.button55_Click_1);
+            // 
+            // button54
+            // 
+            this.button54.Location = new System.Drawing.Point(6, 105);
+            this.button54.Name = "button54";
+            this.button54.Size = new System.Drawing.Size(230, 23);
+            this.button54.TabIndex = 67;
+            this.button54.Text = "Problem - DP - LongestSubSequence";
+            this.button54.UseVisualStyleBackColor = true;
+            this.button54.Click += new System.EventHandler(this.button54_Click_1);
+            // 
+            // button53
+            // 
+            this.button53.Location = new System.Drawing.Point(6, 76);
+            this.button53.Name = "button53";
+            this.button53.Size = new System.Drawing.Size(230, 23);
+            this.button53.TabIndex = 66;
+            this.button53.Text = "Problem - Stacks - Set Of Stacks";
+            this.button53.UseVisualStyleBackColor = true;
+            // 
+            // button52
+            // 
+            this.button52.Location = new System.Drawing.Point(6, 47);
+            this.button52.Name = "button52";
+            this.button52.Size = new System.Drawing.Size(230, 23);
+            this.button52.TabIndex = 65;
+            this.button52.Text = "Problem - Stacks - Push Pop Min - O(1)";
+            this.button52.UseVisualStyleBackColor = true;
+            // 
+            // button50
+            // 
+            this.button50.Location = new System.Drawing.Point(6, 18);
+            this.button50.Name = "button50";
+            this.button50.Size = new System.Drawing.Size(230, 23);
+            this.button50.TabIndex = 64;
+            this.button50.Text = "Problem - Stacks - 3 stacks in an Array";
+            this.button50.UseVisualStyleBackColor = true;
+            // 
+            // button68
+            // 
+            this.button68.Location = new System.Drawing.Point(6, 504);
+            this.button68.Name = "button68";
+            this.button68.Size = new System.Drawing.Size(230, 23);
+            this.button68.TabIndex = 81;
+            this.button68.Text = "Problem - Amazon - String ConCat Cost";
+            this.button68.UseVisualStyleBackColor = true;
+            this.button68.Click += new System.EventHandler(this.button68_Click);
+            // 
+            // button69
+            // 
+            this.button69.Location = new System.Drawing.Point(6, 533);
+            this.button69.Name = "button69";
+            this.button69.Size = new System.Drawing.Size(230, 23);
+            this.button69.TabIndex = 82;
+            this.button69.Text = "Problem - Amazon - Find Max Integer Digits";
+            this.button69.UseVisualStyleBackColor = true;
+            this.button69.Click += new System.EventHandler(this.button69_Click);
+            // 
+            // button70
+            // 
+            this.button70.Location = new System.Drawing.Point(6, 560);
+            this.button70.Name = "button70";
+            this.button70.Size = new System.Drawing.Size(230, 23);
+            this.button70.TabIndex = 83;
+            this.button70.Text = "Problem - Amazon - Find Parity Bits";
+            this.button70.UseVisualStyleBackColor = true;
+            this.button70.Click += new System.EventHandler(this.button70_Click);
+            // 
+            // button71
+            // 
+            this.button71.Location = new System.Drawing.Point(20, 384);
+            this.button71.Name = "button71";
+            this.button71.Size = new System.Drawing.Size(230, 23);
+            this.button71.TabIndex = 84;
+            this.button71.Text = "Problem - Amazon - Find Distinct Sum";
+            this.button71.UseVisualStyleBackColor = true;
+            this.button71.Click += new System.EventHandler(this.button71_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1069, 691);
+            this.ClientSize = new System.Drawing.Size(1273, 614);
+            this.Controls.Add(this.groupBox7);
+            this.Controls.Add(this.button51);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -656,6 +983,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -713,6 +1041,34 @@
         private System.Windows.Forms.Button button42;
         private System.Windows.Forms.Button button43;
         private System.Windows.Forms.Button button44;
+        private System.Windows.Forms.Button button45;
+        private System.Windows.Forms.Button button46;
+        private System.Windows.Forms.Button button47;
+        private System.Windows.Forms.Button button48;
+        private System.Windows.Forms.Button button49;
+        private System.Windows.Forms.Button button51;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button button62;
+        private System.Windows.Forms.Button button61;
+        private System.Windows.Forms.Button button60;
+        private System.Windows.Forms.Button button59;
+        private System.Windows.Forms.Button button58;
+        private System.Windows.Forms.Button button57;
+        private System.Windows.Forms.Button button56;
+        private System.Windows.Forms.Button button55;
+        private System.Windows.Forms.Button button54;
+        private System.Windows.Forms.Button button53;
+        private System.Windows.Forms.Button button52;
+        private System.Windows.Forms.Button button50;
+        private System.Windows.Forms.Button button63;
+        private System.Windows.Forms.Button button64;
+        private System.Windows.Forms.Button button65;
+        private System.Windows.Forms.Button button66;
+        private System.Windows.Forms.Button button67;
+        private System.Windows.Forms.Button button68;
+        private System.Windows.Forms.Button button69;
+        private System.Windows.Forms.Button button70;
+        private System.Windows.Forms.Button button71;
     }
 }
 
