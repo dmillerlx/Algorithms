@@ -39,9 +39,13 @@ namespace Algorithms.Solved_Problems
 
                 for (int i = index; i < n; i++)
                 {
-                    if (!DP.ContainsKey(i + 1)) solveWordWrap(words, n, lineWidth, i + 1);
+                    if (!DP.ContainsKey(i + 1)) 
+                        solveWordWrap(words, n, lineWidth, i + 1);
+
                     int temp = badness(words, index, i, lineWidth);
+
                     temp = (temp == int.MaxValue) ? int.MaxValue : temp + DP[i + 1];
+
                     if (temp < min)
                     {
                         breakWhere = i;
@@ -52,15 +56,25 @@ namespace Algorithms.Solved_Problems
                 solution[breakWhere] = 1;
             }
 
-            public void Main()//string[] args)
+            public void Main(int M, string str)//string[] args)
             {
-                int[] l = { 3, 2, 2, 5 };
-                solution = new int[4];
-                for (int i = 0; i < 4; i++)
-                    solution[i] = 0;
-                int M = 6;
+                string []s = str.Split(new char[] { ' ' }, StringSplitOptions.None);
+
+                int[] l = new int[s.Length];
+
+                for (int x = 0; x < s.Length; x++)
+                    l[x] = s[x].Length;
+
+
+                //int[] l = { 3, 2, 2, 5 };
+                solution = new int[10];
+                //for (int i = 0; i < 4; i++)
+                //    solution[i] = 0;
+                //int M = 6;
+
                 DP = new Dictionary<int, int>();
-                solveWordWrap(l, 4, M, 0);
+                solveWordWrap(l, l.Length, M, 0);
+                
                 Console.WriteLine(DP[0]);
                 for (int i = 0; i < 4; i++)
                     Console.WriteLine(solution[i]);
@@ -843,22 +857,450 @@ namespace Algorithms.Solved_Problems
         }
 
 
+        public class Solution4
+        {
+
+            //Visited class is used with Dijkstra to find the shortest path
+            public class Visited
+            {
+                public Node Node { get; set; }
+                public double Distance { get; set; }
+                public Node PrevNode { get; set; }
+            }
+
+            //Each Node represents a suffix of the string
+            //and has a list of edges that connect to other Nodes
+            public class Node
+            {
+                static int nodeid = 0;
+               
+                public Node(int newI, int newJ)
+                {
+                    this.I = newI;
+                    this.J = newJ;
+                    Edges = new List<Edge>();
+                    NodeID = nodeid++;
+                    Val = string.Empty;
+                }
+
+                public Node(int newI, int newJ, string val)
+                {
+                    this.I = newI;
+                    this.J = newJ;
+                    Edges = new List<Edge>();
+                    NodeID = nodeid++;
+                    Val = val;
+                }
+
+                public int I { get; set; }
+                public int J { get; set; }
+
+                public List<Edge> Edges { get; set; }
+                public int NodeID { get; set; }             // NodeID is a unique ID for each Node
+
+                public string Val { get; set; }
+
+                public override string ToString()
+                {                    
+                    return Val;
+                }
+            }
+
+            //Edge is a connection between Nodes.  
+            //Each edge has a weight associated with it
+            public class Edge
+            {
+                public Edge(Node newNode, double newWeight)
+                {
+                    Node = newNode;
+                    Weight = newWeight;
+                }
+                public Node Node { get; set; }
+                public double Weight { get; set; }
+
+                public override string ToString()
+                {
+                    return Node.ToString();
+                }
+            }
+            
+            //Dijkstra's algorithm finds the shortest path from the start node to the
+            //end node.  It only works on a DAG and uses a Breadith First transversal of the graph
+            //Visited nodes are stored in the 'visited' dictionary/hash and have a previous pointer
+            //and distance traveled from the start.  If a shorter distance is found to a node
+            //the node visited node is updated with the shortest path and smallest distance
+            //
+            //After all nodes are mapped, we check to see if the 'end' node was visited
+            //If it was not visited, then there is no path
+            //If it was visited, then we follow the 'PrevNode' pointers back to the start
+            //Following these pointers is the shortest path through the graph
+            public Dictionary<int, Visited> Dijkstra(Node start, Node end)
+            {
+                Dictionary<int, Visited> visited = new Dictionary<int, Visited>();
+
+                Queue<Node> queue = new Queue<Node>();
+
+                queue.Enqueue(start);
+
+                while (queue.Count > 0)
+                {
+                    Node currentNode = queue.Dequeue();
+
+                    //Set distance for self if not in list already
+                    if (visited.ContainsKey(currentNode.NodeID) == false)
+                    {
+                        visited[currentNode.NodeID] = new Visited() { Node = currentNode, Distance = 0, PrevNode = null };
+                    }
+
+                    //Now check each edge to see if we have a short distance with this path
+                    foreach (Edge e in currentNode.Edges)
+                    {
+                        //Not in visited, so add it
+                        if (visited.ContainsKey(e.Node.NodeID) == false)
+                        {
+                            double distance = visited[currentNode.NodeID].Distance + e.Weight;
+                            visited[e.Node.NodeID] = new Visited() { Node = e.Node, Distance = distance, PrevNode = currentNode };
+                            //Follow this path since it is new
+                            queue.Enqueue(e.Node);
+                        }
+                        else
+                        {
+                            double currentWeight = visited[currentNode.NodeID].Distance;
+                            double newWeight = currentWeight + e.Weight;
+                            if (newWeight < visited[e.Node.NodeID].Distance)
+                            {
+                                visited[e.Node.NodeID].Distance = newWeight;
+                                visited[e.Node.NodeID].PrevNode = currentNode;
+
+                                //Follow this path since it is shorter
+                                queue.Enqueue(e.Node);
+                            }
+                        }
+
+                    }
+                }
+                
+                //Now check to see if the 'end' node was visited
+                if (visited.ContainsKey(end.NodeID) == false )
+                {
+                    return null;
+                    //Console.WriteLine("No path found from (" + start.ToString() + ") to (" + end.ToString() + ")");
+                }
+                else
+                {
+                    return visited;
+                }
+                   
+            }
+
+            void PrintPath(Dictionary<int, Visited> visited, Node start, Node end)
+            {
+                if (visited == null)
+                {
+                    Console.WriteLine("No Path");
+                }
+
+                //Shortest path found
+                //Walk backwards through the 'PrevNode' pointers from 'end' to 'start'
+                //in the 'visited' dictionary/hashtable.
+                //Place the output from each step into a stack so we can reverse the results to print
+                //from start to end
+
+                Console.WriteLine();
+                Console.WriteLine("-----------------");
+                Console.WriteLine("Shortest Path from (" + start + ") to (" + end + ") distance (" + visited[end.NodeID].Distance + "): ");
+                Node n = end;
+
+                Stack<string> output = new Stack<string>();
+
+                while (n != null)
+                {
+                    if (n == end)
+                        Console.WriteLine("END");           //Don't add the 'end' node to the output
+                    else if (n == start)
+                        Console.WriteLine("START");         //don't add the 'start' node to the output
+                    else if (n.I >= 0)
+                    {
+                        output.Push(GetWords(n.I, n.J));
+                    }
+                    n = visited[n.NodeID].PrevNode;
+                }
+
+                //Finally print the results to the console
+                while (output.Count() > 0)
+                {
+                    Console.WriteLine(output.Pop());
+                }
+
+            }
+
+
+            //Head and End of DAG
+            //This DAG has multiple start and end points, so a dummy node is added to the start
+            //and end of the DAG with a 0 edge weight to each start and end node
+            //This allows us to find the shortest path between two nodes
+            Node head = null;
+            Node end = null;
+
+
+            //Maximum width of the page
+            public int PageWidth { get; set; }
+
+            //Array of words
+            public string[] words = null;
+
+            //Array of word lengths
+            public int[] wordsLen = null;
+
+            //Matrix of badness values for all suffixes, where 0 <= i < wordCount and i < j < wordCount
+            double[,] matrix = null;
+
+            //Hash table to memoize the badness checks for each i, j
+            Dictionary<string, double> badnessHash = null;
+            
+            public int cacheHit = 0;            
+            //Calculate the 'Badness' of each suffix
+            //This function calculates how 'bad' it is to use this suffix for a line
+            //A suffix that is longer than the page width is defined as infinity (double.MaxValue)
+            //A suffix that is exactly the width of the page is 0
+            //A suffix that is less than the width of the page is (PageWidth - suffix width) ^ 3
+            //      This makes the badness of a short line grow quickly, so a really short suffix
+            //      is considered very bad
+            //The solution will be to find the minimum badness across the all suffixes
+            public double Badness(int i, int j)
+            {
+                //Setup a key for the memoized hash table table
+                string key = i.ToString() + "_" + j.ToString();
+                if (badnessHash.ContainsKey(key))
+                {
+                    cacheHit++;
+                    return badnessHash[key];
+                }
+
+                int totalWidth = 0;
+                for (int x = i; x <= j && totalWidth <= PageWidth; x++)
+                {
+                    totalWidth += wordsLen[x];
+                    if (x != i)
+                    {
+                        totalWidth += 1;    //Add space if not first word
+                    }
+                }
+
+                double badnessRet = double.MaxValue;
+
+                //If the suffix is less than the page width, take the 3rd power as
+                //the badness value
+                if (totalWidth <= PageWidth)
+                    badnessRet = Math.Pow((PageWidth - totalWidth), 3);
+
+                //Add badness value to hash table
+                badnessHash.Add(key, badnessRet);
+
+                return badnessRet;
+            }
+
+
+            //Get string using (i,j) pair
+            public Dictionary<string, string> getWordsHash = null;
+            public string GetWords(int i, int j)
+            {
+                //Cache for resolving words
+                string key = i.ToString() + "_" + j.ToString();
+                if (getWordsHash.ContainsKey(key))
+                    return getWordsHash[key];
+
+                StringBuilder sb = new StringBuilder();
+                for (int x = i; x <= j && x < words.Count(); x++)
+                {
+                    if (x != i)
+                        sb.Append(" ");
+                    sb.Append(words[x]);
+                }
+
+                getWordsHash[key] = sb.ToString();
+
+                return sb.ToString();
+            }
+
+            
+
+            //This function creates a new node for i and j
+            //Nodes are memoized in the nodeHash dictionary
+            //so they are only created once for each i,j pair
+            Dictionary<string, Node> nodeHash = null;
+            Node newNode(int i, int j)
+            {                
+                string key = i.ToString() + "_" + j.ToString();
+                if (nodeHash.ContainsKey(key))
+                    return nodeHash[key];
+
+                Node n = new Node(i, j);
+                nodeHash[key] = n;
+                return n;
+            }
+
+
+            private void CreateEdges(Node n, int maxJ)
+            {
+                //If the end of the suffix for this node (n.J) is the end of the word list (maxJ)
+                //then add an edge to the 'end' node and return
+                if (n.J == maxJ)
+                {
+                    n.Edges.Add(new Edge(end, 0));
+                }
+                else
+                {
+                    //Since the node represents a suffix from n.I to n.J, the
+                    //first suffix after this node is (n.J + 1)
+                    //We will create edges for this node to all suffixes after this
+                    //node that are not infinate (double.MaxValue) in weight
+                    //
+                    //To do this, i will stay at n.J + 1, and j will go from i to the max word count (maxJ)
+                    int i = n.J + 1;
+                    for (int j = i; j <= maxJ; j++)
+                    {
+                        //Check to see if the badness of this suffix is infinity (double.MaxValue)
+                        if (matrix[i, j] < double.MaxValue)
+                        {
+                            //badness is not infinity, so request a node for this (i,j) pair
+                            Node newN = newNode(i, j);
+
+                            //Check to see if an edge already exists for this node
+                            //If it already exists, do nothing
+                            bool found = false;
+                            for (int x = 0; x < n.Edges.Count && !found; x++)
+                                if (n.Edges[x].Node == newN)
+                                    found = true;
+
+                            if (!found)
+                            {
+                                //Edge does not already exist, so add an edge to this node
+                                //And then recursivly create all the edges for the new node
+                                n.Edges.Add(new Edge(newN, matrix[i, j]));
+                                CreateEdges(newN, maxJ);
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            
+            public void Run(string inputWords)
+            {
+                getWordsHash = new Dictionary<string, string>();
+                badnessHash = new Dictionary<string, double>();
+                nodeHash = new Dictionary<string, Node>();
+
+                Console.WriteLine("--------------START----------------------");
+                DateTime overallStartTime = DateTime.Now;
+                cacheHit = 0;
+                this.words = inputWords.Split(new string[] { " " }, StringSplitOptions.None);
+
+                DateTime wStart = DateTime.Now;
+                //Convert words to just length
+                this.wordsLen = new int[this.words.Length];
+
+                for (int x = 0; x < this.words.Length; x++)
+                {
+                    wordsLen[x] = this.words[x].Length;
+                }
+
+                matrix = new double[wordsLen.Length, wordsLen.Length];
+
+                for (int i = 0; i < wordsLen.Length; i++)
+                {
+                    for (int j=0; j < wordsLen.Length; j++)
+                    {
+                        matrix[i, j] = double.MaxValue;
+                    }
+                }
+                DateTime wEnd = DateTime.Now;
+                Console.WriteLine("Matrix Setup: " + (wEnd - wStart).TotalSeconds);
+
+                DateTime bStart = DateTime.Now;
+                for (int i = 0; i < wordsLen.Length; i++)
+                {
+                    for (int j=i; j < wordsLen.Length; j++)
+                    {
+                        matrix[i, j] = Badness(i, j);
+                    }
+                }
+                DateTime bEnd = DateTime.Now;
+                Console.WriteLine("Baddness Calc: " + (bEnd - bStart).TotalSeconds);
+
+
+                head = new Node(-1, -1, "<HEAD>");
+                end = new Node(-1,-1,"<END>");
+                
+                //Seed all head edges
+                for (int i = 0; i < 1; i++)
+                {
+                    for (int j=i; j < wordsLen.Length; j++)
+                    {
+                        if (matrix[i,j] < double.MaxValue)
+                        {
+                            head.Edges.Add(new Edge(new Node(i, j), matrix[i,j]));
+                        }
+                    }
+                }
+
+                //Create all edges coming out of head
+                DateTime startTime = DateTime.Now;
+                foreach (Edge e in head.Edges)
+                {
+                    CreateEdges(e.Node, wordsLen.Length-1);
+                }
+                DateTime endTime = DateTime.Now;
+                Console.WriteLine("CreateEdges: " + (endTime - startTime).TotalSeconds);
+
+                //Dijkstra shortest path to find solution
+                startTime = DateTime.Now;
+                Dictionary<int, Visited> solution = Dijkstra(head, end);
+                endTime = DateTime.Now;
+                Console.WriteLine("Dijkstra: " + (endTime - startTime).TotalSeconds);
+
+
+                DateTime overallEndTime = DateTime.Now;
+                Console.WriteLine("Solution time: " + (overallEndTime - overallStartTime).TotalSeconds);
+
+                //Print solution
+                PrintPath(solution, head, end);
+
+                Console.WriteLine("--------------END----------------------");
+               
+            }
+
+           
+
+
+        }
+
+
 
         public void Run()
         {
-            Solution3 s = new Solution3();
-            s.PageWidth = 6;
 
+            Solution4 s = new Solution4();
+
+            s.PageWidth = 6;
             s.Run("aaa bb cc ddddd");
 
             s.PageWidth = 37;
             s.Run("You cant trust code that you did not create yourself. (Especially code from companies that employ people like me.) No amount of source-level verification or scrutiny will protect you from untrusted code. ");
-           
             
-            //s.Run("The time has come for all good Americans to come to the aid of their country for which it stands one nation under God, indivisiable, and justice for all.  This is the end.");
+
+            s.PageWidth = 37;
+            s.Run("This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try.");
 
 
-            //s.Run("This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try.");
+            s.PageWidth = 37;
+            s.Run("This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try.");
+
+            s.PageWidth = 37;
+            s.Run("This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try. This is pretty common, but for some reason, changing the version to 2.0.0.0 made things work again. I don't know if it's a Windows 7 specific thing (I've only been using it for 3-4 weeks), or if it's random, or what, but it fixed it for me. I'm guessing that VS was keeping a handle on each file it generated, so it would know how to increment things? I'm really not sure and have never seen this happen before. But if someone else out there is also pulling their hair out, give it a try.");
+
 
         }
 

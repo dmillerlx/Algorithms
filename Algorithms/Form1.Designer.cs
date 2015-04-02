@@ -76,6 +76,7 @@
             this.button35 = new System.Windows.Forms.Button();
             this.button34 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button71 = new System.Windows.Forms.Button();
             this.button49 = new System.Windows.Forms.Button();
             this.button48 = new System.Windows.Forms.Button();
             this.button47 = new System.Windows.Forms.Button();
@@ -86,6 +87,9 @@
             this.button40 = new System.Windows.Forms.Button();
             this.button51 = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.button70 = new System.Windows.Forms.Button();
+            this.button69 = new System.Windows.Forms.Button();
+            this.button68 = new System.Windows.Forms.Button();
             this.button67 = new System.Windows.Forms.Button();
             this.button66 = new System.Windows.Forms.Button();
             this.button65 = new System.Windows.Forms.Button();
@@ -103,10 +107,10 @@
             this.button53 = new System.Windows.Forms.Button();
             this.button52 = new System.Windows.Forms.Button();
             this.button50 = new System.Windows.Forms.Button();
-            this.button68 = new System.Windows.Forms.Button();
-            this.button69 = new System.Windows.Forms.Button();
-            this.button70 = new System.Windows.Forms.Button();
-            this.button71 = new System.Windows.Forms.Button();
+            this.button72 = new System.Windows.Forms.Button();
+            this.button73 = new System.Windows.Forms.Button();
+            this.button74 = new System.Windows.Forms.Button();
+            this.button75 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -621,6 +625,10 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.button75);
+            this.groupBox6.Controls.Add(this.button74);
+            this.groupBox6.Controls.Add(this.button73);
+            this.groupBox6.Controls.Add(this.button72);
             this.groupBox6.Controls.Add(this.button71);
             this.groupBox6.Controls.Add(this.button49);
             this.groupBox6.Controls.Add(this.button48);
@@ -640,6 +648,16 @@
             this.groupBox6.TabIndex = 39;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Practice Problems";
+            // 
+            // button71
+            // 
+            this.button71.Location = new System.Drawing.Point(20, 384);
+            this.button71.Name = "button71";
+            this.button71.Size = new System.Drawing.Size(230, 23);
+            this.button71.TabIndex = 84;
+            this.button71.Text = "Problem - Amazon - Find Distinct Sum";
+            this.button71.UseVisualStyleBackColor = true;
+            this.button71.Click += new System.EventHandler(this.button71_Click);
             // 
             // button49
             // 
@@ -758,7 +776,37 @@
             this.groupBox7.Size = new System.Drawing.Size(248, 589);
             this.groupBox7.TabIndex = 55;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "groupBox7";
+            this.groupBox7.Text = "Practice Problems";
+            // 
+            // button70
+            // 
+            this.button70.Location = new System.Drawing.Point(6, 560);
+            this.button70.Name = "button70";
+            this.button70.Size = new System.Drawing.Size(230, 23);
+            this.button70.TabIndex = 83;
+            this.button70.Text = "Problem - Amazon - Find Parity Bits";
+            this.button70.UseVisualStyleBackColor = true;
+            this.button70.Click += new System.EventHandler(this.button70_Click);
+            // 
+            // button69
+            // 
+            this.button69.Location = new System.Drawing.Point(6, 533);
+            this.button69.Name = "button69";
+            this.button69.Size = new System.Drawing.Size(230, 23);
+            this.button69.TabIndex = 82;
+            this.button69.Text = "Problem - Amazon - Find Max Integer Digits";
+            this.button69.UseVisualStyleBackColor = true;
+            this.button69.Click += new System.EventHandler(this.button69_Click);
+            // 
+            // button68
+            // 
+            this.button68.Location = new System.Drawing.Point(6, 504);
+            this.button68.Name = "button68";
+            this.button68.Size = new System.Drawing.Size(230, 23);
+            this.button68.TabIndex = 81;
+            this.button68.Text = "Problem - Amazon - String ConCat Cost";
+            this.button68.UseVisualStyleBackColor = true;
+            this.button68.Click += new System.EventHandler(this.button68_Click);
             // 
             // button67
             // 
@@ -921,45 +969,45 @@
             this.button50.Text = "Problem - Stacks - 3 stacks in an Array";
             this.button50.UseVisualStyleBackColor = true;
             // 
-            // button68
+            // button72
             // 
-            this.button68.Location = new System.Drawing.Point(6, 504);
-            this.button68.Name = "button68";
-            this.button68.Size = new System.Drawing.Size(230, 23);
-            this.button68.TabIndex = 81;
-            this.button68.Text = "Problem - Amazon - String ConCat Cost";
-            this.button68.UseVisualStyleBackColor = true;
-            this.button68.Click += new System.EventHandler(this.button68_Click);
+            this.button72.Location = new System.Drawing.Point(20, 413);
+            this.button72.Name = "button72";
+            this.button72.Size = new System.Drawing.Size(230, 23);
+            this.button72.TabIndex = 85;
+            this.button72.Text = "Problem - LinkedIn - DeepIterator";
+            this.button72.UseVisualStyleBackColor = true;
+            this.button72.Click += new System.EventHandler(this.button72_Click);
             // 
-            // button69
+            // button73
             // 
-            this.button69.Location = new System.Drawing.Point(6, 533);
-            this.button69.Name = "button69";
-            this.button69.Size = new System.Drawing.Size(230, 23);
-            this.button69.TabIndex = 82;
-            this.button69.Text = "Problem - Amazon - Find Max Integer Digits";
-            this.button69.UseVisualStyleBackColor = true;
-            this.button69.Click += new System.EventHandler(this.button69_Click);
+            this.button73.Location = new System.Drawing.Point(20, 442);
+            this.button73.Name = "button73";
+            this.button73.Size = new System.Drawing.Size(230, 23);
+            this.button73.TabIndex = 86;
+            this.button73.Text = "Problem - LinkedIn - String Isomorphic";
+            this.button73.UseVisualStyleBackColor = true;
+            this.button73.Click += new System.EventHandler(this.button73_Click);
             // 
-            // button70
+            // button74
             // 
-            this.button70.Location = new System.Drawing.Point(6, 560);
-            this.button70.Name = "button70";
-            this.button70.Size = new System.Drawing.Size(230, 23);
-            this.button70.TabIndex = 83;
-            this.button70.Text = "Problem - Amazon - Find Parity Bits";
-            this.button70.UseVisualStyleBackColor = true;
-            this.button70.Click += new System.EventHandler(this.button70_Click);
+            this.button74.Location = new System.Drawing.Point(20, 470);
+            this.button74.Name = "button74";
+            this.button74.Size = new System.Drawing.Size(230, 23);
+            this.button74.TabIndex = 87;
+            this.button74.Text = "Problem - LinkedIn - Is Valid Number";
+            this.button74.UseVisualStyleBackColor = true;
+            this.button74.Click += new System.EventHandler(this.button74_Click);
             // 
-            // button71
+            // button75
             // 
-            this.button71.Location = new System.Drawing.Point(20, 384);
-            this.button71.Name = "button71";
-            this.button71.Size = new System.Drawing.Size(230, 23);
-            this.button71.TabIndex = 84;
-            this.button71.Text = "Problem - Amazon - Find Distinct Sum";
-            this.button71.UseVisualStyleBackColor = true;
-            this.button71.Click += new System.EventHandler(this.button71_Click);
+            this.button75.Location = new System.Drawing.Point(20, 499);
+            this.button75.Name = "button75";
+            this.button75.Size = new System.Drawing.Size(230, 23);
+            this.button75.TabIndex = 88;
+            this.button75.Text = "Problem - LinkedIn - Find Max Contigous Sum";
+            this.button75.UseVisualStyleBackColor = true;
+            this.button75.Click += new System.EventHandler(this.button75_Click);
             // 
             // Form1
             // 
@@ -1069,6 +1117,10 @@
         private System.Windows.Forms.Button button69;
         private System.Windows.Forms.Button button70;
         private System.Windows.Forms.Button button71;
+        private System.Windows.Forms.Button button72;
+        private System.Windows.Forms.Button button73;
+        private System.Windows.Forms.Button button74;
+        private System.Windows.Forms.Button button75;
     }
 }
 

@@ -737,5 +737,29 @@ namespace Algorithms
             Solved_Problems.Problems_Amazon_SumDistinctIntegers test = new Solved_Problems.Problems_Amazon_SumDistinctIntegers();
             test.Run();
         }
+
+        private void button72_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedIn_DeepIterator test = new Solved_Problems.Problems_LinkedIn_DeepIterator();
+            test.Run();
+        }
+
+        private void button73_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedIn_IsomorphicStrings test = new Solved_Problems.Problems_LinkedIn_IsomorphicStrings();
+            test.Run();
+        }
+
+        private void button74_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedIn_StringValidNumber test = new Solved_Problems.Problems_LinkedIn_StringValidNumber();
+            test.Run();
+        }
+
+        private void button75_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedIn_FindMaxContigousSum test = new Solved_Problems.Problems_LinkedIn_FindMaxContigousSum();
+            test.Run();
+        }
     }
 }

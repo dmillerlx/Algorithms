@@ -111,6 +111,10 @@
     <Compile Include="Data Structures\DataStructure_Heap.cs" />
     <Compile Include="InterfaceTests.cs" />
     <Compile Include="Data Structures\DataStructure_MergeSort.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedIn_DeepIterator.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedIn_FindMaxContigousSum.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedIn_IsomorphicStrings.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedIn_StringValidNumber.cs" />
     <Compile Include="Solved Problems\Problems_LinkedList_AddNumbersInList.cs" />
     <Compile Include="Solved Problems\Problems_LinkedList_FindLoop.cs" />
     <Compile Include="Solved Problems\Problems_LinkedList_FindNthLastItem.cs" />
