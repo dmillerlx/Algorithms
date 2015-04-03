@@ -111,6 +111,7 @@
             this.button73 = new System.Windows.Forms.Button();
             this.button74 = new System.Windows.Forms.Button();
             this.button75 = new System.Windows.Forms.Button();
+            this.button76 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -625,6 +626,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.button76);
             this.groupBox6.Controls.Add(this.button75);
             this.groupBox6.Controls.Add(this.button74);
             this.groupBox6.Controls.Add(this.button73);
@@ -1009,6 +1011,16 @@
             this.button75.UseVisualStyleBackColor = true;
             this.button75.Click += new System.EventHandler(this.button75_Click);
             // 
+            // button76
+            // 
+            this.button76.Location = new System.Drawing.Point(20, 528);
+            this.button76.Name = "button76";
+            this.button76.Size = new System.Drawing.Size(230, 23);
+            this.button76.TabIndex = 89;
+            this.button76.Text = "Problem - Dynamic Programming - Edit Distance";
+            this.button76.UseVisualStyleBackColor = true;
+            this.button76.Click += new System.EventHandler(this.button76_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1121,6 +1133,7 @@
         private System.Windows.Forms.Button button73;
         private System.Windows.Forms.Button button74;
         private System.Windows.Forms.Button button75;
+        private System.Windows.Forms.Button button76;
     }
 }
 

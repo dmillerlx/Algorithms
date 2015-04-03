@@ -761,5 +761,11 @@ namespace Algorithms
             Solved_Problems.Problems_LinkedIn_FindMaxContigousSum test = new Solved_Problems.Problems_LinkedIn_FindMaxContigousSum();
             test.Run();
         }
+
+        private void button76_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_DynamicProgramming_EditDistance test = new Solved_Problems.Problems_DynamicProgramming_EditDistance();
+            test.Run();
+        }
     }
 }
