@@ -711,7 +711,8 @@ namespace Algorithms
 
         private void button54_Click_1(object sender, EventArgs e)
         {
-
+            Solved_Problems.Problems_DynamicProgramming_LongestSubSequence test = new Solved_Problems.Problems_DynamicProgramming_LongestSubSequence();
+            test.Run();
         }
 
         private void button68_Click(object sender, EventArgs e)
@@ -765,6 +766,98 @@ namespace Algorithms
         private void button76_Click(object sender, EventArgs e)
         {
             Solved_Problems.Problems_DynamicProgramming_EditDistance test = new Solved_Problems.Problems_DynamicProgramming_EditDistance();
+            test.Run();
+        }
+
+        private void button77_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_DynamicProgramming_Knapsack test = new Solved_Problems.Problems_DynamicProgramming_Knapsack();
+            test.Run();
+        }
+
+        private void button78_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedIn_Bipartie_Graph test = new Solved_Problems.Problems_LinkedIn_Bipartie_Graph();
+            test.Run();
+        }
+
+        private void tabControl1_TabIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        bool init = false;
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!init) return;
+            Application.UserAppDataRegistry.SetValue("ActivePage", tabControl1.SelectedIndex);
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            int val = (int)Application.UserAppDataRegistry.GetValue("ActivePage", 0);
+            tabControl1.SelectedIndex = val;
+            init = true;
+        }
+
+        private void button79_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedIn_MedianForStreamOfIntegers test = new Solved_Problems.Problems_LinkedIn_MedianForStreamOfIntegers();
+            test.Run();
+        }
+
+        private void button80_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedIn_LockFreeStack test = new Solved_Problems.Problems_LinkedIn_LockFreeStack();
+            test.Run();
+        }
+
+        private void button81_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedIn_TextJustification test = new Solved_Problems.Problems_LinkedIn_TextJustification();
+            test.Run();
+        }
+
+        private void button82_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedIn_LockFreeQueue test = new Solved_Problems.Problems_LinkedIn_LockFreeQueue();
+            test.Run();
+        }
+
+        private void button83_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedIn_POW_No_BuiltInFunctions test = new Solved_Problems.Problems_LinkedIn_POW_No_BuiltInFunctions();
+            test.Run();
+        }
+
+        private void button84_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedIn_Intervals test = new Solved_Problems.Problems_LinkedIn_Intervals();
+            test.Run();
+        }
+
+        private void button85_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedIn_FindMinimumSubString test = new Solved_Problems.Problems_LinkedIn_FindMinimumSubString();
+            test.Run();
+        }
+
+        private void button86_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_DynamicProgramming_LongestCommonSubSequence test = new Solved_Problems.Problems_DynamicProgramming_LongestCommonSubSequence();
+            test.Run();
+        }
+
+        private void button87_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedList_IsPalendrome test = new Solved_Problems.Problems_LinkedList_IsPalendrome();
+            test.Run();
+        }
+
+        private void button88_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_String_ReverseWords test = new Solved_Problems.Problems_String_ReverseWords();
             test.Run();
         }
     }

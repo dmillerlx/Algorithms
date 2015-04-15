@@ -64,6 +64,7 @@
     <Compile Include="Data Structures\3rd Party Trees\AVLTree\AvlTree.cs" />
     <Compile Include="Codity.cs" />
     <Compile Include="Data Structures\DataStructure_LinkedList.cs" />
+    <Compile Include="Solved Problems\Ingenio - Simple design Problem.cs" />
     <Compile Include="Solved Problems\Problems_Amazon_FindMaxMatrixMult.cs" />
     <Compile Include="Solved Problems\Problems_Amazon_IntegerMaxNumberFromDigits.cs" />
     <Compile Include="Solved Problems\Problems_Amazon_ParityBits.cs" />
@@ -75,6 +76,8 @@
     <Compile Include="Solved Problems\Problems_Amazon_StringConcatCost.cs" />
     <Compile Include="Solved Problems\Problems_Amazon_SumDistinctIntegers.cs" />
     <Compile Include="Solved Problems\Problems_DynamicProgramming_EditDistance.cs" />
+    <Compile Include="Solved Problems\Problems_DynamicProgramming_Knapsack.cs" />
+    <Compile Include="Solved Problems\Problems_DynamicProgramming_LongestCommonSubSequence.cs" />
     <Compile Include="Solved Problems\Problems_DynamicProgramming_LongestSubSequence.cs" />
     <Compile Include="Solved Problems\Problems_DynamicProgramming_TextWrap.cs" />
     <Compile Include="Solved Problems\Problems_FindNumberOfRotations.cs" />
@@ -112,13 +115,22 @@
     <Compile Include="Data Structures\DataStructure_Heap.cs" />
     <Compile Include="InterfaceTests.cs" />
     <Compile Include="Data Structures\DataStructure_MergeSort.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedIn_Bipartie_Graph.cs" />
     <Compile Include="Solved Problems\Problems_LinkedIn_DeepIterator.cs" />
     <Compile Include="Solved Problems\Problems_LinkedIn_FindMaxContigousSum.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedIn_FindMinimumSubString.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedIn_Intervals.cs" />
     <Compile Include="Solved Problems\Problems_LinkedIn_IsomorphicStrings.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedIn_LockFreeQueue.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedIn_LockFreeStack.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedIn_MedianForStreamOfIntegers.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedIn_POW_No_BuiltInFunctions.cs" />
     <Compile Include="Solved Problems\Problems_LinkedIn_StringValidNumber.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedIn_TextJustification.cs" />
     <Compile Include="Solved Problems\Problems_LinkedList_AddNumbersInList.cs" />
     <Compile Include="Solved Problems\Problems_LinkedList_FindLoop.cs" />
     <Compile Include="Solved Problems\Problems_LinkedList_FindNthLastItem.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedList_IsPalendrome.cs" />
     <Compile Include="Solved Problems\Problems_LinkedList_RemoveDuplicates.cs" />
     <Compile Include="Solved Problems\Problems_LinkedList_ReverseSinglyLinkedList.cs" />
     <Compile Include="Solved Problems\Problems_MergeSortedArrays.cs" />
@@ -145,6 +157,7 @@
     <Compile Include="Solved Problems\Problems_Stacks_SetOfStacks.cs" />
     <Compile Include="Solved Problems\Problems_Stacks_Sort.cs" />
     <Compile Include="Solved Problems\Problems_Stacks_TowersOfHanoi.cs" />
+    <Compile Include="Solved Problems\Problems_String_ReverseWords.cs" />
     <Compile Include="Solved Problems\Problems_Trees_CheckIfTreeIsBST.cs" />
     <Compile Include="Solved Problems\Problems_Trees_DetectBalanced.cs" />
     <Compile Include="Solved Problems\Problems_Trees_FindCommonAncestor.cs" />

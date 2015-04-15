@@ -181,14 +181,6 @@ namespace Algorithms.Solved_Problems
 
                 while (n != null)
                 {
-                    //if (n == end)
-                    //    Console.WriteLine("END");           //Don't add the 'end' node to the output
-                    //else if (n == start)
-                    //    Console.WriteLine("START");         //don't add the 'start' node to the output
-                    //else if (n.I >= 0)
-                    //{
-                    //    //output.Push(GetWords(n.I, n.J));
-                    //}
                     v = visited[n.NodeID];
 
                     //output.Push(matrix[n.I, n.J].ToString() + " - " + v.Action);

@@ -76,6 +76,12 @@
             this.button35 = new System.Windows.Forms.Button();
             this.button34 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button77 = new System.Windows.Forms.Button();
+            this.button76 = new System.Windows.Forms.Button();
+            this.button75 = new System.Windows.Forms.Button();
+            this.button74 = new System.Windows.Forms.Button();
+            this.button73 = new System.Windows.Forms.Button();
+            this.button72 = new System.Windows.Forms.Button();
             this.button71 = new System.Windows.Forms.Button();
             this.button49 = new System.Windows.Forms.Button();
             this.button48 = new System.Windows.Forms.Button();
@@ -107,11 +113,23 @@
             this.button53 = new System.Windows.Forms.Button();
             this.button52 = new System.Windows.Forms.Button();
             this.button50 = new System.Windows.Forms.Button();
-            this.button72 = new System.Windows.Forms.Button();
-            this.button73 = new System.Windows.Forms.Button();
-            this.button74 = new System.Windows.Forms.Button();
-            this.button75 = new System.Windows.Forms.Button();
-            this.button76 = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.button83 = new System.Windows.Forms.Button();
+            this.button82 = new System.Windows.Forms.Button();
+            this.button81 = new System.Windows.Forms.Button();
+            this.button80 = new System.Windows.Forms.Button();
+            this.button79 = new System.Windows.Forms.Button();
+            this.button78 = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button84 = new System.Windows.Forms.Button();
+            this.button85 = new System.Windows.Forms.Button();
+            this.button86 = new System.Windows.Forms.Button();
+            this.button87 = new System.Windows.Forms.Button();
+            this.button88 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -119,11 +137,16 @@
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(113, 453);
+            this.button1.Location = new System.Drawing.Point(21, 14);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -133,7 +156,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(194, 482);
+            this.button2.Location = new System.Drawing.Point(102, 43);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
@@ -193,7 +216,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(113, 482);
+            this.button7.Location = new System.Drawing.Point(21, 43);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 7;
@@ -517,7 +540,7 @@
             this.groupBox4.Controls.Add(this.groupBox3);
             this.groupBox4.Controls.Add(this.groupBox2);
             this.groupBox4.Controls.Add(this.groupBox1);
-            this.groupBox4.Location = new System.Drawing.Point(12, 12);
+            this.groupBox4.Location = new System.Drawing.Point(17, 12);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(475, 408);
             this.groupBox4.TabIndex = 37;
@@ -537,9 +560,9 @@
             this.groupBox5.Controls.Add(this.button5);
             this.groupBox5.Controls.Add(this.button4);
             this.groupBox5.Controls.Add(this.button3);
-            this.groupBox5.Location = new System.Drawing.Point(502, 12);
+            this.groupBox5.Location = new System.Drawing.Point(517, 12);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(155, 524);
+            this.groupBox5.Size = new System.Drawing.Size(146, 470);
             this.groupBox5.TabIndex = 38;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Data Structures";
@@ -626,6 +649,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.button77);
             this.groupBox6.Controls.Add(this.button76);
             this.groupBox6.Controls.Add(this.button75);
             this.groupBox6.Controls.Add(this.button74);
@@ -644,12 +668,72 @@
             this.groupBox6.Controls.Add(this.button10);
             this.groupBox6.Controls.Add(this.button9);
             this.groupBox6.Controls.Add(this.button8);
-            this.groupBox6.Location = new System.Drawing.Point(680, 12);
+            this.groupBox6.Location = new System.Drawing.Point(6, 11);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(287, 590);
             this.groupBox6.TabIndex = 39;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Practice Problems";
+            // 
+            // button77
+            // 
+            this.button77.Location = new System.Drawing.Point(20, 557);
+            this.button77.Name = "button77";
+            this.button77.Size = new System.Drawing.Size(230, 23);
+            this.button77.TabIndex = 90;
+            this.button77.Text = "Problem - Dynamic Programming - Knap Sack";
+            this.button77.UseVisualStyleBackColor = true;
+            this.button77.Click += new System.EventHandler(this.button77_Click);
+            // 
+            // button76
+            // 
+            this.button76.Location = new System.Drawing.Point(20, 528);
+            this.button76.Name = "button76";
+            this.button76.Size = new System.Drawing.Size(230, 23);
+            this.button76.TabIndex = 89;
+            this.button76.Text = "Problem - Dynamic Programming - Edit Distance";
+            this.button76.UseVisualStyleBackColor = true;
+            this.button76.Click += new System.EventHandler(this.button76_Click);
+            // 
+            // button75
+            // 
+            this.button75.Location = new System.Drawing.Point(20, 499);
+            this.button75.Name = "button75";
+            this.button75.Size = new System.Drawing.Size(230, 23);
+            this.button75.TabIndex = 88;
+            this.button75.Text = "Problem - LinkedIn - Find Max Contigous Sum";
+            this.button75.UseVisualStyleBackColor = true;
+            this.button75.Click += new System.EventHandler(this.button75_Click);
+            // 
+            // button74
+            // 
+            this.button74.Location = new System.Drawing.Point(20, 470);
+            this.button74.Name = "button74";
+            this.button74.Size = new System.Drawing.Size(230, 23);
+            this.button74.TabIndex = 87;
+            this.button74.Text = "Problem - LinkedIn - Is Valid Number";
+            this.button74.UseVisualStyleBackColor = true;
+            this.button74.Click += new System.EventHandler(this.button74_Click);
+            // 
+            // button73
+            // 
+            this.button73.Location = new System.Drawing.Point(20, 442);
+            this.button73.Name = "button73";
+            this.button73.Size = new System.Drawing.Size(230, 23);
+            this.button73.TabIndex = 86;
+            this.button73.Text = "Problem - LinkedIn - String Isomorphic";
+            this.button73.UseVisualStyleBackColor = true;
+            this.button73.Click += new System.EventHandler(this.button73_Click);
+            // 
+            // button72
+            // 
+            this.button72.Location = new System.Drawing.Point(20, 413);
+            this.button72.Name = "button72";
+            this.button72.Size = new System.Drawing.Size(230, 23);
+            this.button72.TabIndex = 85;
+            this.button72.Text = "Problem - LinkedIn - DeepIterator";
+            this.button72.UseVisualStyleBackColor = true;
+            this.button72.Click += new System.EventHandler(this.button72_Click);
             // 
             // button71
             // 
@@ -743,7 +827,7 @@
             // 
             // button51
             // 
-            this.button51.Location = new System.Drawing.Point(113, 536);
+            this.button51.Location = new System.Drawing.Point(21, 97);
             this.button51.Name = "button51";
             this.button51.Size = new System.Drawing.Size(230, 23);
             this.button51.TabIndex = 54;
@@ -773,7 +857,7 @@
             this.groupBox7.Controls.Add(this.button53);
             this.groupBox7.Controls.Add(this.button52);
             this.groupBox7.Controls.Add(this.button50);
-            this.groupBox7.Location = new System.Drawing.Point(983, 13);
+            this.groupBox7.Location = new System.Drawing.Point(308, 12);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(248, 589);
             this.groupBox7.TabIndex = 55;
@@ -971,72 +1055,208 @@
             this.button50.Text = "Problem - Stacks - 3 stacks in an Array";
             this.button50.UseVisualStyleBackColor = true;
             // 
-            // button72
+            // groupBox8
             // 
-            this.button72.Location = new System.Drawing.Point(20, 413);
-            this.button72.Name = "button72";
-            this.button72.Size = new System.Drawing.Size(230, 23);
-            this.button72.TabIndex = 85;
-            this.button72.Text = "Problem - LinkedIn - DeepIterator";
-            this.button72.UseVisualStyleBackColor = true;
-            this.button72.Click += new System.EventHandler(this.button72_Click);
+            this.groupBox8.Controls.Add(this.button51);
+            this.groupBox8.Controls.Add(this.button7);
+            this.groupBox8.Controls.Add(this.button2);
+            this.groupBox8.Controls.Add(this.button1);
+            this.groupBox8.Location = new System.Drawing.Point(17, 437);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(268, 146);
+            this.groupBox8.TabIndex = 56;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Other";
             // 
-            // button73
+            // tabControl1
             // 
-            this.button73.Location = new System.Drawing.Point(20, 442);
-            this.button73.Name = "button73";
-            this.button73.Size = new System.Drawing.Size(230, 23);
-            this.button73.TabIndex = 86;
-            this.button73.Text = "Problem - LinkedIn - String Isomorphic";
-            this.button73.UseVisualStyleBackColor = true;
-            this.button73.Click += new System.EventHandler(this.button73_Click);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(925, 669);
+            this.tabControl1.TabIndex = 57;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tabControl1.TabIndexChanged += new System.EventHandler(this.tabControl1_TabIndexChanged);
             // 
-            // button74
+            // tabPage1
             // 
-            this.button74.Location = new System.Drawing.Point(20, 470);
-            this.button74.Name = "button74";
-            this.button74.Size = new System.Drawing.Size(230, 23);
-            this.button74.TabIndex = 87;
-            this.button74.Text = "Problem - LinkedIn - Is Valid Number";
-            this.button74.UseVisualStyleBackColor = true;
-            this.button74.Click += new System.EventHandler(this.button74_Click);
+            this.tabPage1.Controls.Add(this.groupBox4);
+            this.tabPage1.Controls.Add(this.groupBox8);
+            this.tabPage1.Controls.Add(this.groupBox5);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(917, 643);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Design Patterns & Data Stuctures";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button75
+            // tabPage2
             // 
-            this.button75.Location = new System.Drawing.Point(20, 499);
-            this.button75.Name = "button75";
-            this.button75.Size = new System.Drawing.Size(230, 23);
-            this.button75.TabIndex = 88;
-            this.button75.Text = "Problem - LinkedIn - Find Max Contigous Sum";
-            this.button75.UseVisualStyleBackColor = true;
-            this.button75.Click += new System.EventHandler(this.button75_Click);
+            this.tabPage2.Controls.Add(this.groupBox9);
+            this.tabPage2.Controls.Add(this.groupBox6);
+            this.tabPage2.Controls.Add(this.groupBox7);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(917, 643);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Practice Problems";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button76
+            // groupBox9
             // 
-            this.button76.Location = new System.Drawing.Point(20, 528);
-            this.button76.Name = "button76";
-            this.button76.Size = new System.Drawing.Size(230, 23);
-            this.button76.TabIndex = 89;
-            this.button76.Text = "Problem - Dynamic Programming - Edit Distance";
-            this.button76.UseVisualStyleBackColor = true;
-            this.button76.Click += new System.EventHandler(this.button76_Click);
+            this.groupBox9.Controls.Add(this.button88);
+            this.groupBox9.Controls.Add(this.button87);
+            this.groupBox9.Controls.Add(this.button86);
+            this.groupBox9.Controls.Add(this.button85);
+            this.groupBox9.Controls.Add(this.button84);
+            this.groupBox9.Controls.Add(this.button83);
+            this.groupBox9.Controls.Add(this.button82);
+            this.groupBox9.Controls.Add(this.button81);
+            this.groupBox9.Controls.Add(this.button80);
+            this.groupBox9.Controls.Add(this.button79);
+            this.groupBox9.Controls.Add(this.button78);
+            this.groupBox9.Location = new System.Drawing.Point(576, 13);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(280, 587);
+            this.groupBox9.TabIndex = 56;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Practice Problems";
+            // 
+            // button83
+            // 
+            this.button83.Location = new System.Drawing.Point(16, 164);
+            this.button83.Name = "button83";
+            this.button83.Size = new System.Drawing.Size(230, 23);
+            this.button83.TabIndex = 89;
+            this.button83.Text = "Problem - LinkedIn - Pow";
+            this.button83.UseVisualStyleBackColor = true;
+            this.button83.Click += new System.EventHandler(this.button83_Click);
+            // 
+            // button82
+            // 
+            this.button82.Location = new System.Drawing.Point(16, 135);
+            this.button82.Name = "button82";
+            this.button82.Size = new System.Drawing.Size(230, 23);
+            this.button82.TabIndex = 88;
+            this.button82.Text = "Problem - LinkedIn - Lock Free Queue";
+            this.button82.UseVisualStyleBackColor = true;
+            this.button82.Click += new System.EventHandler(this.button82_Click);
+            // 
+            // button81
+            // 
+            this.button81.Location = new System.Drawing.Point(16, 106);
+            this.button81.Name = "button81";
+            this.button81.Size = new System.Drawing.Size(230, 23);
+            this.button81.TabIndex = 87;
+            this.button81.Text = "Problem - LinkedIn - Justifty Text";
+            this.button81.UseVisualStyleBackColor = true;
+            this.button81.Click += new System.EventHandler(this.button81_Click);
+            // 
+            // button80
+            // 
+            this.button80.Location = new System.Drawing.Point(16, 77);
+            this.button80.Name = "button80";
+            this.button80.Size = new System.Drawing.Size(230, 23);
+            this.button80.TabIndex = 86;
+            this.button80.Text = "Problem - LinkedIn - Lock Free Stack";
+            this.button80.UseVisualStyleBackColor = true;
+            this.button80.Click += new System.EventHandler(this.button80_Click);
+            // 
+            // button79
+            // 
+            this.button79.Location = new System.Drawing.Point(16, 48);
+            this.button79.Name = "button79";
+            this.button79.Size = new System.Drawing.Size(230, 23);
+            this.button79.TabIndex = 85;
+            this.button79.Text = "Problem - LinkedIn - Median For Stream Of Int";
+            this.button79.UseVisualStyleBackColor = true;
+            this.button79.Click += new System.EventHandler(this.button79_Click);
+            // 
+            // button78
+            // 
+            this.button78.Location = new System.Drawing.Point(16, 19);
+            this.button78.Name = "button78";
+            this.button78.Size = new System.Drawing.Size(230, 23);
+            this.button78.TabIndex = 84;
+            this.button78.Text = "Problem - LinkedIn - Bipartite Graph";
+            this.button78.UseVisualStyleBackColor = true;
+            this.button78.Click += new System.EventHandler(this.button78_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(917, 643);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Practice Problems 1";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button84
+            // 
+            this.button84.Location = new System.Drawing.Point(16, 193);
+            this.button84.Name = "button84";
+            this.button84.Size = new System.Drawing.Size(230, 23);
+            this.button84.TabIndex = 90;
+            this.button84.Text = "Problem - LinkedIn - Intervals";
+            this.button84.UseVisualStyleBackColor = true;
+            this.button84.Click += new System.EventHandler(this.button84_Click);
+            // 
+            // button85
+            // 
+            this.button85.Location = new System.Drawing.Point(16, 222);
+            this.button85.Name = "button85";
+            this.button85.Size = new System.Drawing.Size(230, 23);
+            this.button85.TabIndex = 91;
+            this.button85.Text = "Problem - LinkedIn - Find Min Sub String";
+            this.button85.UseVisualStyleBackColor = true;
+            this.button85.Click += new System.EventHandler(this.button85_Click);
+            // 
+            // button86
+            // 
+            this.button86.Location = new System.Drawing.Point(16, 251);
+            this.button86.Name = "button86";
+            this.button86.Size = new System.Drawing.Size(230, 23);
+            this.button86.TabIndex = 92;
+            this.button86.Text = "Problem - DP - Longest Common Sub Sequence";
+            this.button86.UseVisualStyleBackColor = true;
+            this.button86.Click += new System.EventHandler(this.button86_Click);
+            // 
+            // button87
+            // 
+            this.button87.Location = new System.Drawing.Point(16, 280);
+            this.button87.Name = "button87";
+            this.button87.Size = new System.Drawing.Size(230, 23);
+            this.button87.TabIndex = 93;
+            this.button87.Text = "Problem - LinkedList - Is Palendrome";
+            this.button87.UseVisualStyleBackColor = true;
+            this.button87.Click += new System.EventHandler(this.button87_Click);
+            // 
+            // button88
+            // 
+            this.button88.Location = new System.Drawing.Point(16, 309);
+            this.button88.Name = "button88";
+            this.button88.Size = new System.Drawing.Size(230, 23);
+            this.button88.TabIndex = 94;
+            this.button88.Text = "Problem - String - Reverse Words";
+            this.button88.UseVisualStyleBackColor = true;
+            this.button88.Click += new System.EventHandler(this.button88_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1273, 614);
-            this.Controls.Add(this.groupBox7);
-            this.Controls.Add(this.button51);
-            this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(947, 691);
+            this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Data Structures - Design Patterns - Algorithm Practice Problems";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -1044,6 +1264,11 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1134,6 +1359,24 @@
         private System.Windows.Forms.Button button74;
         private System.Windows.Forms.Button button75;
         private System.Windows.Forms.Button button76;
+        private System.Windows.Forms.Button button77;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Button button78;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button button79;
+        private System.Windows.Forms.Button button80;
+        private System.Windows.Forms.Button button81;
+        private System.Windows.Forms.Button button82;
+        private System.Windows.Forms.Button button83;
+        private System.Windows.Forms.Button button84;
+        private System.Windows.Forms.Button button85;
+        private System.Windows.Forms.Button button86;
+        private System.Windows.Forms.Button button87;
+        private System.Windows.Forms.Button button88;
     }
 }
 
