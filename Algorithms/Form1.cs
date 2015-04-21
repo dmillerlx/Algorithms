@@ -615,12 +615,7 @@ namespace Algorithms
             test.Run();
         }
 
-        private void button54_Click(object sender, EventArgs e)
-        {
-            Solved_Problems.Problems_DynamicProgramming_LongestSubSequence test = new Solved_Problems.Problems_DynamicProgramming_LongestSubSequence();
-            test.Run();
-        }
-
+    
         private void button55_Click(object sender, EventArgs e)
         {
             Solved_Problems.Problems_DynamicProgramming_TextWrap test = new Solved_Problems.Problems_DynamicProgramming_TextWrap();
@@ -712,7 +707,9 @@ namespace Algorithms
         private void button54_Click_1(object sender, EventArgs e)
         {
             Solved_Problems.Problems_DynamicProgramming_LongestSubSequence test = new Solved_Problems.Problems_DynamicProgramming_LongestSubSequence();
-            test.Run();
+            //test.Run();
+
+            test.Run2();
         }
 
         private void button68_Click(object sender, EventArgs e)
@@ -859,6 +856,93 @@ namespace Algorithms
         {
             Solved_Problems.Problems_String_ReverseWords test = new Solved_Problems.Problems_String_ReverseWords();
             test.Run();
+        }
+
+        private void button89_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Microsoft_ReverseLettersInWords test = new Solved_Problems.Problems_Microsoft_ReverseLettersInWords();
+            test.Run();
+        }
+
+        private void button90_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Moderate_SwapTwoNumbersWithoutTempData test = new Solved_Problems.Problems_Moderate_SwapTwoNumbersWithoutTempData();
+            test.Run();
+        }
+
+        private void button91_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Microsoft_Merge_and_Sort_M_N_Sorted_Array test = new Solved_Problems.Problems_Microsoft_Merge_and_Sort_M_N_Sorted_Array();
+            test.Run();
+        }
+
+        private void button92_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Microsoft_Tree_Find_Precedessor_and_Successor test = new Solved_Problems.Problems_Microsoft_Tree_Find_Precedessor_and_Successor();
+            test.Run();
+        }
+
+        private void button93_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_Microsoft_Palindrome test = new Solved_Problems.Problems_Microsoft_Palindrome();
+            test.Run();
+        }
+
+        private void button94_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedIn_FindNumberInRotatedSortedArray test = new Solved_Problems.Problems_LinkedIn_FindNumberInRotatedSortedArray();
+            test.Run();
+        }
+
+        private void button95_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedIn_FindNumberInSortedMatrix test = new Solved_Problems.Problems_LinkedIn_FindNumberInSortedMatrix();
+            test.Run();
+        }
+
+        private void button96_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_LinkedIn_ServerFindMissingValue test = new Solved_Problems.Problems_LinkedIn_ServerFindMissingValue();
+            test.Run();
+        }
+
+        void ColorControls(System.Windows.Forms.Control.ControlCollection controls)
+        {
+            foreach (Control c in controls)
+            {
+                if (c.Controls != null && c.Controls.Count > 0)
+                {
+                    ColorControls(c.Controls);
+                }
+
+                if (textBox1.Text.Trim().Length > 0 && c.Text.ToUpper().Contains(textBox1.Text.ToUpper()))
+                {
+                    c.BackColor = Color.Orange;
+                }
+                else c.BackColor = Color.Transparent;
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            foreach (Control C in this.Controls)
+            {
+                if (C.Controls != null && C.Controls.Count > 0)
+                {
+                    ColorControls(C.Controls);
+                    
+                }
+
+            }
+
+            //foreach (Control c in groupBox6.Controls)
+            //{
+            //    if (c.Text.ToUpper().Contains(textBox1.Text.ToUpper()))
+            //    {
+            //        c.BackColor = Color.Orange;
+            //    }
+            //    else c.BackColor = Color.Transparent;
+            //}
         }
     }
 }

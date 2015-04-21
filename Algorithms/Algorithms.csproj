@@ -119,12 +119,15 @@
     <Compile Include="Solved Problems\Problems_LinkedIn_DeepIterator.cs" />
     <Compile Include="Solved Problems\Problems_LinkedIn_FindMaxContigousSum.cs" />
     <Compile Include="Solved Problems\Problems_LinkedIn_FindMinimumSubString.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedIn_FindNumberInRotatedSortedArray.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedIn_FindNumberInSortedMatrix.cs" />
     <Compile Include="Solved Problems\Problems_LinkedIn_Intervals.cs" />
     <Compile Include="Solved Problems\Problems_LinkedIn_IsomorphicStrings.cs" />
     <Compile Include="Solved Problems\Problems_LinkedIn_LockFreeQueue.cs" />
     <Compile Include="Solved Problems\Problems_LinkedIn_LockFreeStack.cs" />
     <Compile Include="Solved Problems\Problems_LinkedIn_MedianForStreamOfIntegers.cs" />
     <Compile Include="Solved Problems\Problems_LinkedIn_POW_No_BuiltInFunctions.cs" />
+    <Compile Include="Solved Problems\Problems_LinkedIn_ServerFindMissingValue.cs" />
     <Compile Include="Solved Problems\Problems_LinkedIn_StringValidNumber.cs" />
     <Compile Include="Solved Problems\Problems_LinkedIn_TextJustification.cs" />
     <Compile Include="Solved Problems\Problems_LinkedList_AddNumbersInList.cs" />
@@ -134,6 +137,11 @@
     <Compile Include="Solved Problems\Problems_LinkedList_RemoveDuplicates.cs" />
     <Compile Include="Solved Problems\Problems_LinkedList_ReverseSinglyLinkedList.cs" />
     <Compile Include="Solved Problems\Problems_MergeSortedArrays.cs" />
+    <Compile Include="Solved Problems\Problems_Microsoft_Merge_and_Sort_M_N_Sorted_Array.cs" />
+    <Compile Include="Solved Problems\Problems_Microsoft_Palindrome.cs" />
+    <Compile Include="Solved Problems\Problems_Microsoft_ReverseLettersInWords.cs" />
+    <Compile Include="Solved Problems\Problems_Microsoft_Tree_Find_Precedessor_and_Successor.cs" />
+    <Compile Include="Solved Problems\Problems_Moderate_SwapTwoNumbersWithoutTempData.cs" />
     <Compile Include="Solved Problems\Problems_PrintSpiralMatrix.cs" />
     <Compile Include="GOF Design Patterns\DesignPattern_Singleton.cs" />
     <Compile Include="Data Structures\DataStructure_Tree.cs" />

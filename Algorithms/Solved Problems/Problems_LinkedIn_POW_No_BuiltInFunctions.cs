@@ -19,7 +19,7 @@ namespace Algorithms.Solved_Problems
                 return powPos(a, b);
             }
             //else if (b < 0)
-            return 1 / powPos(a, b * -1);
+            return 1 / powPos(a, b * -1);       //Handle case where power is negative
         }
 
         private double powPos(double a, int b)

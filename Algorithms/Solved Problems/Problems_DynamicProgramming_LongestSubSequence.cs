@@ -540,5 +540,105 @@ namespace Algorithms.Solved_Problems
         }
 
 
+        //Longest Increasing Subsequence
+        //Updated algorithm to not use a DAG
+
+        //Good video: https://www.youtube.com/watch?v=CE2b_-XfVDk&list=PLrmLmBdmIlpsHaNTPP_jHHDx_os9ItYXr&index=17
+        //
+        // This algorithm is O(N^2)
+        //
+        // O(n log(n)) solution exists but not a DP solution
+        //      http://en.wikipedia.org/wiki/Longest_increasing_subsequence#Efficient_algorithms
+        public int LongestIncreasingSubSequence(int []arr)
+        {
+            int length = arr.Length;
+
+            int[] T = new int[length];
+            List<int> ret = new List<int>();
+
+            int[] solution = new int[length];
+
+
+            int i = 0;
+            int j = 0;
+
+            int max = -1;
+            int maxStart = -1;
+            // 1, 4, -1, 8, 5, 6
+
+            for (i=0; i < length; i++)
+            {
+                T[i] = 1;   //Initialize with 1 since all elements of size 1 are subsequence
+                solution[i] = -1;
+            }
+
+            //Iterate over array with i from 1 to length
+            //Iterate over array with j from 0 to j
+            //When we find that arr[j] is less than arr[i], then we check to see if
+            //T[j] +1 > T[i].  If it is, then set T[i] to T[j]+1 and track j in the solution array for back tracking
+            
+
+            for (i=1; i < length; i++)
+            {
+                for (j=0; j < i; j++)
+                {
+                    if (arr[j] < arr[i])    //Find where arr[j] is less than arr[i]
+                    {
+                        if (T[j] + 1 > T[i])
+                        {
+                            T[i] = T[j] + 1;    // <---  Only need to set this and the max below to find just the size of the solution
+                            solution[i] = j;    //Set solution for i to backpoint to j
+
+                            //If T[i] is greater than max, then it is the new longest sequence
+                            //max will be the length of the longest sequence
+                            //maxStart is the starting element in the solution array
+                            if (T[i] > max)
+                            {
+                                max = T[i];     // <-- This and the T[i] = T[j]+1 above is all that is needed if only need the size of the solution
+                                maxStart = i;
+                            }
+                            
+                        }
+                    }
+
+                    
+                }
+            }
+
+            //Write actual solution in reverse.  Can put in order using stack or just
+            //insert to head of a list
+            Console.WriteLine("Reverse Solution: ");
+            int start = maxStart;
+            for (int x = 0; x < max; x++)
+            {
+                Console.WriteLine(arr[start]);
+                start = solution[start];
+            }
+
+            Console.Write("----");
+            //Returning length of longest sequence
+            return max;
+
+        }
+
+
+        public void Run2()
+        {
+            Console.WriteLine(LongestIncreasingSubSequence(new int[] { 3, 4, -1, 0, 6, 2, 3 }));
+
+            int size = 20000;
+            int[] arr = new int[size];
+            Random rnd = new Random((int)DateTime.Now.Ticks);
+            for (int x = 0; x < size; x++)
+            {
+                arr[x] = rnd.Next(size * 2);
+            }
+
+            Console.WriteLine(LongestIncreasingSubSequence(arr));
+
+
+        }
+
+
     }
 }
