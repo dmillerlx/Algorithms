@@ -944,5 +944,11 @@ namespace Algorithms
             //    else c.BackColor = Color.Transparent;
             //}
         }
+
+        private void button97_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_DynamicProgramming_LongestPaldromeSubSequence test = new Solved_Problems.Problems_DynamicProgramming_LongestPaldromeSubSequence();
+            test.Run();
+        }
     }
 }

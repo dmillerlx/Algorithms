@@ -78,6 +78,7 @@
     <Compile Include="Solved Problems\Problems_DynamicProgramming_EditDistance.cs" />
     <Compile Include="Solved Problems\Problems_DynamicProgramming_Knapsack.cs" />
     <Compile Include="Solved Problems\Problems_DynamicProgramming_LongestCommonSubSequence.cs" />
+    <Compile Include="Solved Problems\Problems_DynamicProgramming_LongestPaldromeSubSequence.cs" />
     <Compile Include="Solved Problems\Problems_DynamicProgramming_LongestSubSequence.cs" />
     <Compile Include="Solved Problems\Problems_DynamicProgramming_TextWrap.cs" />
     <Compile Include="Solved Problems\Problems_FindNumberOfRotations.cs" />

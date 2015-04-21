@@ -141,6 +141,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button58 = new System.Windows.Forms.Button();
+            this.button97 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1273,6 +1274,7 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.button97);
             this.groupBox10.Controls.Add(this.button86);
             this.groupBox10.Controls.Add(this.button56);
             this.groupBox10.Controls.Add(this.button55);
@@ -1385,6 +1387,16 @@
             this.button58.Text = "Problem - Stacks - Sort with 2 Stacks";
             this.button58.UseVisualStyleBackColor = true;
             this.button58.Click += new System.EventHandler(this.button58_Click);
+            // 
+            // button97
+            // 
+            this.button97.Location = new System.Drawing.Point(6, 226);
+            this.button97.Name = "button97";
+            this.button97.Size = new System.Drawing.Size(288, 23);
+            this.button97.TabIndex = 97;
+            this.button97.Text = "Problem - DP - Longest Palindrome Sub Sequence";
+            this.button97.UseVisualStyleBackColor = true;
+            this.button97.Click += new System.EventHandler(this.button97_Click);
             // 
             // Form1
             // 
@@ -1532,6 +1544,7 @@
         private System.Windows.Forms.Button button76;
         private System.Windows.Forms.Button button42;
         private System.Windows.Forms.Button button58;
+        private System.Windows.Forms.Button button97;
     }
 }
 
