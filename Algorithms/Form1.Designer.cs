@@ -88,11 +88,16 @@
             this.button45 = new System.Windows.Forms.Button();
             this.button44 = new System.Windows.Forms.Button();
             this.button40 = new System.Windows.Forms.Button();
+            this.button53 = new System.Windows.Forms.Button();
+            this.button52 = new System.Windows.Forms.Button();
+            this.button50 = new System.Windows.Forms.Button();
             this.button51 = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.button58 = new System.Windows.Forms.Button();
             this.button70 = new System.Windows.Forms.Button();
             this.button69 = new System.Windows.Forms.Button();
             this.button68 = new System.Windows.Forms.Button();
+            this.button92 = new System.Windows.Forms.Button();
             this.button67 = new System.Windows.Forms.Button();
             this.button66 = new System.Windows.Forms.Button();
             this.button65 = new System.Windows.Forms.Button();
@@ -100,12 +105,9 @@
             this.button63 = new System.Windows.Forms.Button();
             this.button62 = new System.Windows.Forms.Button();
             this.button61 = new System.Windows.Forms.Button();
+            this.button57 = new System.Windows.Forms.Button();
             this.button60 = new System.Windows.Forms.Button();
             this.button59 = new System.Windows.Forms.Button();
-            this.button57 = new System.Windows.Forms.Button();
-            this.button53 = new System.Windows.Forms.Button();
-            this.button52 = new System.Windows.Forms.Button();
-            this.button50 = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -115,7 +117,6 @@
             this.button95 = new System.Windows.Forms.Button();
             this.button94 = new System.Windows.Forms.Button();
             this.button93 = new System.Windows.Forms.Button();
-            this.button92 = new System.Windows.Forms.Button();
             this.button91 = new System.Windows.Forms.Button();
             this.button90 = new System.Windows.Forms.Button();
             this.button89 = new System.Windows.Forms.Button();
@@ -130,7 +131,11 @@
             this.button79 = new System.Windows.Forms.Button();
             this.button78 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.button99 = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.button98 = new System.Windows.Forms.Button();
+            this.button97 = new System.Windows.Forms.Button();
             this.button86 = new System.Windows.Forms.Button();
             this.button56 = new System.Windows.Forms.Button();
             this.button55 = new System.Windows.Forms.Button();
@@ -140,8 +145,7 @@
             this.button42 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button58 = new System.Windows.Forms.Button();
-            this.button97 = new System.Windows.Forms.Button();
+            this.button100 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -155,6 +159,7 @@
             this.tabPage2.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -809,6 +814,36 @@
             this.button40.UseVisualStyleBackColor = true;
             this.button40.Click += new System.EventHandler(this.button40_Click);
             // 
+            // button53
+            // 
+            this.button53.Location = new System.Drawing.Point(20, 557);
+            this.button53.Name = "button53";
+            this.button53.Size = new System.Drawing.Size(230, 23);
+            this.button53.TabIndex = 66;
+            this.button53.Text = "Problem - Stacks - Set Of Stacks";
+            this.button53.UseVisualStyleBackColor = true;
+            this.button53.Click += new System.EventHandler(this.button53_Click);
+            // 
+            // button52
+            // 
+            this.button52.Location = new System.Drawing.Point(20, 528);
+            this.button52.Name = "button52";
+            this.button52.Size = new System.Drawing.Size(230, 23);
+            this.button52.TabIndex = 65;
+            this.button52.Text = "Problem - Stacks - Push Pop Min - O(1)";
+            this.button52.UseVisualStyleBackColor = true;
+            this.button52.Click += new System.EventHandler(this.button52_Click);
+            // 
+            // button50
+            // 
+            this.button50.Location = new System.Drawing.Point(20, 499);
+            this.button50.Name = "button50";
+            this.button50.Size = new System.Drawing.Size(230, 23);
+            this.button50.TabIndex = 64;
+            this.button50.Text = "Problem - Stacks - 3 stacks in an Array";
+            this.button50.UseVisualStyleBackColor = true;
+            this.button50.Click += new System.EventHandler(this.button50_Click);
+            // 
             // button51
             // 
             this.button51.Location = new System.Drawing.Point(21, 97);
@@ -843,6 +878,16 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Practice Problems";
             // 
+            // button58
+            // 
+            this.button58.Location = new System.Drawing.Point(6, 440);
+            this.button58.Name = "button58";
+            this.button58.Size = new System.Drawing.Size(230, 23);
+            this.button58.TabIndex = 84;
+            this.button58.Text = "Problem - Stacks - Sort with 2 Stacks";
+            this.button58.UseVisualStyleBackColor = true;
+            this.button58.Click += new System.EventHandler(this.button58_Click);
+            // 
             // button70
             // 
             this.button70.Location = new System.Drawing.Point(6, 560);
@@ -872,6 +917,16 @@
             this.button68.Text = "Problem - Amazon - String ConCat Cost";
             this.button68.UseVisualStyleBackColor = true;
             this.button68.Click += new System.EventHandler(this.button68_Click);
+            // 
+            // button92
+            // 
+            this.button92.Location = new System.Drawing.Point(0, 252);
+            this.button92.Name = "button92";
+            this.button92.Size = new System.Drawing.Size(242, 23);
+            this.button92.TabIndex = 98;
+            this.button92.Text = "Problem - Tree - Successor and Precedesor";
+            this.button92.UseVisualStyleBackColor = true;
+            this.button92.Click += new System.EventHandler(this.button92_Click);
             // 
             // button67
             // 
@@ -943,6 +998,16 @@
             this.button61.UseVisualStyleBackColor = true;
             this.button61.Click += new System.EventHandler(this.button61_Click);
             // 
+            // button57
+            // 
+            this.button57.Location = new System.Drawing.Point(6, 411);
+            this.button57.Name = "button57";
+            this.button57.Size = new System.Drawing.Size(230, 23);
+            this.button57.TabIndex = 70;
+            this.button57.Text = "Problem - Stacks - Implement Queue With 2 Stacks";
+            this.button57.UseVisualStyleBackColor = true;
+            this.button57.Click += new System.EventHandler(this.button57_Click);
+            // 
             // button60
             // 
             this.button60.Location = new System.Drawing.Point(6, 19);
@@ -962,46 +1027,6 @@
             this.button59.Text = "Problem - Stack - Animal Shelter";
             this.button59.UseVisualStyleBackColor = true;
             this.button59.Click += new System.EventHandler(this.button59_Click);
-            // 
-            // button57
-            // 
-            this.button57.Location = new System.Drawing.Point(6, 411);
-            this.button57.Name = "button57";
-            this.button57.Size = new System.Drawing.Size(230, 23);
-            this.button57.TabIndex = 70;
-            this.button57.Text = "Problem - Stacks - Implement Queue With 2 Stacks";
-            this.button57.UseVisualStyleBackColor = true;
-            this.button57.Click += new System.EventHandler(this.button57_Click);
-            // 
-            // button53
-            // 
-            this.button53.Location = new System.Drawing.Point(20, 557);
-            this.button53.Name = "button53";
-            this.button53.Size = new System.Drawing.Size(230, 23);
-            this.button53.TabIndex = 66;
-            this.button53.Text = "Problem - Stacks - Set Of Stacks";
-            this.button53.UseVisualStyleBackColor = true;
-            this.button53.Click += new System.EventHandler(this.button53_Click);
-            // 
-            // button52
-            // 
-            this.button52.Location = new System.Drawing.Point(20, 528);
-            this.button52.Name = "button52";
-            this.button52.Size = new System.Drawing.Size(230, 23);
-            this.button52.TabIndex = 65;
-            this.button52.Text = "Problem - Stacks - Push Pop Min - O(1)";
-            this.button52.UseVisualStyleBackColor = true;
-            this.button52.Click += new System.EventHandler(this.button52_Click);
-            // 
-            // button50
-            // 
-            this.button50.Location = new System.Drawing.Point(20, 499);
-            this.button50.Name = "button50";
-            this.button50.Size = new System.Drawing.Size(230, 23);
-            this.button50.TabIndex = 64;
-            this.button50.Text = "Problem - Stacks - 3 stacks in an Array";
-            this.button50.UseVisualStyleBackColor = true;
-            this.button50.Click += new System.EventHandler(this.button50_Click);
             // 
             // groupBox8
             // 
@@ -1120,16 +1145,6 @@
             this.button93.Text = "Problem - Microsoft - Palindrome";
             this.button93.UseVisualStyleBackColor = true;
             this.button93.Click += new System.EventHandler(this.button93_Click);
-            // 
-            // button92
-            // 
-            this.button92.Location = new System.Drawing.Point(0, 252);
-            this.button92.Name = "button92";
-            this.button92.Size = new System.Drawing.Size(242, 23);
-            this.button92.TabIndex = 98;
-            this.button92.Text = "Problem - Tree - Successor and Precedesor";
-            this.button92.UseVisualStyleBackColor = true;
-            this.button92.Click += new System.EventHandler(this.button92_Click);
             // 
             // button91
             // 
@@ -1263,6 +1278,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.groupBox11);
             this.tabPage3.Controls.Add(this.groupBox10);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -1272,8 +1288,30 @@
             this.tabPage3.Text = "Practice Problems 1";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.button100);
+            this.groupBox11.Controls.Add(this.button99);
+            this.groupBox11.Location = new System.Drawing.Point(315, 10);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(284, 582);
+            this.groupBox11.TabIndex = 1;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "groupBox11";
+            // 
+            // button99
+            // 
+            this.button99.Location = new System.Drawing.Point(6, 19);
+            this.button99.Name = "button99";
+            this.button99.Size = new System.Drawing.Size(230, 23);
+            this.button99.TabIndex = 92;
+            this.button99.Text = "Top Coder - 657";
+            this.button99.UseVisualStyleBackColor = true;
+            this.button99.Click += new System.EventHandler(this.button99_Click);
+            // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.button98);
             this.groupBox10.Controls.Add(this.button97);
             this.groupBox10.Controls.Add(this.button86);
             this.groupBox10.Controls.Add(this.button56);
@@ -1288,6 +1326,26 @@
             this.groupBox10.TabIndex = 0;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Dynamic Programming";
+            // 
+            // button98
+            // 
+            this.button98.Location = new System.Drawing.Point(6, 255);
+            this.button98.Name = "button98";
+            this.button98.Size = new System.Drawing.Size(288, 23);
+            this.button98.TabIndex = 98;
+            this.button98.Text = "Problem - DP - Staircase";
+            this.button98.UseVisualStyleBackColor = true;
+            this.button98.Click += new System.EventHandler(this.button98_Click);
+            // 
+            // button97
+            // 
+            this.button97.Location = new System.Drawing.Point(6, 226);
+            this.button97.Name = "button97";
+            this.button97.Size = new System.Drawing.Size(288, 23);
+            this.button97.TabIndex = 97;
+            this.button97.Text = "Problem - DP - Longest Palindrome Sub Sequence";
+            this.button97.UseVisualStyleBackColor = true;
+            this.button97.Click += new System.EventHandler(this.button97_Click);
             // 
             // button86
             // 
@@ -1378,25 +1436,15 @@
             this.label1.TabIndex = 58;
             this.label1.Text = "Search";
             // 
-            // button58
+            // button100
             // 
-            this.button58.Location = new System.Drawing.Point(6, 440);
-            this.button58.Name = "button58";
-            this.button58.Size = new System.Drawing.Size(230, 23);
-            this.button58.TabIndex = 84;
-            this.button58.Text = "Problem - Stacks - Sort with 2 Stacks";
-            this.button58.UseVisualStyleBackColor = true;
-            this.button58.Click += new System.EventHandler(this.button58_Click);
-            // 
-            // button97
-            // 
-            this.button97.Location = new System.Drawing.Point(6, 226);
-            this.button97.Name = "button97";
-            this.button97.Size = new System.Drawing.Size(288, 23);
-            this.button97.TabIndex = 97;
-            this.button97.Text = "Problem - DP - Longest Palindrome Sub Sequence";
-            this.button97.UseVisualStyleBackColor = true;
-            this.button97.Click += new System.EventHandler(this.button97_Click);
+            this.button100.Location = new System.Drawing.Point(6, 48);
+            this.button100.Name = "button100";
+            this.button100.Size = new System.Drawing.Size(230, 23);
+            this.button100.TabIndex = 93;
+            this.button100.Text = "Top Coder - CCipher";
+            this.button100.UseVisualStyleBackColor = true;
+            this.button100.Click += new System.EventHandler(this.button100_Click);
             // 
             // Form1
             // 
@@ -1423,6 +1471,7 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1545,6 +1594,10 @@
         private System.Windows.Forms.Button button42;
         private System.Windows.Forms.Button button58;
         private System.Windows.Forms.Button button97;
+        private System.Windows.Forms.Button button98;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.Button button99;
+        private System.Windows.Forms.Button button100;
     }
 }
 

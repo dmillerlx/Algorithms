@@ -30,7 +30,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -64,6 +64,7 @@
     <Compile Include="Data Structures\3rd Party Trees\AVLTree\AvlTree.cs" />
     <Compile Include="Codity.cs" />
     <Compile Include="Data Structures\DataStructure_LinkedList.cs" />
+    <Compile Include="Scratch Pad\ScratchPad.cs" />
     <Compile Include="Solved Problems\Ingenio - Simple design Problem.cs" />
     <Compile Include="Solved Problems\Problems_Amazon_FindMaxMatrixMult.cs" />
     <Compile Include="Solved Problems\Problems_Amazon_IntegerMaxNumberFromDigits.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Solved Problems\Problems_DynamicProgramming_LongestCommonSubSequence.cs" />
     <Compile Include="Solved Problems\Problems_DynamicProgramming_LongestPaldromeSubSequence.cs" />
     <Compile Include="Solved Problems\Problems_DynamicProgramming_LongestSubSequence.cs" />
+    <Compile Include="Solved Problems\Problems_DynamicProgramming_Staircase.cs" />
     <Compile Include="Solved Problems\Problems_DynamicProgramming_TextWrap.cs" />
     <Compile Include="Solved Problems\Problems_FindNumberOfRotations.cs" />
     <Compile Include="Data Structures\3rd Party Trees\RedBlackTree\DataStructureException.cs" />
@@ -167,6 +169,8 @@
     <Compile Include="Solved Problems\Problems_Stacks_Sort.cs" />
     <Compile Include="Solved Problems\Problems_Stacks_TowersOfHanoi.cs" />
     <Compile Include="Solved Problems\Problems_String_ReverseWords.cs" />
+    <Compile Include="Solved Problems\Problems_TopCoder_CCipher.cs" />
+    <Compile Include="Solved Problems\Problems_TopCoder_Set657.cs" />
     <Compile Include="Solved Problems\Problems_Trees_CheckIfTreeIsBST.cs" />
     <Compile Include="Solved Problems\Problems_Trees_DetectBalanced.cs" />
     <Compile Include="Solved Problems\Problems_Trees_FindCommonAncestor.cs" />

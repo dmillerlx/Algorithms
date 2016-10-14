@@ -950,5 +950,23 @@ namespace Algorithms
             Solved_Problems.Problems_DynamicProgramming_LongestPaldromeSubSequence test = new Solved_Problems.Problems_DynamicProgramming_LongestPaldromeSubSequence();
             test.Run();
         }
+
+        private void button98_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_DynamicProgramming_Staircase test = new Solved_Problems.Problems_DynamicProgramming_Staircase();
+            test.Run();
+        }
+
+        private void button99_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_TopCoder_Set657 test = new Solved_Problems.Problems_TopCoder_Set657();
+            test.Run();
+        }
+
+        private void button100_Click(object sender, EventArgs e)
+        {
+            Solved_Problems.Problems_TopCoder_CCipher test = new Solved_Problems.Problems_TopCoder_CCipher();
+            test.Run();
+        }
     }
 }
