@@ -50,8 +50,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="ArraysAndStrings.cs" />
+    <Compile Include="LinkedLists.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StacksQueues.cs" />
+    <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Algorithms\Algorithms.csproj">

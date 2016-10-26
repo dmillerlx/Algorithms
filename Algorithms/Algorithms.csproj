@@ -64,6 +64,8 @@
     <Compile Include="Data Structures\3rd Party Trees\AVLTree\AvlTree.cs" />
     <Compile Include="Codity.cs" />
     <Compile Include="Data Structures\DataStructure_LinkedList.cs" />
+    <Compile Include="Data Structures\DataStructure_Queue.cs" />
+    <Compile Include="Data Structures\DataStructure_Stack.cs" />
     <Compile Include="Scratch Pad\ScratchPad.cs" />
     <Compile Include="Solved Problems\Ingenio - Simple design Problem.cs" />
     <Compile Include="Solved Problems\Problems_Amazon_FindMaxMatrixMult.cs" />
