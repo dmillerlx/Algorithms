@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bit Manipulation\BitManipulation.cs" />
     <Compile Include="Data Structures\3rd Party Trees\AVLTree\AvlTree.cs" />
     <Compile Include="Codity.cs" />
     <Compile Include="Data Structures\DataStructure_LinkedList.cs" />

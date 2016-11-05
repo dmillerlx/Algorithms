@@ -51,10 +51,12 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ArraysAndStrings.cs" />
+    <Compile Include="BitManipulation.cs" />
     <Compile Include="LinkedLists.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StacksQueues.cs" />
     <Compile Include="TestBase.cs" />
+    <Compile Include="TreesAndGraphs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Algorithms\Algorithms.csproj">

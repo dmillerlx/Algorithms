@@ -560,5 +560,36 @@ namespace Algorithms.Scratch_Pad
         }
 
 
+        public static int TreeDepth(Node root)
+        {
+            if (root == null)
+                return 0;
+
+            return 1 + TreeDepth(root.left) + TreeDepth(root.right);
+        }
+
+        //Problem 4.1 - find if a binary tree is balanced
+        public static bool IsBinaryTreeBalanced(Node root)
+        {
+            if (root == null)
+                return true;
+
+            return isBalanced(root);
+        }
+
+        public static bool isBalanced(Node root)
+        {
+            if (root == null)
+                return true;
+
+            int leftDepth = TreeDepth(root.left);
+            int rightDepth = TreeDepth(root.right);
+
+            if (Math.Abs(leftDepth - rightDepth) > 1)
+                return false;
+
+            return isBalanced(root.left) && isBalanced(root.right);
+        }
+
     }
 }
