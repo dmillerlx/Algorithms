@@ -591,5 +591,418 @@ namespace Algorithms.Scratch_Pad
             return isBalanced(root.left) && isBalanced(root.right);
         }
 
+        public static int [] QuickSort(ref int []vals)
+        {
+            if (vals.Length <= 1)
+                return vals;
+
+            int pivot = vals.Length / 2;
+            int left = 0;
+            int right = vals.Length - 1;
+
+            QuickSortHelper(ref vals, left, right, (right- left)/2);
+
+            return vals;
+
+        }
+
+        private static void QuickSortHelper(ref int[] vals, int left, int right, int pivot)
+        {
+            int tmp = 0;
+            if (left >= right)
+                return;
+
+            //Get the pivot value
+            int pivotVal = vals[pivot];
+
+            //Example:
+            //Consider 
+            //  right segment: 9, 15, 7, 1
+            //  pivotVal of 9 
+            //  pivot = 0
+            //  right = 3
+            //  
+            //  Everything < 9 has to be to left of 9 and > 9 has to be to the right of 9
+            //      
+            //      9, 15, 7, 1
+            //      ^         ^
+            //1.    1 < 9 => 
+            //          Set pivot index to 1
+            //          New pivot index is now 1
+            //              Move value (15) at new index (1) to the end, where 1 used to be
+            //      
+            //      9, 15, 7, 1 ==> 1, 9, 7, 15
+            //      ^         ^        ^     ^
+            //      p         right    p     right
+            //
+            //      So 1 replaced 9, 15 replace 1, and 9 replace 15
+
+            //2.    15 > 9  => no change, decrement right
+            //      1, 9, 7, 15 ==> 1, 9, 7, 15
+            //         ^     ^         ^  ^
+            //         p     right     p  right
+            //      
+            //3.    9 > 7 ==>
+            //      Set value at pivot index to 7
+            //          Increment pivot index to 2
+            //          Move value at new index (2) to end, where 7 used to be
+            //              This is basically setting 7 = 7
+            //          Finally set pivot value
+            //
+            //      1, 9, 7, 15 ==> 1, 7, 9, 15
+            //         ^  ^               ^
+            //         p  right           p 
+            //                            right
+            //
+            //      So 7 replaced 9, 7 replace 7, and 9 replace 7
+            //
+            //4.    Exit since right <= p
+
+            //Make every item to the left of pivotVal smaller than pivotVal
+            for (int x = left; x < pivot; )
+            {
+                if (vals[x] > pivotVal)
+                {
+                    vals[pivot] = vals[x];
+                    vals[x] = vals[pivot - 1];
+                    vals[pivot - 1] = pivotVal; 
+                    pivot--;
+                }
+                else
+                {
+                    x++;
+                }
+            }
+
+            //Make every item to the right of pivotVal greater than pivotVal
+            for (int x= right; x > pivot;)
+            {
+                if (vals[x] < pivotVal)
+                {
+                    vals[pivot] = vals[x];
+                    vals[x] = vals[pivot + 1];
+                    vals[pivot + 1] = pivotVal;
+                    pivot++;
+                }
+                else
+                {
+                    x--;
+                }
+            }
+
+            ////////
+            //Pivot position does not matter
+
+            //Can use the midpoint of the segment as is done here:
+            //QuickSortHelper(ref vals, left, pivot, left + (pivot-1-left)/2);
+            //QuickSortHelper(ref vals, pivot + 1, right, pivot + (right-pivot+1) / 2);
+            
+            //Can use the left most position as is done here
+            QuickSortHelper(ref vals, left, pivot, left);
+            QuickSortHelper(ref vals, pivot + 1, right, pivot+1);
+        }
+
+        public static int [] MergeSort(int []vals)
+        {
+            return MergeSortHelper(vals);
+        }
+
+        public static int []Sub(int []vals, int start, int end)
+        {
+            int[] ret = new int[end - start + 1];
+            for (int x= start; x <= end; x++)
+            {
+                ret[x - start] = vals[x];
+            }
+            return ret;
+        }
+
+        public static int[]  Merge(int []one, int []two)
+        {
+            int len = one.Length + two.Length;
+            int[] ret = new int[len];
+
+            int oneIndex = 0;
+            int twoIndex = 0;
+            bool chooseOne = false;
+            for (int x = 0; x < len; x++)
+            {
+                if (oneIndex >= one.Length)
+                {
+                    chooseOne = false;
+                }
+                else if (twoIndex >= two.Length)
+                {
+                    chooseOne = true;
+                }
+                else if (one[oneIndex] < two[twoIndex])
+                {
+                    chooseOne = true;
+                }
+                else
+                {
+                    chooseOne = false;
+                }
+
+                if (chooseOne)
+                {
+                    ret[x] = one[oneIndex++];
+                }
+                else
+                {
+                    ret[x] = two[twoIndex++];
+                }
+                
+            }//end for
+
+            return ret;
+        }
+
+        public static int[]  MergeSortHelper(int []vals)
+        {
+            //While length > 2, break into smaller pieces
+            if (vals.Length > 2)
+            {
+                int mid = vals.Length / 2;
+                //Make left and right segments
+                int[] left = Sub(vals, 0, mid);
+                int[] right = Sub(vals, mid + 1, vals.Length-1);
+                //Merge the segments after they are broken into smaller pieces
+                return Merge(MergeSortHelper(left), MergeSortHelper(right));
+            }
+
+            //Length of 2, so sort the two items
+            if (vals.Length == 2)
+            {                
+                if (vals[0] > vals[1])
+                {
+                    int tmp = vals[0];
+                    vals[0] = vals[1];
+                    vals[1] = tmp;
+                }
+            }
+
+            return vals;
+        }
+
+
+        public class TreeNode: IComparable
+        {
+            public TreeNode (int value, int x, int y)
+            {
+                Value = value;
+                X = x;
+                Y = y;
+            }
+            public int Value { get; set; }
+            public int X { get; set; }
+            public int Y { get; set; }
+
+            public int CompareTo(object obj)
+            {
+                TreeNode other = (TreeNode)obj;
+                if (other.X != X)
+                    return X.CompareTo(other.X);
+
+                return Y.CompareTo(other.Y);
+            }
+        }
+        public static int [] PrintBinaryTreeTopToBottom(Node root)
+        {
+            if (root == null)
+                return null;
+
+            heap = new Heap<TreeNode>(Heap<TreeNode>.heapTypeEnum.min);
+
+            PrintBrinaryTreeTopToBottomHelper(root, 0, 0);
+
+            int[] ret = new int[heap.size];
+
+            int index = 0;
+            while (heap.size > 0)
+            {
+                TreeNode node = heap.Dequeue();
+                ret[index++] = node.Value;
+            }
+
+            return ret;
+
+        }
+
+        public static Heap<TreeNode> heap = new Heap<TreeNode>(Heap<TreeNode>.heapTypeEnum.min);
+
+        public static void PrintBrinaryTreeTopToBottomHelper(Node root, int x, int y)
+        {
+            if (root == null)
+                return;
+            heap.Enqueue(new TreeNode((int)root.Data, x, y));
+            PrintBrinaryTreeTopToBottomHelper(root.left, x - 1, y + 1);
+            PrintBrinaryTreeTopToBottomHelper(root.right, x + 1, y + 1);
+        }
+
+        //https://www.careercup.com/question?id=5653583535013888
+        public static void FindBiggestPlusSign(int [,]matrix, out int solX, out int solY, out int solSize)
+        {
+            Memoized = new Dictionary<string, int>();
+
+            solX = -1;
+            solY = -1;
+            solSize = 0;
+
+            int width = matrix.GetLength(0);
+            int height = matrix.GetLength(1);
+
+            for (int x=1; x < width-1; x++)
+            {
+                for (int y=1; y < height - 1; y++)
+                {
+                    if (matrix[x, y] == 1)
+                    {
+                        int size = FindBiggestPlusSignHelper(matrix, x, y);
+                        if (size > solSize)
+                        {
+                            solX = x;
+                            solY = y;
+                            solSize = size;
+                        }
+                    }
+                }
+            }
+        }
+        
+        public static string MakeKey(int x, int y, Direction direction)
+        {
+            int directionNum = 0;
+            switch (direction)
+            {
+                case Direction.up: directionNum = 0; break;
+                case Direction.down: directionNum = 1; break;
+                case Direction.left: directionNum = 2; break;
+                case Direction.right: directionNum = 3; break;
+            }
+
+            return x + "_" + y + "_" + directionNum;
+        }
+
+        public static Dictionary<string, int> Memoized;
+
+        public enum Direction { up, down, left, right };
+        public static int FindBiggestPlusSignHelperMemorized(int [,]matrix, int x, int y, Direction direction)
+        {
+            if (x < 0 || x >= matrix.GetLength(0) || y < 0 || y >= matrix.GetLength(1))
+            {
+                return 0;
+            }
+            
+            if (matrix[x, y] == 0)
+                return 0;
+
+            if (Memoized.ContainsKey(MakeKey(x, y, direction)))
+                return Memoized[MakeKey(x, y, direction)];
+
+            int newX = x;
+            int newY = y;
+            switch (direction)
+            {
+                case Direction.up: newY = y - 1; break;
+                case Direction.down: newY = y + 1; break;
+                case Direction.left: newX = x - 1; break;
+                case Direction.right: newX = x + 1; break;
+            }
+
+            Memoized.Add(MakeKey(x, y, direction), FindBiggestPlusSignHelperMemorized(matrix, newX, newY, direction) + 1);
+
+            return Memoized[MakeKey(x, y, direction)];
+        }
+
+        public static int FindBiggestPlusSignHelper(int[,] matrix, int testX, int testY)
+        {
+            int up = FindBiggestPlusSignHelperMemorized(matrix, testX, testY, Direction.up);
+            int down = FindBiggestPlusSignHelperMemorized(matrix, testX, testY, Direction.down);
+            int left = FindBiggestPlusSignHelperMemorized(matrix, testX, testY, Direction.left);
+            int right = FindBiggestPlusSignHelperMemorized(matrix, testX, testY, Direction.right);
+
+            return Math.Min(Math.Min(up, down), Math.Min(left, right));
+            
+        }
+
+        public static int FindBiggestPlusSignHelper2(int [,]matrix, int testX, int testY)
+        {
+            int size = 0;
+            int width = matrix.GetLength(0);
+            int height = matrix.GetLength(1);
+
+            int increment = 0;
+            while (true)
+            {
+                if (testX + increment < width &&
+                    testX - increment >= 0 &&
+                    testY + increment < height &&
+                    testY - increment >= 0 &&
+                    matrix[testX + increment, testY] == 1 &&
+                    matrix[testX - increment, testY] == 1 &&
+                    matrix[testX, testY - increment] == 1 &&
+                    matrix[testX, testY - increment] == 1
+                    )
+                {
+                    size++;
+                    increment++;
+                }
+                else
+                {
+                    return size;
+                }
+            }
+        }
+
+
+        public class FNode
+        {
+            public FNode(int value, FNode next, FNode down)
+            {
+                Value = value;
+                Next = next;
+                Child = down;
+            }
+            public int Value { get; set; }
+            public FNode Next { get; set; }
+            public FNode Child { get; set; }
+        }
+
+        public static FNode FlattenList(FNode root)
+        {
+            
+            Queue<FNode> queue = new Queue<FNode>();
+
+            FNode current = root;
+
+            if (current == null)
+                return root;
+
+            queue.Enqueue(root);
+
+            while (queue.Count > 0)
+            {
+                FNode tmp = queue.Dequeue();
+                if (current != null && current != root)
+                    current.Next = tmp;
+
+                do
+                {
+                    if (current.Child != null)
+                    {
+                        queue.Enqueue(current.Child);
+                        current.Child = null;
+                    }
+                    if (current.Next != null)
+                        current = current.Next;
+                } while (current.Next != null);
+            }
+
+
+            return root;
+
+        }
+
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="ArraysAndStrings.cs" />
     <Compile Include="BitManipulation.cs" />
     <Compile Include="LinkedLists.cs" />
+    <Compile Include="MiscTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StacksQueues.cs" />
     <Compile Include="TestBase.cs" />

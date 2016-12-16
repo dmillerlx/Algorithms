@@ -277,6 +277,24 @@ namespace Algorithms
 
     public class Node
     {
+        public Node()
+        { }
+
+        public Node(object data)
+        {
+            Data = data;
+            left = null;
+            right = null;
+        }
+
+        public Node(object data, Node left, Node right)
+        {
+            Data = data;
+            this.left = left;
+            this.right = right;
+        }
+
+
         public object Data;
         public Node left = null;
         public Node right = null;
