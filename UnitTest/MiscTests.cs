@@ -193,5 +193,87 @@ namespace UnitTest
             }
 
         }
+
+
+        [TestMethod]
+        public void FindClosestSearchValue()
+        {
+            int[,] matrix = new int[7, 7]
+           {
+                {0,0,1,0,0,1,0 },
+                {1,0,1,0,1,0,1 },
+                {1,1,1,1,1,1,1 },
+                {0,0,1,5,0,0,0 },
+                {0,0,0,0,5,0,0 },
+                {0,0,0,0,0,0,0 },
+                {0,0,0,0,0,0,0 }
+           };
+
+            int searchX;
+            int searchY;
+            bool ret = ScratchPad.FindClosestValue(matrix, 0, 0, 5, out searchX, out searchY);
+
+            Assert.AreEqual(ret, true);
+            Assert.AreEqual(searchX, 3);
+            Assert.AreEqual(searchY, 3);
+
+        }
+
+        [TestMethod]
+        public void FindLargestSum()
+        {
+
+            int[] vals = { -2, -5, 6, -2, -3, 1, 5, -6 };
+
+            int val = ScratchPad.SubArrayLargestSum(vals);
+
+            Assert.AreEqual(val, 7);
+
+            int[] vals2 = { -1, -5, -2, -3, -5, -10 };
+
+            val = ScratchPad.SubArrayLargestSum(vals2);
+
+            Assert.AreEqual(val, -1);
+
+            int[] vals3 = { -10, -5, -2, -3, -5, -10 };
+
+            val = ScratchPad.SubArrayLargestSum(vals3);
+
+            Assert.AreEqual(val, -2);
+
+        }
+
+        [TestMethod]
+        public void FindSmallestSortIndices()
+        {
+
+            // 1,2,4,7,10,11,7,12,6,7,16,18,19
+            int[] vals = { 1, 2, 4, 7, 10, 11, 7, 12, 6, 7, 16, 18, 19 };
+
+            int start;
+            int end;
+            bool ret = ScratchPad.FindSmallestSortIndicies(vals, out start, out end);
+
+            Assert.IsTrue(ret);
+            Assert.AreEqual(start, 3);
+            Assert.AreEqual(end, 9);
+
+            vals = new[] { 1, 2, 16, 3, 6, 10, 11, 4, 6, 19, 20 };
+            ret = ScratchPad.FindSmallestSortIndicies(vals, out start, out end);
+
+            Assert.IsTrue(ret);
+            Assert.AreEqual(start, 2);
+            Assert.AreEqual(end, 8);
+
+        }
+
+
+        [TestMethod]
+        public void FindLongestWordMadeOfOtherWords()
+        {
+            string[] words = { "cat", "banana", "dog", "nana", "walk", "walker", "dogwalker" };
+
+            string result = ScratchPad.FindLongestWordMadeOfOtherWords(words);
+        }
     }
 }

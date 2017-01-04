@@ -1001,8 +1001,189 @@ namespace Algorithms.Scratch_Pad
 
 
             return root;
+        }
+
+
+        public static string MakeKey(int x, int y)
+        {
+            return x + "_" + y;
+        }
+
+        //Given an NxN matrix, and starting point x,y find the closest value of 'searchValue'
+        public static bool FindClosestValue(int [,]matrix, int x, int y, int searchValue, out int searchX, out int searchY)
+        {
+            searchX = 0;
+            searchY = 0;
+
+            Queue<point> queue = new Queue<point>();
+
+            queue.Enqueue(new point(x, y));
+            Dictionary<string, bool> visitList = new Dictionary<string, bool>();
+            while (queue.Count > 0)
+            {
+                point item = queue.Dequeue();
+
+                if (visitList.ContainsKey(MakeKey(item.X, item.Y)))
+                    continue;
+                   
+                if (matrix[item.X, item.Y] == searchValue)
+                {
+                    //Found search item, return
+                    searchX = item.X;
+                    searchY = item.Y;
+                    return true;
+                }
+
+                visitList.Add(MakeKey(item.X, item.Y), true);
+
+
+                //Not found, enqueue neighbors that have not been searched
+
+                if (item.X > 0 && !visitList.ContainsKey(MakeKey(item.X - 1, item.Y)))
+                {
+                    queue.Enqueue(new point(item.X - 1, item.Y));
+                }
+                if (item.Y > 0 && !visitList.ContainsKey(MakeKey(item.X, item.Y - 1)))
+                {
+                    queue.Enqueue(new point(item.X, item.Y - 1));
+                }
+                if (item.X < matrix.GetLength(0) - 1 && !visitList.ContainsKey(MakeKey(item.X + 1, item.Y)))
+                {
+                    queue.Enqueue(new point(item.X + 1, item.Y));
+                }
+                if (item.Y < matrix.GetLength(1) - 1 && !visitList.ContainsKey(MakeKey(item.X, item.Y + 1)))
+                {
+                    queue.Enqueue(new point(item.X, item.Y + 1));
+                }
+            }
+
+            return false;
 
         }
+
+
+        public static int SubArrayLargestSum(int []arr)
+        {
+            int maxSum = int.MinValue;
+            bool allNegative = true;
+            int sum = arr[0];
+            int maxNeg = int.MinValue;
+
+            if (arr[0] < 0)
+                maxNeg = arr[0];
+
+            for (int x=1; x < arr.Length; x++)
+            {
+
+                if (arr[x] < 0 && arr[x] > maxNeg)
+                    maxNeg = arr[x];
+
+                if (arr[x] >= 0)
+                {
+                    allNegative = false;
+                }
+
+                sum += arr[x];
+                if (sum < 0)
+                    sum = 0;
+
+                if (sum > maxSum)
+                {
+                    maxSum = sum;
+                }
+            }
+
+            if (allNegative)
+                return maxNeg;
+
+            return maxSum;
+        }
+
+
+        public static bool FindSmallestSortIndicies(int []vals, out int start, out int end)
+        {
+            start = 0;
+            end = vals.Length-1;
+
+            if (vals.Length == 0)
+                return false;
+
+            // 1,2,4,7,10,11,7,12,6,7,16,18,19
+
+            int lowestStartValue = -1;
+            for (int index = 0; index < vals.Length - 1; index++)
+            {
+                if (vals[index] > vals[index+1])
+                {
+                    lowestStartValue = vals[index+1];
+                    break;
+                }
+            }
+
+            if (lowestStartValue == -1)
+                return false;
+
+            while (vals[start] < lowestStartValue)
+                start++;
+
+
+            Heap<int> h = new Heap<int>(Heap<int>.heapTypeEnum.max);
+
+            for (int index = start; index < vals.Length; index++)
+            {
+                h.Enqueue(vals[index]);
+            }
+
+            
+
+
+            //int highestEndValue = -1;
+            //for (int index = vals.Length-1; index > 0; index--)
+            //{
+            //    if (vals[index-1] > vals[index] || vals[index] <= lowestStartValue)
+            //    {
+            //        highestEndValue = vals[index];
+            //        break;
+            //    }
+            //}
+
+            //if (highestEndValue == -1)
+            //    return false;
+
+            while (vals[end] >= h.Peek())
+            {
+                end--;
+                h.Dequeue();
+            }
+
+            return true;
+        }
+
+
+        public static string FindLongestWordMadeOfOtherWords(string []words)
+        {
+            DataStructure_Tries.Tries tri = new DataStructure_Tries.Tries();
+
+            foreach (string word in words)
+            {
+                tri.AddWord(word);
+            }
+
+            string longestWordMadeOfOtherWords = string.Empty;
+            foreach (string word in words)
+            {                            
+                int count = tri.CountWords(word);
+
+                if (word.Length > longestWordMadeOfOtherWords.Length && count > 1)
+                {
+                    longestWordMadeOfOtherWords = word;
+                }
+            }
+
+
+            return longestWordMadeOfOtherWords;
+        }
+
 
     }
 }

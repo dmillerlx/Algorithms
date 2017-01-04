@@ -27,14 +27,15 @@ namespace Algorithms
 
             public void AddWord(string word)
             {
-                AddWord(word, root);
+                AddWord(word, root, 0);
             }
 
-            void AddWord(string word, Node vertex)
+            void AddWord(string word, Node vertex, int words)
             {
                 if (string.IsNullOrEmpty(word))
                 {
-                    vertex.words++;
+                    //vertex.words++;
+                    vertex.words = words + 1;
                 }
                 else
                 {
@@ -45,7 +46,9 @@ namespace Algorithms
                         vertex.edges[charToIndex(k)] = new Node();
                     }
                     word = word.Substring(1);
-                    AddWord(word, vertex.edges[charToIndex(k)]);
+
+                    int w = Math.Max(words, vertex.words);
+                    AddWord(word, vertex.edges[charToIndex(k)], w);
                 }
             }
 
