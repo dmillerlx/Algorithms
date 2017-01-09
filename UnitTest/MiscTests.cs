@@ -275,5 +275,127 @@ namespace UnitTest
 
             string result = ScratchPad.FindLongestWordMadeOfOtherWords(words);
         }
+
+        [TestMethod]
+        public void ReverseStringExcludingSpecialChars()
+        {
+            string input = "a,b$c";
+            string specialChars = "$,!";
+            string output = new string(ScratchPad.ReverseStringExcludingSpecialChars(input.ToArray(), specialChars.ToArray()));
+
+            Assert.AreEqual(output, "c,b$a");
+
+            input = "Ab,c,de!$";
+            output = new string(ScratchPad.ReverseStringExcludingSpecialChars(input.ToArray(), specialChars.ToArray()));
+            Assert.AreEqual(output, "ed,c,bA!$");
+
+        }
+
+
+        [TestMethod]
+        public void FindPalindromicPartitions()
+        {
+            string input = "nitin";
+
+            List<string> ret = ScratchPad.FindPalindromicPartitions(input.ToArray());
+            Assert.AreEqual(ret.Count, 3);
+            Assert.AreEqual(ret[0], "");
+
+        }
+
+        [TestMethod]
+        public void FindLongestSubstringWithoutRepeatChars()
+        {
+            string input = "abccdefgh";
+
+            string output = ScratchPad.FindLongestSubstringWithoutRepeatCharsV2(input.ToArray());
+
+            Assert.AreEqual(output, "cdefgh");
+
+        }
+
+        [TestMethod]
+        public void ReorderSingleLinkedList()
+        {
+            ScratchPad.LinkedListNode root = new ScratchPad.LinkedListNode(1);
+            root.Next = new ScratchPad.LinkedListNode(2);
+            root.Next.Next = new ScratchPad.LinkedListNode(3);
+            root.Next.Next.Next = new ScratchPad.LinkedListNode(4);
+            root.Next.Next.Next.Next = new ScratchPad.LinkedListNode(5);
+
+
+            //Input  1 -> 2 -> 3 -> 4 -> 5
+            //Output 1 -> 5 -> 2 -> 4 -> 3
+
+            ScratchPad.LinkedListNode result = ScratchPad.ReorderSingleLinkedList(root);
+            Assert.AreEqual(root.Data, 1);
+            Assert.AreEqual(root.Next.Data, 5);
+            Assert.AreEqual(root.Next.Next.Data, 2);
+            Assert.AreEqual(root.Next.Next.Next.Data, 4);
+            Assert.AreEqual(root.Next.Next.Next.Next.Data, 3);
+
+        }
+        [TestMethod]
+        public void ReplaceSpaces()
+        {
+            string input = "Mr John Smith    ";
+
+            string output = new string (ScratchPad.ReplaceSpaces(input.ToArray(), 13));
+
+            Assert.AreEqual(output, "Mr%20John%20Smith");
+
+        }
+
+        [TestMethod]
+        public void RotateMatrix()
+        {
+            // 11112222333344445555
+            // aaaabbbbccccddddeeee
+            // 66667777888899990000
+            // ffffgggghhhhiiiijjjj
+
+            // ffff6666aaaa1111
+            // gggg7777bbbb2222
+            // hhhh8888cccc3333
+            // iiii9999dddd4444
+            // jjjj0000eeee5555
+
+            char[,] input = { 
+                            { '1','1','1','1','2','2','2','2','3','3','3','3','4','4','4','4','5','5','5','5' },
+                            { 'a','a','a','a','b','b','b','b','c','c','c','c','d','d','d','d','e','e','e','e' },
+                            { '6','6','6','6','7','7','7','7','8','8','8','8','9','9','9','9','0','0','0','0' },
+                            { 'f','f','f','f','g','g','g','g','h','h','h','h','i','i','i','i','j','j','j','j' }
+                            };
+
+
+            char [,]output = ScratchPad.RotateMatrix(input);
+
+            output = ScratchPad.RotateMatrix(output);
+
+            output = ScratchPad.RotateMatrix(output);
+
+            output = ScratchPad.RotateMatrix(output);
+
+            for (int y=0; y < input.GetLength(0); y++)
+            {
+                for (int x=0; x < input.GetLength(1); x++)
+                {
+                    System.Diagnostics.Debug.Write(input[y, x]);
+                }
+                System.Diagnostics.Debug.WriteLine(string.Empty);
+            }
+
+            Console.WriteLine("-------------------");
+
+            for (int y = 0; y < output.GetLength(0); y++)
+            {
+                for (int x = 0; x < output.GetLength(1); x++)
+                {
+                    System.Diagnostics.Debug.Write(output[y, x]);
+                }
+                System.Diagnostics.Debug.WriteLine(string.Empty);
+            }
+
+        }
     }
 }

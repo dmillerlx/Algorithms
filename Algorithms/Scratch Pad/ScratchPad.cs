@@ -139,7 +139,7 @@ namespace Algorithms.Scratch_Pad
             return ret.ToString();
 
         }
-                
+
         class point
         {
             public point(int x, int y)
@@ -152,7 +152,7 @@ namespace Algorithms.Scratch_Pad
 
         }
 
-        public static int [,]Matrix_MakeRowColumnZero(int [,]matrix, int m, int n)
+        public static int[,] Matrix_MakeRowColumnZero(int[,] matrix, int m, int n)
         {
             //find current 0's
 
@@ -168,13 +168,13 @@ namespace Algorithms.Scratch_Pad
             for (int y = 0; y < n; y++)
                 cols.Add(y);
 
-            
-            for (int x=0; x < rows.Count;)
+
+            for (int x = 0; x < rows.Count;)
             {
                 bool found = false;
-                for (int y=0; y < cols.Count && !found;)
+                for (int y = 0; y < cols.Count && !found;)
                 {
-                    if (matrix[rows[x],cols[y]] == 0)
+                    if (matrix[rows[x], cols[y]] == 0)
                     {
                         found = true;
                         point p = new point(rows[x], cols[y]);
@@ -197,19 +197,19 @@ namespace Algorithms.Scratch_Pad
                 }
             }
 
-            
+
 
             //Set Row/Column to zero
             foreach (point p in points)
             {
-                for (int x=0; x < m; x++)
+                for (int x = 0; x < m; x++)
                 {
-                    matrix[x,p.Y] = 0;
+                    matrix[x, p.Y] = 0;
                 }
 
-                for (int y=0; y < n; y++)
+                for (int y = 0; y < n; y++)
                 {
-                    matrix[p.X,y] = 0;
+                    matrix[p.X, y] = 0;
                 }
             }
 
@@ -295,7 +295,7 @@ namespace Algorithms.Scratch_Pad
                     twoNode = twoNode.Next;
             }
 
-            if (carryOver >0)
+            if (carryOver > 0)
             {
                 output.Add(carryOver);
             }
@@ -379,7 +379,7 @@ namespace Algorithms.Scratch_Pad
                 public StackItem NextMin { get; set; }
             }
 
-            StackItem []stackItems;
+            StackItem[] stackItems;
             int head;
             StackItem minHead = null;
 
@@ -426,7 +426,7 @@ namespace Algorithms.Scratch_Pad
                 {
                     StackItem tmp = prev.NextMin;
                     prev.NextMin = stackItems[head];
-                    stackItems[head].NextMin = tmp;                    
+                    stackItems[head].NextMin = tmp;
                 }
 
                 //StackItem node = minHead;
@@ -481,7 +481,7 @@ namespace Algorithms.Scratch_Pad
                     //    node.NextMin = node.NextMin.NextMin;
                 }
 
-                
+
 
                 return stackItems[head--].Value;
             }
@@ -538,7 +538,7 @@ namespace Algorithms.Scratch_Pad
             public int Pop()
             {
                 if (IsEmpty) throw new Exception("Empty");
-                
+
                 return stackItems[head--].Value;
             }
 
@@ -591,7 +591,7 @@ namespace Algorithms.Scratch_Pad
             return isBalanced(root.left) && isBalanced(root.right);
         }
 
-        public static int [] QuickSort(ref int []vals)
+        public static int[] QuickSort(ref int[] vals)
         {
             if (vals.Length <= 1)
                 return vals;
@@ -600,7 +600,7 @@ namespace Algorithms.Scratch_Pad
             int left = 0;
             int right = vals.Length - 1;
 
-            QuickSortHelper(ref vals, left, right, (right- left)/2);
+            QuickSortHelper(ref vals, left, right, (right - left) / 2);
 
             return vals;
 
@@ -659,13 +659,13 @@ namespace Algorithms.Scratch_Pad
             //4.    Exit since right <= p
 
             //Make every item to the left of pivotVal smaller than pivotVal
-            for (int x = left; x < pivot; )
+            for (int x = left; x < pivot;)
             {
                 if (vals[x] > pivotVal)
                 {
                     vals[pivot] = vals[x];
                     vals[x] = vals[pivot - 1];
-                    vals[pivot - 1] = pivotVal; 
+                    vals[pivot - 1] = pivotVal;
                     pivot--;
                 }
                 else
@@ -675,7 +675,7 @@ namespace Algorithms.Scratch_Pad
             }
 
             //Make every item to the right of pivotVal greater than pivotVal
-            for (int x= right; x > pivot;)
+            for (int x = right; x > pivot;)
             {
                 if (vals[x] < pivotVal)
                 {
@@ -696,28 +696,28 @@ namespace Algorithms.Scratch_Pad
             //Can use the midpoint of the segment as is done here:
             //QuickSortHelper(ref vals, left, pivot, left + (pivot-1-left)/2);
             //QuickSortHelper(ref vals, pivot + 1, right, pivot + (right-pivot+1) / 2);
-            
+
             //Can use the left most position as is done here
             QuickSortHelper(ref vals, left, pivot, left);
-            QuickSortHelper(ref vals, pivot + 1, right, pivot+1);
+            QuickSortHelper(ref vals, pivot + 1, right, pivot + 1);
         }
 
-        public static int [] MergeSort(int []vals)
+        public static int[] MergeSort(int[] vals)
         {
             return MergeSortHelper(vals);
         }
 
-        public static int []Sub(int []vals, int start, int end)
+        public static int[] Sub(int[] vals, int start, int end)
         {
             int[] ret = new int[end - start + 1];
-            for (int x= start; x <= end; x++)
+            for (int x = start; x <= end; x++)
             {
                 ret[x - start] = vals[x];
             }
             return ret;
         }
 
-        public static int[]  Merge(int []one, int []two)
+        public static int[] Merge(int[] one, int[] two)
         {
             int len = one.Length + two.Length;
             int[] ret = new int[len];
@@ -752,13 +752,13 @@ namespace Algorithms.Scratch_Pad
                 {
                     ret[x] = two[twoIndex++];
                 }
-                
+
             }//end for
 
             return ret;
         }
 
-        public static int[]  MergeSortHelper(int []vals)
+        public static int[] MergeSortHelper(int[] vals)
         {
             //While length > 2, break into smaller pieces
             if (vals.Length > 2)
@@ -766,14 +766,14 @@ namespace Algorithms.Scratch_Pad
                 int mid = vals.Length / 2;
                 //Make left and right segments
                 int[] left = Sub(vals, 0, mid);
-                int[] right = Sub(vals, mid + 1, vals.Length-1);
+                int[] right = Sub(vals, mid + 1, vals.Length - 1);
                 //Merge the segments after they are broken into smaller pieces
                 return Merge(MergeSortHelper(left), MergeSortHelper(right));
             }
 
             //Length of 2, so sort the two items
             if (vals.Length == 2)
-            {                
+            {
                 if (vals[0] > vals[1])
                 {
                     int tmp = vals[0];
@@ -786,9 +786,9 @@ namespace Algorithms.Scratch_Pad
         }
 
 
-        public class TreeNode: IComparable
+        public class TreeNode : IComparable
         {
-            public TreeNode (int value, int x, int y)
+            public TreeNode(int value, int x, int y)
             {
                 Value = value;
                 X = x;
@@ -807,7 +807,7 @@ namespace Algorithms.Scratch_Pad
                 return Y.CompareTo(other.Y);
             }
         }
-        public static int [] PrintBinaryTreeTopToBottom(Node root)
+        public static int[] PrintBinaryTreeTopToBottom(Node root)
         {
             if (root == null)
                 return null;
@@ -841,7 +841,7 @@ namespace Algorithms.Scratch_Pad
         }
 
         //https://www.careercup.com/question?id=5653583535013888
-        public static void FindBiggestPlusSign(int [,]matrix, out int solX, out int solY, out int solSize)
+        public static void FindBiggestPlusSign(int[,] matrix, out int solX, out int solY, out int solSize)
         {
             Memoized = new Dictionary<string, int>();
 
@@ -852,9 +852,9 @@ namespace Algorithms.Scratch_Pad
             int width = matrix.GetLength(0);
             int height = matrix.GetLength(1);
 
-            for (int x=1; x < width-1; x++)
+            for (int x = 1; x < width - 1; x++)
             {
-                for (int y=1; y < height - 1; y++)
+                for (int y = 1; y < height - 1; y++)
                 {
                     if (matrix[x, y] == 1)
                     {
@@ -869,7 +869,7 @@ namespace Algorithms.Scratch_Pad
                 }
             }
         }
-        
+
         public static string MakeKey(int x, int y, Direction direction)
         {
             int directionNum = 0;
@@ -887,13 +887,13 @@ namespace Algorithms.Scratch_Pad
         public static Dictionary<string, int> Memoized;
 
         public enum Direction { up, down, left, right };
-        public static int FindBiggestPlusSignHelperMemorized(int [,]matrix, int x, int y, Direction direction)
+        public static int FindBiggestPlusSignHelperMemorized(int[,] matrix, int x, int y, Direction direction)
         {
             if (x < 0 || x >= matrix.GetLength(0) || y < 0 || y >= matrix.GetLength(1))
             {
                 return 0;
             }
-            
+
             if (matrix[x, y] == 0)
                 return 0;
 
@@ -923,10 +923,10 @@ namespace Algorithms.Scratch_Pad
             int right = FindBiggestPlusSignHelperMemorized(matrix, testX, testY, Direction.right);
 
             return Math.Min(Math.Min(up, down), Math.Min(left, right));
-            
+
         }
 
-        public static int FindBiggestPlusSignHelper2(int [,]matrix, int testX, int testY)
+        public static int FindBiggestPlusSignHelper2(int[,] matrix, int testX, int testY)
         {
             int size = 0;
             int width = matrix.GetLength(0);
@@ -971,7 +971,7 @@ namespace Algorithms.Scratch_Pad
 
         public static FNode FlattenList(FNode root)
         {
-            
+
             Queue<FNode> queue = new Queue<FNode>();
 
             FNode current = root;
@@ -1010,7 +1010,7 @@ namespace Algorithms.Scratch_Pad
         }
 
         //Given an NxN matrix, and starting point x,y find the closest value of 'searchValue'
-        public static bool FindClosestValue(int [,]matrix, int x, int y, int searchValue, out int searchX, out int searchY)
+        public static bool FindClosestValue(int[,] matrix, int x, int y, int searchValue, out int searchX, out int searchY)
         {
             searchX = 0;
             searchY = 0;
@@ -1025,7 +1025,7 @@ namespace Algorithms.Scratch_Pad
 
                 if (visitList.ContainsKey(MakeKey(item.X, item.Y)))
                     continue;
-                   
+
                 if (matrix[item.X, item.Y] == searchValue)
                 {
                     //Found search item, return
@@ -1062,7 +1062,7 @@ namespace Algorithms.Scratch_Pad
         }
 
 
-        public static int SubArrayLargestSum(int []arr)
+        public static int SubArrayLargestSum(int[] arr)
         {
             int maxSum = int.MinValue;
             bool allNegative = true;
@@ -1072,7 +1072,7 @@ namespace Algorithms.Scratch_Pad
             if (arr[0] < 0)
                 maxNeg = arr[0];
 
-            for (int x=1; x < arr.Length; x++)
+            for (int x = 1; x < arr.Length; x++)
             {
 
                 if (arr[x] < 0 && arr[x] > maxNeg)
@@ -1100,10 +1100,10 @@ namespace Algorithms.Scratch_Pad
         }
 
 
-        public static bool FindSmallestSortIndicies(int []vals, out int start, out int end)
+        public static bool FindSmallestSortIndicies(int[] vals, out int start, out int end)
         {
             start = 0;
-            end = vals.Length-1;
+            end = vals.Length - 1;
 
             if (vals.Length == 0)
                 return false;
@@ -1113,9 +1113,9 @@ namespace Algorithms.Scratch_Pad
             int lowestStartValue = -1;
             for (int index = 0; index < vals.Length - 1; index++)
             {
-                if (vals[index] > vals[index+1])
+                if (vals[index] > vals[index + 1])
                 {
-                    lowestStartValue = vals[index+1];
+                    lowestStartValue = vals[index + 1];
                     break;
                 }
             }
@@ -1134,7 +1134,7 @@ namespace Algorithms.Scratch_Pad
                 h.Enqueue(vals[index]);
             }
 
-            
+
 
 
             //int highestEndValue = -1;
@@ -1160,7 +1160,7 @@ namespace Algorithms.Scratch_Pad
         }
 
 
-        public static string FindLongestWordMadeOfOtherWords(string []words)
+        public static string FindLongestWordMadeOfOtherWords(string[] words)
         {
             DataStructure_Tries.Tries tri = new DataStructure_Tries.Tries();
 
@@ -1171,7 +1171,7 @@ namespace Algorithms.Scratch_Pad
 
             string longestWordMadeOfOtherWords = string.Empty;
             foreach (string word in words)
-            {                            
+            {
                 int count = tri.CountWords(word);
 
                 if (word.Length > longestWordMadeOfOtherWords.Length && count > 1)
@@ -1184,6 +1184,441 @@ namespace Algorithms.Scratch_Pad
             return longestWordMadeOfOtherWords;
         }
 
+        static bool isSpecialChar(char[] specialChars, char val)
+        {
+            foreach (char c in specialChars)
+            {
+                if (c == val)
+                    return true;
+            }
 
+            return false;
+        }
+
+        public static char[] ReverseStringExcludingSpecialChars(char[] input, char[] specialChars)
+        {
+            int start = 0;
+            int end = input.Length - 1;
+
+            if (end <= start)
+                return input;
+
+            while (start < end)
+            {
+                if (isSpecialChar(specialChars, input[start]) == false)
+                {
+                    //Found non-special char to reverse, so find end point to reverse it with
+
+                    while (start < end && isSpecialChar(specialChars, input[end]))
+                    {
+                        //decrement end until we find a non-special char
+                        end--;
+                    }
+
+                    //check to see if we crossed start and end
+                    if (end <= start)
+                        break;
+
+                    char tmp = input[start];
+                    input[start] = input[end];
+                    input[end] = tmp;
+
+                    //Increment start
+                    start++;
+
+                    //decrement end
+                    end--;
+                }
+                else
+                {
+                    start++;
+                }
+            }
+
+            return input;
+        }
+
+        public static bool isPalindrome(char[] input, int start, int end)
+        {
+            while (start <= end)
+            {
+                if (input[start] != input[end])
+                    return false;
+                start++;
+                end--;
+            }
+
+            return true;
+        }
+
+        public static List<string> FindPalindromicPartitions(char[] input)
+        {
+            int maxWindow = input.Length;
+            List<string> ret = new List<string>();
+            //Create sliding window of increasing side from 1 to size or input
+            for (int window = 1; window < maxWindow; window++)
+            {
+                //Start window at index 0 and increment until edge of window exceeds input.Length
+
+                for (int start = 0; start + window < input.Length; start++)
+                {
+                    if (isPalindrome(input, start, start + window))
+                    {
+                        //Found a Palindrome so append
+                        StringBuilder sb = new StringBuilder();
+                        for (int x = start; x < start + window; x++)
+                            sb.Append(input[x]);
+
+                        ret.Add(sb.ToString());
+                    }
+                }
+
+            }
+
+            return ret;
+        }
+
+        public static int getCharOffset(char val)
+        {
+            return (int)val - (int)'a';
+        }
+
+        public static string FindLongestSubstringWithoutRepeatChars(char[] input)
+        {
+            int[] arr = new int[26];
+
+            int window = input.Length;
+
+            //start with window of size input.Lenght and decrease each time a solution is not found
+            for (window = input.Length; window > 0; window--)
+            {
+
+                //Move window from left to rigth 
+                for (int start = 0; start + window <= input.Length; start++)
+                {
+                    arr = new int[26];
+                    //Iterate over each char in the window to see if it is a solution
+                    bool failed = false;
+                    for (int x = start; x < start + window; x++)
+                    {
+                        int val = getCharOffset(input[x]);
+                        if (arr[val] > 0)
+                        {
+                            //failure
+                            failed = true;
+                            break;
+                        }
+                        else
+                        {
+                            arr[val]++;
+                        }
+                    }
+
+                    if (!failed)
+                    {
+                        //soution found
+                        StringBuilder sb = new StringBuilder();
+                        for (int x = start; x < start + window; x++)
+                        {
+                            sb.Append(input[x]);
+                        }
+                        return sb.ToString();
+                    }
+                }
+
+            }
+            return string.Empty;
+
+        }
+
+        public static string FindLongestSubstringWithoutRepeatCharsV2(char[] input)
+        {
+            int[] arr = new int[26];
+
+            int startBest = -1;
+            int endBest = -1;
+            int lenBest = -1;
+
+            int currStart = -1;
+            int currEnd = -1;
+            int currLen = -1;
+            for (int x=0; x < input.Length; x++)
+            {
+                if (currStart < 0)
+                {
+                    currStart = x;
+                    currEnd = x;
+                    currLen = 1;
+                }
+
+                int val = getCharOffset(input[x]);
+                if (arr[val] > 0)
+                {
+                    //duplicate found
+                    currStart = x;
+                    currEnd = x;
+                    currLen = 1;
+                    arr = new int[26];
+                    continue;
+                }
+
+                currEnd = x;
+                currLen = currEnd - currStart;
+                arr[val]++;
+
+                if (currLen > lenBest)
+                {
+                    startBest = currStart;
+                    endBest = currEnd;
+                    lenBest = currLen;
+                }
+            }
+
+            StringBuilder sb = new StringBuilder();
+            for (int x= startBest; x <= endBest; x++)
+            {
+                sb.Append(input[x]);
+            }
+
+            return sb.ToString();
+        }
+
+
+        public class LinkedListNode
+        {
+            public LinkedListNode(int data)
+            {
+                Data = data;
+                Next = null;
+            }
+
+            public int Data { get; set; }
+            public LinkedListNode Next { get; set; }
+
+            public string ToString()
+            {
+                return Data.ToString();
+            }
+        }
+
+
+        // 1 -> 2 -> 3 -> 4 -> 5
+        
+        // 1 -> 5 -> 2 -> 3 -> 4
+
+        // 1 -> 5 -> 2 -> 4 -> 3
+        
+        // O(1) space
+        public static LinkedListNode ReorderSingleLinkedList(LinkedListNode root)
+        {
+            if (root == null) return null;
+
+            //1 -> 5 -> 2 -> 4 -> 3
+
+            LinkedListNode currentNode = root;
+
+            //bool done = false;
+            while (currentNode != null && currentNode.Next != null)
+            {
+                //Find last element in the list
+                LinkedListNode prev = null;
+                LinkedListNode lastElement = currentNode;
+                while (lastElement.Next != null)
+                {
+                    prev = lastElement;
+                    lastElement = lastElement.Next;
+                }
+
+                if (prev == null || prev == currentNode)
+                {
+                    //Already on last element, so quit
+                    break;
+                }
+
+                //Link 5 -> 2
+                lastElement.Next = currentNode.Next;
+                //Link 1 -> 5
+                currentNode.Next = lastElement;
+                //Link 4 -> NULL
+                prev.Next = null;
+
+                //Advance currentNode to 2
+                currentNode = lastElement.Next;
+            }
+
+
+            return root;
+        }
+
+        //0, 1, 2, 3, 4
+        //
+        //diff = 0
+        //      0   1
+        //      0   2
+        //      0   3
+        //      0   4
+        // 
+        //
+        //2,3,4,0,1
+        //
+        //diff = -2
+        //      -2  1
+        //      -2  2
+        //      -2  3
+        //      3   1
+        //      3   2
+
+        //2     start       end (start + input.length-1-start)
+        //      2           2+5-1-2 = 4
+        //3     3           3+5-1-3 = 4
+        //4     4           4+5-1-4 = 4
+        //0     2           2+5-1-2 = 4
+        //1     2           2+5-1-2 = 4
+
+
+        //2,3,4,0,1
+        //      Rotate      Rotate
+        //      start       end
+        //2     2           4
+        //3     2           3
+        //4     2           2
+        //0     0           4
+        //1     2           4
+
+
+        //0,1,2,1,3,4
+        //index = 3
+        //val = 1
+        //good starting = 1
+        /*
+        public static int FindAmazingNumberOffset(int []input)
+        {
+            Dictionary<int, int> amazingRotations = new Dictionary<int, int>();
+
+            for (int x=0; x < input.Length; x++)
+            {
+                if (input[x] >= input.Length)
+                {
+                    //Number can never be amazing, so ignore
+                    continue;
+                }
+                int start = 0;
+                int end = 0;
+                if (input[x] <= x)
+                {
+                    start = x;
+                    
+                    if (input[x] < x)
+                    {
+                        start = input[x];
+                    }
+
+
+                    end = input.Length;
+                }
+                else
+                {
+                    start = 
+                }
+
+
+                int start = (x + 1) % nameof;// input[x]-1;
+                int end = 
+
+                int diff = x - input[x];
+
+                if (amazingRotations.ContainsKey(diff))
+                {
+                    amazingRotations[diff] = amazingRotations[diff] + 1;
+                }
+            }
+
+        }
+        */
+
+        //Problem 1.4 - Replace all white spaces in a string with %20.
+        //Provided true length of string
+        //Char array has enough space at end to hold all chars
+
+        //Input:  "Mr John Smith    ", 13
+        //Output: "Mr%20John%20Smith"
+        public static char[]ReplaceSpaces(char []input, int len)
+        {
+            int numerOfSpaces = 0;
+            for (int x=0; x < len; x++)
+            {
+                if (input[x] == ' ')
+                    numerOfSpaces++;
+            }
+
+            //%20 is 3 chars, but only using 2 extra since the space is already using 1 char
+            int end = len + numerOfSpaces * 2 -1; //13 + 2*2 -1 = 13+4-1 = 16
+            
+            for (int x= len-1; x >= 0; x--)
+            {
+                if (input[x] == ' ')
+                {
+                    input[end--] = '0';
+                    input[end--] = '2';
+                    input[end--] = '%';
+                }
+                else
+                {
+                    input[end] = input[x];
+                    end--;
+                }
+            }
+
+            return input;
+
+        }
+
+        //Rotate NxM image 90 degrees
+        //Each pixle is 4 bytes
+
+        // 11112222333344445555
+        // aaaabbbbccccddddeeee
+        // 66667777888899990000
+        // ffffgggghhhhiiiijjjj
+
+        // ffff6666aaaa1111
+        // gggg7777bbbb2222
+        // hhhh8888cccc3333
+        // iiii9999dddd4444
+        // jjjj0000eeee5555
+
+        public static char[,] RotateMatrix(char[,] input)
+        {
+            int width = input.GetLength(0);
+            int height = input.GetLength(1);
+
+            char[,] output = new char[height / 4, width * 4]; // [5, 16]
+
+            //int pixelWidth = width / 4;
+            int pixelHeight = height / 4;
+
+
+            for (int y = 0; y < width; y++)
+            {
+                for (int x = 0; x < pixelHeight; x++)
+                {
+                    //output[0, 12-15]
+                    //output[1, 12-15]
+                    output[x, (width - 1 - y) * 4] = input[y, x * 4];
+                    output[x, (width - 1 - y) * 4 + 1] = input[y, x * 4 + 1];
+                    output[x, (width - 1 - y) * 4 + 2] = input[y, x * 4 + 2];
+                    output[x, (width - 1 - y) * 4 + 3] = input[y, x * 4 + 3];
+
+
+                    //output[pixelHeight - y * 4, x] = input[x * 4, y];
+                    //output[pixelHeight - y * 4 + 1, x] = input[x * 4 + 1, y];
+                    //output[pixelHeight - y * 4 + 2, x] = input[x * 4 + 2, y];
+                    //output[pixelHeight - y * 4 + 3, x] = input[x * 4 + 3, y];
+                }
+            }
+
+            return output;
+        }
     }
+
 }
