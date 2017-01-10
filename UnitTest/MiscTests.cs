@@ -397,5 +397,27 @@ namespace UnitTest
             }
 
         }
+
+        [TestMethod]
+        public void FindAmazingRotation()
+        {
+            int[] input = { 0, 1, 2, 3, 4, 5, 6 };
+            int ret = ScratchPad.FindAmazingNumberOffset(input);
+
+            Assert.AreEqual(ret, 0);
+
+            input = new int []{ 4, 2, 8, 2, 4, 5, 3 };
+            ret = ScratchPad.FindAmazingNumberOffset(input);
+            Assert.AreEqual(ret, 0);
+
+
+            input = new int []{ 1, 2, 3, 4, 5, 1, 2, 9, 10, 11, 1, 2, 3, 4, 5, 6 };
+            ret = ScratchPad.FindAmazingNumberOffset(input);
+            Assert.AreEqual(ret, 9);
+            
+
+        }
+
+
     }
 }

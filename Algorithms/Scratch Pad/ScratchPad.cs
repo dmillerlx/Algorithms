@@ -1490,51 +1490,215 @@ namespace Algorithms.Scratch_Pad
         //index = 3
         //val = 1
         //good starting = 1
-        /*
+        
+        //0,1,2,3,4,5
+        //  0,1,2,3,4,5
+        //    0,1,2,3,4,5
+        //      0,1,2,3,4,5
+        //        0,1,2,3,4,5
+        //          0,1,2,3,4,5
+        //0,1,2,1,3,4|0,1,2,1,3
+        //^ ^ ^ ^ ^ ^               = 5
+        //  ^ ^ ^ ^ ^ ^             = 4
+        //    ^ ^ ^ ^ ^ ^           = 3
+        //      ^ ^ ^ ^ ^ ^         = 3
+        //        ^ ^ ^ ^ ^ ^       = 4
+        //          ^ ^ ^ ^ ^ ^     = 5
+        
         public static int FindAmazingNumberOffset(int []input)
         {
-            Dictionary<int, int> amazingRotations = new Dictionary<int, int>();
+            //https://www.careercup.com/question?id=6018738030641152
 
-            for (int x=0; x < input.Length; x++)
+
+            //Brute Force
+
+            //int offsetMax = -1;
+            //int offsetBest = -1;
+
+            //for (int offset=0; offset < input.Length; offset++)
+            //{
+            //    int count = 0;
+            //    for (int i=0; i < input.Length; i++)
+            //    {
+            //        int index = (offset + i) % input.Length;
+            //        if (input[index] <= i)
+            //        {
+            //            count++;
+            //        }
+            //    }
+
+            //    if (count > offsetMax)
+            //    {
+            //        offsetBest = offset;
+            //        offsetMax = count;
+            //    }
+            //}
+
+            //return offsetBest;
+
+            //Finding intervals
+
+            //Valid interval is defined as:
+            // <index> + 1 ... n + <index> - a[<index>]
+            //
+            //0,1,2,1,3,4|0,1,2,1,3
+            //
+            //0 -> 0 .. 6
+            //0 -> 0+1 .. 6 + 1 - a[0](0) = 1 .. 7  (7 is 0, so it actually covers 0 to 6 in a circular reference way)
+            //1 -> 1+1 .. 6 + 1 - a[1](1) = 2 .. 6
+            //2 -> 2+1 .. 6 + 2 - a[2](2) = 3 .. 6
+            //1 -> 3+1 .. 6 + 3 - a[3](1) = 4 .. 8
+            //3 -> 4+1 .. 6 + 4 - a[4](3) = 5 .. 7
+            //4 -> 5+1 .. 6 + 5 - a[5](4) = 6 .. 7
+
+
+            ///////////////////////////
+            //Conceptual solution, not implemented below
+            //
+            //Once we have the intervals, we can sort by the start and end values and merge into a single list keeping tack of
+            //the start and end points
+            //We can then scan the list and increment on the start and decrement on the ends
+            //That info can use used to find the local min and max values
+
+            //1 .. 7 -> 1S, 7E
+            //2 .. 6 -> 2S, 6E
+            //3 .. 6 -> 3S, 6E
+            //4 .. 8 -> 4S, 8E
+            //5 .. 7 -> 5S, 7E
+            //6 .. 7 -> 6S, 7E
+
+            //List
+            //1S, 2S, 3S, 4S, 5S, 6S, 6E, 6E, 7E, 7E, 7E, 8E
+            //Each S increments and each E decrements
+            //1   2   3   4   5   6   5   4   3   2   1   0
+            //                    ^
+            //Best starting offset is 6
+            //Number of elements i 
+
+            //End conceptual solution
+            /////////////////////////////////////
+
+            /////////////////////
+            //Solution implemented below
+            //Alternate finding of index, which basically does the solution above, but is less intutive
+            //
+            //In this solution, we iterate from i to n and increment 'k' when a start is found
+            //and decrement 'k' when an end is found
+            //
+            //
+            //Place starting indexes and ending indexes in seperates lists
+            //Sort lists
+            //
+            //Finding the index works as follows:
+            //let k be the number of intervals covered by the current index
+            //int k = 0;
+            //int maxk = 0;
+            //int maxki = 0;
+            //int s = 0;
+            //int e = 0;
+            //for (int i = 0; i < n; i++)
+            //{
+            //    while (s < start.size() && start[s] == i) { s++; k++; }
+            //    if (k > maxk) {// new found { ... } }
+            //    while (e < end.size() && end[e] == i) { e++; k--; }
+            //}
+            //
+            //
+
+
+            //Create intervals
+            List<int> start = new List<int>();
+            List<int> end = new List<int>();
+            for (int index=0; index < input.Length; index++)
             {
-                if (input[x] >= input.Length)
+                // START           END
+                // <index> + 1 ... n + <index> - a[<index>]
+                int _start = index + 1;
+                int _end = input.Length + index - input[index];
+
+                //if _end >= _start, interval not valid.  Could easily also check input[index] >= input.Length
+                if (_end >= _start)
                 {
-                    //Number can never be amazing, so ignore
-                    continue;
-                }
-                int start = 0;
-                int end = 0;
-                if (input[x] <= x)
-                {
-                    start = x;
-                    
-                    if (input[x] < x)
+                    //Add start
+                    start.Add(_start);
+
+                    //if end is less than input.length, just add it
+                    if (_end < input.Length)
                     {
-                        start = input[x];
+                        end.Add(_end);
                     }
+                    else
+                    {
+                        //Otherwise, split into two intervals since it wraps at the end of the array
+                        //First interval ends at the end of the array (input.Length -1)                        
+                        end.Add(input.Length - 1);
 
-
-                    end = input.Length;
-                }
-                else
-                {
-                    start = 
-                }
-
-
-                int start = (x + 1) % nameof;// input[x]-1;
-                int end = 
-
-                int diff = x - input[x];
-
-                if (amazingRotations.ContainsKey(diff))
-                {
-                    amazingRotations[diff] = amazingRotations[diff] + 1;
+                        //Second interval starts at 0 and goes to _end % input.length
+                        start.Add(0);
+                        end.Add(_end % input.Length);
+                    }
+                   
                 }
             }
 
+            //Sort the start and end lists
+            start.Sort();
+            end.Sort();
+
+            //1.    Iterate from i to input.Length
+            //2.    While i == start[s], increment k
+            //          This means for each inerval that starts at i, increment k
+            //          Conceptually, If start and end are thought of as parentheses, then k is the number of nested parenthese we are in
+            //3.    Then check to see if we are in a local maximum by comparing against maxk
+            //          If we are in a local max,
+            //              a.  Set maxk = k
+            //              b.  Set maxki = i % input.Length        <-- This will be the return value for the local maximum
+            //4.    While i == end[e], decrement k
+            //          This means for each interval that ends on i, decrement k
+            //          Conceptually, this would be the closing parentheses
+            //
+            int k = 0;
+            int maxk = 0;
+            int maxki = 0; //return value
+            int s = 0;
+            int e = 0;
+
+            //1.    Iterate from i to input.Length
+            for (int i=0; i < input.Length; i++)
+            {
+                //2.    Check for starting interval at i
+                while (s < start.Count() && start[s] == i)
+                {
+                    //Found starting interval, so increment k and repeat while the starting interval is still 'i'
+                    s++;
+                    k++;
+                }
+
+                //3.    Check for a local maximum
+                if (k > maxk)
+                {
+                    //New max found
+                    maxki = i % input.Length;
+                    maxk = k;   
+                }
+
+                //3.    Check for ending interval at i
+                while (e < end.Count() && end[e] == i)
+                {
+                    //Found ending interval at i, so decrement k and repeat while the ending interval is still 'i'
+                    e++;
+                    k--;
+                }
+            }
+
+            //Finally return the solution
+            return maxki;
+
+
+            
+
         }
-        */
+        
 
         //Problem 1.4 - Replace all white spaces in a string with %20.
         //Provided true length of string
