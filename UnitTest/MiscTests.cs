@@ -418,6 +418,104 @@ namespace UnitTest
 
         }
 
+        [TestMethod]
+        public void SortArraySquares()
+        {
+            //-10, -5, -1, 1, 3, 5, 10
+
+            //100, 25, 1, 1, 9, 25, 100
+
+            int[] input = { -10, -5, -1, 1, 3, 5, 10 };
+
+            int[] expectedOutput = { 1, 1, 9, 25, 25, 100, 100 };
+
+            int[] ret = ScratchPad.SortSquaresOfIntegers(input);
+
+            for (int x=0; x < ret.Length; x++)
+            {
+                Assert.AreEqual(ret[x], expectedOutput[x]);
+            }
+        }
+
+        [TestMethod]
+        public void FindContingousSum()
+        {
+            // 1, 3, 5, 18      x = 8
+
+            Assert.IsTrue(ScratchPad.HasContigousSubArraySum(new int[] { 1, 3, 5, 18 }, 8));
+            Assert.IsTrue(ScratchPad.HasContigousSubArraySum(new int[] { 1, 3, 5, 18 }, 9));
+            Assert.IsFalse(ScratchPad.HasContigousSubArraySum(new int[] { 1, 3, 5, 18 }, 10));
+            Assert.IsFalse(ScratchPad.HasContigousSubArraySum(new int[] { 1, 3, 5, 18 }, 40));
+
+
+            Assert.IsTrue(ScratchPad.HasContigousSubArraySum(new int[] { 10, 1, 2, 3, 5, 18 }, 8));
+            Assert.IsTrue(ScratchPad.HasContigousSubArraySum(new int[] { 10, 1, 2, 3, 5, 18 }, 18));
+            Assert.IsTrue(ScratchPad.HasContigousSubArraySum(new int[] { 10, 1, 2, 3, 5, 18 }, 3));
+
+        }
+
+        [TestMethod]
+        public void FindKClosestPoint()
+        {
+            List<ScratchPad.MyPoint> points = new List<ScratchPad.MyPoint>();
+
+            points.Add(new ScratchPad.MyPoint() { X = 5, Y = 5 });
+            points.Add(new ScratchPad.MyPoint() { X = 6, Y = 6 });
+            points.Add(new ScratchPad.MyPoint() { X = 2, Y = 4 });
+            points.Add(new ScratchPad.MyPoint() { X = 1, Y = 5 });
+            points.Add(new ScratchPad.MyPoint() { X = 3, Y = 7 });
+            points.Add(new ScratchPad.MyPoint() { X = 8, Y = 2 });
+
+            int k = 2;
+            ScratchPad.MyPoint kthItem = ScratchPad.FindClosestKPoint(points.ToArray(), k);
+
+            System.Diagnostics.Debug.WriteLine(string.Format("Kth ({0}) Item.X({1}) Item.Y({2}) Item.Distance({3})", k, kthItem.X, kthItem.Y, kthItem.Distance));
+
+
+        }
+
+
+        [TestMethod]
+        public void RemoveInvalidParentheses()
+        {
+            string input = "(ab(c)";
+            string expectedOutput = "ab(c)";
+
+            string ret = ScratchPad.RemoveInvalidParentheses(input);
+            System.Diagnostics.Debug.WriteLine(string.Format("Input: {0}\nOutput: {1}", input, ret));
+
+            Assert.AreEqual(ret, expectedOutput);
+
+
+            input = "(ab(cd)(e(df(ea(sdf)qe)e))";
+            ret = ScratchPad.RemoveInvalidParentheses(input);
+            System.Diagnostics.Debug.WriteLine(string.Format("Input: {0}\nOutput: {1}", input, ret));
+
+        }
+
+        [TestMethod]
+        public void EnsureNDashesBetweenTwoChars()
+        {
+            //Ensure that there are a minimum of n dashes between any two of the same characters of a string.
+            //Example: n = 2, string = "ab-bcdecca" -> "ab--bcdec--ca"
+
+            string input = "---ab-bcdecca---";
+            string expectedOutput = "---ab--bcdec--ca---";
+
+            string ret = ScratchPad.EnsureNDashesBetweenTwoChars(input, 2);
+
+            Assert.AreEqual(ret, expectedOutput);
+
+
+            input = "A-ABCCD-F-F-G--G--H";
+            expectedOutput = "A----ABC----CD-F----F-G----G--H";
+            ret = ScratchPad.EnsureNDashesBetweenTwoChars(input, 4);
+
+            Assert.AreEqual(ret, expectedOutput);
+
+        }
+
+
 
     }
 }

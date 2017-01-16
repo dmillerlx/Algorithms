@@ -1507,10 +1507,20 @@ namespace Algorithms.Scratch_Pad
         
         public static int FindAmazingNumberOffset(int []input)
         {
-            //https://www.careercup.com/question?id=6018738030641152
+
+            //Amazing number: its value is less than or equal to its index
+            //  Given a circular array, find the starting position such that the total
+            //  number of amazing numbers is maximized
+            //Solution should be less than O(N^2)
 
 
+
+            ////////////////////////////////////////////////////////////
             //Brute Force
+            //
+            //Iterate over each offset from 0 to input.length
+            //Count the number of amazing numbers in the list starting at each offset
+            //Runtime: O(n^2)
 
             //int offsetMax = -1;
             //int offsetBest = -1;
@@ -1536,12 +1546,45 @@ namespace Algorithms.Scratch_Pad
 
             //return offsetBest;
 
-            //Finding intervals
-
-            //Valid interval is defined as:
-            // <index> + 1 ... n + <index> - a[<index>]
+            ///////////////////////////////////////////////
+            //Interval based solution
+            //https://www.careercup.com/question?id=6018738030641152
             //
-            //0,1,2,1,3,4|0,1,2,1,3
+            //Iterate over each offset from 0 to input.length
+            //Calculate the amazing number interval for each number using this formula
+            //
+            //      Valid interval is defined as:
+            //          <index> + 1 ... n + <index> - a[<index>]
+
+            //Example 1:
+            //index: 0, 1, 2, 3, 4, 5, 6, 
+            //value: 4, 2, 8, 2, 4, 5, 3, 
+            //n = 7
+            //
+            //value 4 at index 0: can be used if start index is between 1 and 3
+            //    because there must be at least 4 elements before a[0] to satisfy
+            //    a[0] >= index.
+            //    that is 0 + 1..n + 0 - a[0]
+            //
+            //    Why?
+            //  
+            //       
+            //      Index 0     index: 0, 1, 2, 3, 4, 5, 6      4 > 0 bad
+            //      Index 1     index: 6, 0, 1, 2, 3, 4, 5      4 <= 6 amazing with index 1
+            //      Index 2     index: 5, 6, 0, 1, 2, 3, 4      4 <= 5 amazing with index 2
+            //      Index 3     index: 4, 5, 6, 0, 1, 2, 3      4 <= 4 amazing with index 3
+            //      Index 4     index: 3, 4, 5, 6, 0, 1, 2      4 > 3 bad
+            //      Index 5     index: 2, 3, 4, 5, 6, 0, 1      4 > 2 bad
+            //      Index 6     index: 1, 2, 3, 4, 5, 6, 0      4 > 1 bad
+            //                  value: 4, 2, 8, 2, 4, 5, 3,     
+            //
+            //
+            //value 2 at index 1: can be used if start index is between 2 and 6
+            //    that is 1 + 1..n + 1 - a[1]
+            //...
+            //
+            //Example 2:
+            //0,1,2,1,3,4|0,1,2,1,3         <-- Here the array is 0,1,2,1,3,4 and | denotes the circular restart
             //
             //0 -> 0 .. 6
             //0 -> 0+1 .. 6 + 1 - a[0](0) = 1 .. 7  (7 is 0, so it actually covers 0 to 6 in a circular reference way)
@@ -1550,6 +1593,9 @@ namespace Algorithms.Scratch_Pad
             //1 -> 3+1 .. 6 + 3 - a[3](1) = 4 .. 8
             //3 -> 4+1 .. 6 + 4 - a[4](3) = 5 .. 7
             //4 -> 5+1 .. 6 + 5 - a[5](4) = 6 .. 7
+            //
+            //
+            //Once the intervals are created, the solution is to find the greatest occurance inside the intervals
 
 
             ///////////////////////////
@@ -1559,7 +1605,6 @@ namespace Algorithms.Scratch_Pad
             //the start and end points
             //We can then scan the list and increment on the start and decrement on the ends
             //That info can use used to find the local min and max values
-
             //1 .. 7 -> 1S, 7E
             //2 .. 6 -> 2S, 6E
             //3 .. 6 -> 3S, 6E
@@ -1783,6 +1828,276 @@ namespace Algorithms.Scratch_Pad
 
             return output;
         }
+
+        public static int []SortSquaresOfIntegers(int []vals)
+        {
+            //-10, -5, -1, 1, 3, 5, 10
+
+            //100, 25, 1, 1, 9, 25, 100
+
+            //Create two lists based for positive and negative numbers
+            //then merge sort the output array
+
+            int[] one = new int[vals.Length]; //for negative squares
+            int[] two = new int[vals.Length];
+            int oneCount = 0;
+            int twoCount = 0;
+            for (int x=0; x < vals.Length; x++)
+            {
+                int val = vals[x] * vals[x];
+                if (vals[x] < 0)
+                    one[oneCount++] = val;
+                else two[twoCount++] = val;
+            }
+
+            
+
+            //Check if there are only positive or negative values.  If so, return solution
+            if (oneCount == 0)
+                return two;
+
+            if (twoCount == 0)
+                return one;
+
+            //merge sort the arrays
+            int[] ret = new int[vals.Length];
+
+            int oneIndex = oneCount-1;
+            int twoIndex = 0;
+            for (int x=0; x < ret.Length; x++)
+            {
+                bool useOne = false;
+                if (oneIndex >= 0 && twoIndex < twoCount)
+                {
+                    if (one[oneIndex] < two[twoIndex])
+                        useOne = true;
+                }
+                else if (oneIndex >= 0)
+                {
+                    useOne = true;
+                }
+
+                if (useOne)
+                {
+                    ret[x] = one[oneIndex--];
+                }
+                else
+                {
+                    ret[x] = two[twoIndex++];
+                }
+            }
+
+            return ret;
+
+        }
+
+        // 1, 3, 5, 18      x = 8
+
+        public static bool HasContigousSubArraySum(int []arr, int target)
+        {
+            if (arr == null)
+                return false;
+            if (arr.Length == 0)
+                return false;
+
+            int start = 0;
+            int end = 0;
+            int sum = arr[0];
+            
+            while (start < arr.Length && end < arr.Length)
+            {
+                //sum == target, return true
+                if (sum == target)
+                {
+                    return true;
+                }
+                else if (sum > target && start == end)
+                {
+                    //Only using 1 value and start == end, so increment both
+                    start++;
+                    end++;
+                    if (start < arr.Length)
+                    {
+                        sum = arr[start];
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else if (sum < target)
+                {
+                    //sum is less than target so add more numbers to the end
+                    end++;
+                    if (end < arr.Length)
+                        sum += arr[end];
+                    else return false;
+                }
+                else if (sum > target)
+                {
+                    //Sum exceeded target, so remove starting value
+                    sum -= arr[start];
+                    start++;                    
+                }
+            }
+
+            return false;
+
+
+
+        }
+
+//        1) Given a list of(x, y) coordinates, return k nearest points to(0, 0)
+
+
+
+        public class MyPoint: IComparable
+        {
+            public int X { get; set; }
+            public int Y { get; set; }
+            public double Distance { get; set; }
+
+            public int CompareTo(object obj)
+            {
+                MyPoint other = (MyPoint)obj;
+
+                return Distance.CompareTo(other.Distance);
+            }
+        }
+
+        public static MyPoint FindClosestKPoint(MyPoint []points, int k)
+        {
+            if (points == null)
+                return null;
+
+            if (points.Length == 0)
+                return null;
+
+            Heap<MyPoint> pointHeap = new Heap<ScratchPad.MyPoint>(Heap<ScratchPad.MyPoint>.heapTypeEnum.min);
+
+            for(int x=0; x < points.Length; x++)
+            {
+                double distance = Math.Sqrt(Math.Pow(points[x].X - 0, 2) + Math.Pow(points[x].Y - 0, 2));
+
+                //MyPoint p = new MyPoint() { X = points[x].X, Y = points[x].Y, Distance = distance}
+                points[x].Distance = distance;
+
+                pointHeap.Enqueue(points[x]);
+            }
+
+            while (k > 1 && pointHeap.size > 0)
+            {
+                pointHeap.Dequeue();
+                k--;
+            }
+
+            if (pointHeap.size == 0)
+                return null;
+
+            return pointHeap.Dequeue();
+
+               
+        }
+
+        //2) Given a string of parenthesis and characters, remove the invalid parentheses.
+        //eg. "(ab(a)" => "ab(a)"  
+
+        public static string RemoveInvalidParentheses(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return string.Empty;
+            //Scan string and make list of open and close parenteses by their index
+
+            //List<int> opening = new List<int>();
+            //List<int> closing = new List<int>();
+            Stack<int> opening = new Stack<int>();
+            Stack<int> closing = new Stack<int>();
+            for(int x=0; x < input.Length; x++)
+            {
+                if (input[x] == '(')
+                {
+                    opening.Push(x);
+                }
+                else if (input[x] == ')')
+                {
+                    closing.Push(x);
+                }
+            }
+
+            //List<int> remove = new List<int>();
+            Heap<int> remove = new Heap<int>(Heap<int>.heapTypeEnum.max);
+            while (opening.Count > 0 || closing.Count > 0)
+            {
+                if (opening.Count > 0 && closing.Count == 0)
+                {
+                    remove.Enqueue(opening.Pop());
+                }
+                else if (opening.Count == 0 && closing.Count > 0)
+                {
+                    remove.Enqueue(closing.Pop());
+                }
+                else
+                {
+                    closing.Pop();
+                    opening.Pop();
+                }
+            }
+
+            while (remove.size > 0)
+            {
+                input = input.Remove(remove.Dequeue(), 1);
+            }
+
+
+            return input;       
+
+        }
+
+        //Ensure that there are a minimum of n dashes between any two of the same characters of a string.
+        //Example: n = 2, string = "ab-bcdecca" -> "ab--bcdec--ca"
+
+        public static string EnsureNDashesBetweenTwoChars(string input, int n)            
+        {
+            //Find first starting char
+            StringBuilder sb = new StringBuilder();
+            char lastChar = input[0];
+            int dashCount = 0;                   
+            for (int x= 0; x < input.Length; x++)
+            {
+                if (x == 0 || lastChar == '-')
+                {
+                    lastChar = input[x];
+                    sb.Append(input[x]);
+                }
+                else
+                {
+                    if (input[x] == '-')
+                    {
+                        dashCount++;
+                        sb.Append(input[x]);
+                    }
+                    else if (input[x] == lastChar)
+                    {
+                        while (dashCount < n)
+                        {
+                            sb.Append('-');
+                            dashCount++;
+                        }
+                        sb.Append(input[x]);
+                        dashCount = 0;
+                    }
+                    else
+                    {
+                        lastChar = input[x];
+                        sb.Append(input[x]);
+                        dashCount = 0;
+                    }
+                }
+            }
+
+            return sb.ToString();
+        }
+
     }
 
 }
