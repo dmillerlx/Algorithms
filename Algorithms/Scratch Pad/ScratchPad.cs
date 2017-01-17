@@ -2098,6 +2098,131 @@ namespace Algorithms.Scratch_Pad
             return sb.ToString();
         }
 
+
+        public static string StringCompression(string val)
+        {
+            if (string.IsNullOrEmpty(val))
+                return string.Empty;
+
+            if (val.Length <= 2)
+                return val;
+
+            StringBuilder sb = new StringBuilder();
+
+            char lastChar = '0';
+            int count = 0;
+
+            //aabccccaaa
+            //lastChar = a  count=1 x=0
+            //          a       2     1
+            //          b       1     2 --> a2
+            //          c       1     3 --> b1
+            //          c       2     4
+            //          ...
+
+            for(int x=0; x < val.Length; x++)
+            {
+                if (x == 0)
+                {
+                    lastChar = val[0];
+                    count = 1;
+                }                                
+                else if (val[x] == lastChar)
+                {
+                    count++;
+                }
+                else
+                {
+                    sb.Append(lastChar);
+                    sb.Append(count);
+
+                    lastChar = val[x];
+                    count = 1;
+                }
+            }
+
+            sb.Append(lastChar);
+            sb.Append(count);
+
+            if (sb.Length < val.Length)
+                return sb.ToString();
+
+            return val;
+
+        }
+
+        //Given an array of integer, find the maximum drop between two array elements, given that second element comes after the first one.
+        public static int FindMaximumDrop(int []vals)
+        {
+            //1, 5, 10, 3, 7, 15, 8, 9, 4, 3, 1, 3
+
+            int maxDrop = -1;
+            int localMax = int.MinValue;
+            int localMin = int.MaxValue;
+            for (int x=0; x < vals.Length; x++)
+            {
+                if (x==0)
+                {
+                    localMax = vals[0];
+                    localMin = vals[0];
+                    maxDrop = 0;
+                }
+                else if (vals[x] > localMax)
+                {
+                    localMax = vals[x];
+                    localMin = vals[x];
+                }
+                else if (vals[x] < localMin)
+                {
+                    localMin = vals[x];
+                    int drop = localMax - localMin;
+                    if (drop > maxDrop)
+                        maxDrop = drop;
+                }
+                else
+                {
+                    //do nothing
+                }
+            }
+
+            return maxDrop;
+        }
+
+
+        //We have an array of objects A and an array of indexes B.Reorder objects in array A with given indexes in array B.Do not change array A's length. 
+        //example:
+
+
+        //var A = [C, D, E, F, G];
+        //var B = [3, 0, 4, 1, 2];
+
+        //sort(A, B);
+        // A is now [D, F, G, C, E];
+
+        public static void Reorder(ref char []A, ref int []B)
+        {
+            for (int x=0; x < A.Length; )
+            {
+                if (B[x] == x)
+                {
+                    x++;
+                }
+                else
+                {
+                    //swap B[x] with B[B[x]]
+                    int tmpInt = B[x];
+                    char tmpChar = A[x];
+
+                    A[x] = A[B[x]];
+                    B[x] = B[B[x]];
+
+                    A[tmpInt] = tmpChar;
+                    B[tmpInt] = tmpInt;
+                }
+            }
+
+        }
+
     }
 
 }

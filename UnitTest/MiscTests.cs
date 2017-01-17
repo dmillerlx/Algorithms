@@ -515,6 +515,46 @@ namespace UnitTest
 
         }
 
+        [TestMethod]
+        public void CompressString()
+        {
+            string input = "aabccccaaa";
+            string expectedOutput = "a2b1c4a3";
+
+            string ret = ScratchPad.StringCompression(input);
+
+            Assert.AreEqual(ret, expectedOutput);
+
+
+        }
+
+        [TestMethod]
+        public void FindMaxDrop()
+        {
+            int[] input = { 1, 5, 10, 3, 7, 15, 8, 9, 4, 3, 1, 3 };
+            int expectedOutput = 14;
+
+            int ret = ScratchPad.FindMaximumDrop(input);
+
+            Assert.AreEqual(ret, expectedOutput);
+
+        }
+
+        [TestMethod]
+        public void ReorderArray()
+        {
+            char[] A = { 'C', 'D', 'E', 'F', 'G' };
+            int[] B = { 3, 0, 4, 1, 2 };
+
+            ScratchPad.Reorder(ref A, ref B);
+
+            char[] C = { 'D', 'F', 'G', 'C', 'E' };
+            for (int x = 0; x < C.Length; x++)
+            {
+                Assert.AreEqual(A[x], C[x]);
+            }
+
+        }          
 
 
     }
