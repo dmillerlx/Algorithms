@@ -554,7 +554,237 @@ namespace UnitTest
                 Assert.AreEqual(A[x], C[x]);
             }
 
-        }          
+        }   
+        
+        [TestMethod]
+        public void FindFirstNonMatchingLeaves()
+        {
+            int[] o1 = { 5, 4, 2, 4, 8, 6, 9 };
+            int[] o2 = { 5, 3, 2, 4, 8, 7, 9 };
+
+            ScratchPad.FirstNonMathcingLeaves(o1, o2);
+
+        }      
+        
+        [TestMethod]
+        public void FindProfit()
+        {
+            int []stock_prices_yesterday = new int[] { 10, 7, 5, 8, 11, 2, 9, 8, 4, 3, 6, 5, 11, 12, 10, 2, 7, 17 };
+            int ret = ScratchPad.FindBestBuySellStock(stock_prices_yesterday);
+
+            stock_prices_yesterday = new int[] { 10, 7, 5, 1 };//, 11, 2, 9, 8, 4, 3, 6, 5, 11, 12, 10, 2, 7, 17 };
+            ret = ScratchPad.FindBestBuySellStock(stock_prices_yesterday);
+        }
+
+        [TestMethod]
+        public void GetProductOfIntsExceptIndex()
+        {
+            int[] vals = new int[] { 0, 7, 3, 4 };
+
+            int []ret = ScratchPad.GetProductsOfAllIntsExceptAtIndex(vals);
+
+        }
+
+
+        [TestMethod]
+        public void MeetingTimes()
+        {
+            List<ScratchPad.MeetingTime> meetingTimes = new List<ScratchPad.MeetingTime>();
+
+            meetingTimes.Add(new ScratchPad.MeetingTime() { Start = 0, End = 1 });
+            meetingTimes.Add(new ScratchPad.MeetingTime() { Start = 3, End = 5 });
+            meetingTimes.Add(new ScratchPad.MeetingTime() { Start = 4, End = 8 });
+            meetingTimes.Add(new ScratchPad.MeetingTime() { Start = 10, End = 12 });
+            meetingTimes.Add(new ScratchPad.MeetingTime() { Start = 9, End = 10 });
+
+            var ret = ScratchPad.MergeMeetingTimes(meetingTimes.ToArray());
+
+            foreach (var item in ret)
+            {
+                System.Diagnostics.Debug.WriteLine(item.Start + " - " + item.End);
+            }
+
+            //[ Meeting(1, 10), Meeting(2, 6), Meeting(3, 5), Meeting(7, 9) ]
+            meetingTimes = new List<ScratchPad.MeetingTime>();
+            meetingTimes.Add(new ScratchPad.MeetingTime() { Start = 1, End = 10});
+            meetingTimes.Add(new ScratchPad.MeetingTime() { Start = 2, End = 6 });
+            meetingTimes.Add(new ScratchPad.MeetingTime() { Start = 3, End = 5 });
+            meetingTimes.Add(new ScratchPad.MeetingTime() { Start = 7, End = 9 });
+
+            ret = ScratchPad.MergeMeetingTimes(meetingTimes.ToArray());
+
+            foreach (var item in ret)
+            {
+                System.Diagnostics.Debug.WriteLine(item.Start + " - " + item.End);
+            }
+
+        }
+
+        [TestMethod]
+        public void ChangePossibilities()
+        {
+
+            int ret = ScratchPad.ChangePossibilitiesBottomUp(4, new int[] { 1, 2, 3 });
+
+            System.Diagnostics.Debug.WriteLine(string.Format("{0}", ret));
+
+        }
+
+        [TestMethod]
+        public void FindNestingLevel()
+        {
+            int ret = ScratchPad.FindMatchingParentheses("Sometimes (when I nest them (my parentheticals) too much (like this (and this))) they get confusing.", 10);
+
+            System.Diagnostics.Debug.WriteLine("Answer: " + ret);
+        }
+
+        [TestMethod]
+        public void FindDupNumber()
+        {
+            int ret = ScratchPad.FindAppearingTwiceV2(new int[] { 1, 5, 8, 2, 4, 3, 6, 7, 5 });
+            System.Diagnostics.Debug.WriteLine("Answer: " + ret);
+        }
+
+        [TestMethod]
+        public void MoveZerosToEnd()
+        {
+            int[] vals = new int[] { 1, 2, 0, 4, 0, 2, 1, 0 };
+
+            ScratchPad.MoveZerosToEnd(ref vals);
+
+            foreach (int val in vals)
+            {
+                System.Diagnostics.Debug.WriteLine(val);
+            }
+        }
+
+        [TestMethod]
+        public void FindShortestSequence()
+        {
+            char[] alphabet = "abcdefghijklm".ToArray();
+            //char[] input = "abbcac".ToArray();
+            //char[] input = "aabbccba".ToArray();
+            char[] input = "aaabbbbbbbbbbbbbbbbbbbccc".ToArray();
+
+
+
+            string output;// = ScratchPad.FindShortestStringWithAlphabet(new string(input), new string(alphabet));
+
+            //System.Diagnostics.Debug.WriteLine(output);
+
+
+            Random rnd = new Random((int)DateTime.Now.Ticks);
+            char[] test = new char[10000000];
+            int min = (int)'a';// (int)Char.GetNumericValue('a');
+            int max = (int)'z';// (int)Char.GetNumericValue('z');
+            Dictionary<char, int> alphabetMap = new Dictionary<char, int>();
+            foreach (char c in alphabet)
+            {
+                alphabetMap.Add(c, 0);
+            }
+
+            for (int x=0; x < test.Length;)
+            {
+                char c = (char)rnd.Next(min, max);
+                if (alphabetMap.ContainsKey(c))
+                {
+                    if (rnd.Next(100) < 95)
+                        continue;
+                }
+                test[x] = c;
+                x++;
+            }
+            DateTime start;
+            DateTime end;
+            TimeSpan diff;
+
+            start = DateTime.Now;
+            output = ScratchPad.FindShortestStringWithAlphabet(new string(test), new string(alphabet));
+            end = DateTime.Now;
+            diff = end - start;
+            System.Diagnostics.Debug.WriteLine(diff.TotalMilliseconds + " ->" + output);
+
+
+            start = DateTime.Now;
+            output = ScratchPad.FindShortestSubstringWithAlphabetV2(test, alphabet);
+            end = DateTime.Now;
+            diff = end - start;
+            System.Diagnostics.Debug.WriteLine(diff.TotalMilliseconds + " ->" + output);
+
+
+
+
+            //FindShortestStringWithAlphabet
+        }
+
+        [TestMethod]
+        public void WriteTreeInLevelOrder()
+        {
+            ScratchPad.BasicTreeNode root = new ScratchPad.BasicTreeNode(5);
+            ScratchPad.AddToBST(root, 4);
+            ScratchPad.AddToBST(root, 3);
+            ScratchPad.AddToBST(root, 2);
+            ScratchPad.AddToBST(root, 1);
+            ScratchPad.AddToBST(root, 0);
+            ScratchPad.AddToBST(root, 6);
+            ScratchPad.AddToBST(root, 7);
+            ScratchPad.AddToBST(root, 8);
+            ScratchPad.AddToBST(root, 9);
+            ScratchPad.AddToBST(root, 10);
+
+            ScratchPad.PrintTreeInLevelOrder(root);
+
+            Random rnd = new Random((int)DateTime.Now.Ticks);
+            root = new ScratchPad.BasicTreeNode(rnd.Next(0, 100));
+            for (int x=0; x < 100; x++)
+            {
+                ScratchPad.AddToBST(root, rnd.Next(0, 100));
+            }
+
+            ScratchPad.PrintTreeInLevelOrder(root);
+
+
+
+        }
+
+
+        [TestMethod]
+        public void FindBadRevision()
+        {
+            //int []arr = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            int ret = ScratchPad.FindBadReivision(1, 11, 11);            
+            System.Diagnostics.Debug.WriteLine("Answer: " + ret);
+
+            ret = ScratchPad.FindBadReivision(1, 11, -1);
+            System.Diagnostics.Debug.WriteLine("Answer: " + ret);
+
+            ret = ScratchPad.FindBadReivision(124, 565, 323);
+            System.Diagnostics.Debug.WriteLine("Answer: " + ret);
+
+            ret = ScratchPad.FindBadReivision(124, 565, 324);
+            System.Diagnostics.Debug.WriteLine("Answer: " + ret);
+
+            ret = ScratchPad.FindBadReivision(124, 565, 322);
+            System.Diagnostics.Debug.WriteLine("Answer: " + ret);
+
+            ret = ScratchPad.FindBadReivision(124, 565, 124);
+            System.Diagnostics.Debug.WriteLine("Answer: " + ret);
+
+            ret = ScratchPad.FindBadReivision(124, 565, 565);
+            System.Diagnostics.Debug.WriteLine("Answer: " + ret);
+                       
+        }
+
+        [TestMethod]
+        public void FindSumToK_hash()
+        {
+            bool ret = ScratchPad.FindSumToK_hash(new int[] { 5, 8, 1, 6, 2 }, 3);
+
+            System.Diagnostics.Debug.WriteLine("Answer: " + ret);
+
+
+        }
 
 
     }

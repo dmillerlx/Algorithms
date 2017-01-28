@@ -1342,7 +1342,7 @@ namespace Algorithms.Scratch_Pad
             int currStart = -1;
             int currEnd = -1;
             int currLen = -1;
-            for (int x=0; x < input.Length; x++)
+            for (int x = 0; x < input.Length; x++)
             {
                 if (currStart < 0)
                 {
@@ -1375,7 +1375,7 @@ namespace Algorithms.Scratch_Pad
             }
 
             StringBuilder sb = new StringBuilder();
-            for (int x= startBest; x <= endBest; x++)
+            for (int x = startBest; x <= endBest; x++)
             {
                 sb.Append(input[x]);
             }
@@ -1403,11 +1403,11 @@ namespace Algorithms.Scratch_Pad
 
 
         // 1 -> 2 -> 3 -> 4 -> 5
-        
+
         // 1 -> 5 -> 2 -> 3 -> 4
 
         // 1 -> 5 -> 2 -> 4 -> 3
-        
+
         // O(1) space
         public static LinkedListNode ReorderSingleLinkedList(LinkedListNode root)
         {
@@ -1490,7 +1490,7 @@ namespace Algorithms.Scratch_Pad
         //index = 3
         //val = 1
         //good starting = 1
-        
+
         //0,1,2,3,4,5
         //  0,1,2,3,4,5
         //    0,1,2,3,4,5
@@ -1504,8 +1504,8 @@ namespace Algorithms.Scratch_Pad
         //      ^ ^ ^ ^ ^ ^         = 3
         //        ^ ^ ^ ^ ^ ^       = 4
         //          ^ ^ ^ ^ ^ ^     = 5
-        
-        public static int FindAmazingNumberOffset(int []input)
+
+        public static int FindAmazingNumberOffset(int[] input)
         {
 
             //Amazing number: its value is less than or equal to its index
@@ -1654,7 +1654,7 @@ namespace Algorithms.Scratch_Pad
             //Create intervals
             List<int> start = new List<int>();
             List<int> end = new List<int>();
-            for (int index=0; index < input.Length; index++)
+            for (int index = 0; index < input.Length; index++)
             {
                 // START           END
                 // <index> + 1 ... n + <index> - a[<index>]
@@ -1682,7 +1682,7 @@ namespace Algorithms.Scratch_Pad
                         start.Add(0);
                         end.Add(_end % input.Length);
                     }
-                   
+
                 }
             }
 
@@ -1709,7 +1709,7 @@ namespace Algorithms.Scratch_Pad
             int e = 0;
 
             //1.    Iterate from i to input.Length
-            for (int i=0; i < input.Length; i++)
+            for (int i = 0; i < input.Length; i++)
             {
                 //2.    Check for starting interval at i
                 while (s < start.Count() && start[s] == i)
@@ -1724,7 +1724,7 @@ namespace Algorithms.Scratch_Pad
                 {
                     //New max found
                     maxki = i % input.Length;
-                    maxk = k;   
+                    maxk = k;
                 }
 
                 //3.    Check for ending interval at i
@@ -1740,10 +1740,10 @@ namespace Algorithms.Scratch_Pad
             return maxki;
 
 
-            
+
 
         }
-        
+
 
         //Problem 1.4 - Replace all white spaces in a string with %20.
         //Provided true length of string
@@ -1751,19 +1751,19 @@ namespace Algorithms.Scratch_Pad
 
         //Input:  "Mr John Smith    ", 13
         //Output: "Mr%20John%20Smith"
-        public static char[]ReplaceSpaces(char []input, int len)
+        public static char[] ReplaceSpaces(char[] input, int len)
         {
             int numerOfSpaces = 0;
-            for (int x=0; x < len; x++)
+            for (int x = 0; x < len; x++)
             {
                 if (input[x] == ' ')
                     numerOfSpaces++;
             }
 
             //%20 is 3 chars, but only using 2 extra since the space is already using 1 char
-            int end = len + numerOfSpaces * 2 -1; //13 + 2*2 -1 = 13+4-1 = 16
-            
-            for (int x= len-1; x >= 0; x--)
+            int end = len + numerOfSpaces * 2 - 1; //13 + 2*2 -1 = 13+4-1 = 16
+
+            for (int x = len - 1; x >= 0; x--)
             {
                 if (input[x] == ' ')
                 {
@@ -1829,7 +1829,7 @@ namespace Algorithms.Scratch_Pad
             return output;
         }
 
-        public static int []SortSquaresOfIntegers(int []vals)
+        public static int[] SortSquaresOfIntegers(int[] vals)
         {
             //-10, -5, -1, 1, 3, 5, 10
 
@@ -1842,7 +1842,7 @@ namespace Algorithms.Scratch_Pad
             int[] two = new int[vals.Length];
             int oneCount = 0;
             int twoCount = 0;
-            for (int x=0; x < vals.Length; x++)
+            for (int x = 0; x < vals.Length; x++)
             {
                 int val = vals[x] * vals[x];
                 if (vals[x] < 0)
@@ -1850,7 +1850,7 @@ namespace Algorithms.Scratch_Pad
                 else two[twoCount++] = val;
             }
 
-            
+
 
             //Check if there are only positive or negative values.  If so, return solution
             if (oneCount == 0)
@@ -1862,9 +1862,9 @@ namespace Algorithms.Scratch_Pad
             //merge sort the arrays
             int[] ret = new int[vals.Length];
 
-            int oneIndex = oneCount-1;
+            int oneIndex = oneCount - 1;
             int twoIndex = 0;
-            for (int x=0; x < ret.Length; x++)
+            for (int x = 0; x < ret.Length; x++)
             {
                 bool useOne = false;
                 if (oneIndex >= 0 && twoIndex < twoCount)
@@ -1893,7 +1893,7 @@ namespace Algorithms.Scratch_Pad
 
         // 1, 3, 5, 18      x = 8
 
-        public static bool HasContigousSubArraySum(int []arr, int target)
+        public static bool HasContigousSubArraySum(int[] arr, int target)
         {
             if (arr == null)
                 return false;
@@ -1903,7 +1903,7 @@ namespace Algorithms.Scratch_Pad
             int start = 0;
             int end = 0;
             int sum = arr[0];
-            
+
             while (start < arr.Length && end < arr.Length)
             {
                 //sum == target, return true
@@ -1937,7 +1937,7 @@ namespace Algorithms.Scratch_Pad
                 {
                     //Sum exceeded target, so remove starting value
                     sum -= arr[start];
-                    start++;                    
+                    start++;
                 }
             }
 
@@ -1947,11 +1947,11 @@ namespace Algorithms.Scratch_Pad
 
         }
 
-//        1) Given a list of(x, y) coordinates, return k nearest points to(0, 0)
+        //        1) Given a list of(x, y) coordinates, return k nearest points to(0, 0)
 
 
 
-        public class MyPoint: IComparable
+        public class MyPoint : IComparable
         {
             public int X { get; set; }
             public int Y { get; set; }
@@ -1965,7 +1965,7 @@ namespace Algorithms.Scratch_Pad
             }
         }
 
-        public static MyPoint FindClosestKPoint(MyPoint []points, int k)
+        public static MyPoint FindClosestKPoint(MyPoint[] points, int k)
         {
             if (points == null)
                 return null;
@@ -1975,7 +1975,7 @@ namespace Algorithms.Scratch_Pad
 
             Heap<MyPoint> pointHeap = new Heap<ScratchPad.MyPoint>(Heap<ScratchPad.MyPoint>.heapTypeEnum.min);
 
-            for(int x=0; x < points.Length; x++)
+            for (int x = 0; x < points.Length; x++)
             {
                 double distance = Math.Sqrt(Math.Pow(points[x].X - 0, 2) + Math.Pow(points[x].Y - 0, 2));
 
@@ -1996,7 +1996,7 @@ namespace Algorithms.Scratch_Pad
 
             return pointHeap.Dequeue();
 
-               
+
         }
 
         //2) Given a string of parenthesis and characters, remove the invalid parentheses.
@@ -2012,7 +2012,7 @@ namespace Algorithms.Scratch_Pad
             //List<int> closing = new List<int>();
             Stack<int> opening = new Stack<int>();
             Stack<int> closing = new Stack<int>();
-            for(int x=0; x < input.Length; x++)
+            for (int x = 0; x < input.Length; x++)
             {
                 if (input[x] == '(')
                 {
@@ -2049,20 +2049,20 @@ namespace Algorithms.Scratch_Pad
             }
 
 
-            return input;       
+            return input;
 
         }
 
         //Ensure that there are a minimum of n dashes between any two of the same characters of a string.
         //Example: n = 2, string = "ab-bcdecca" -> "ab--bcdec--ca"
 
-        public static string EnsureNDashesBetweenTwoChars(string input, int n)            
+        public static string EnsureNDashesBetweenTwoChars(string input, int n)
         {
             //Find first starting char
             StringBuilder sb = new StringBuilder();
             char lastChar = input[0];
-            int dashCount = 0;                   
-            for (int x= 0; x < input.Length; x++)
+            int dashCount = 0;
+            for (int x = 0; x < input.Length; x++)
             {
                 if (x == 0 || lastChar == '-')
                 {
@@ -2120,13 +2120,13 @@ namespace Algorithms.Scratch_Pad
             //          c       2     4
             //          ...
 
-            for(int x=0; x < val.Length; x++)
+            for (int x = 0; x < val.Length; x++)
             {
                 if (x == 0)
                 {
                     lastChar = val[0];
                     count = 1;
-                }                                
+                }
                 else if (val[x] == lastChar)
                 {
                     count++;
@@ -2152,16 +2152,16 @@ namespace Algorithms.Scratch_Pad
         }
 
         //Given an array of integer, find the maximum drop between two array elements, given that second element comes after the first one.
-        public static int FindMaximumDrop(int []vals)
+        public static int FindMaximumDrop(int[] vals)
         {
             //1, 5, 10, 3, 7, 15, 8, 9, 4, 3, 1, 3
 
             int maxDrop = -1;
             int localMax = int.MinValue;
             int localMin = int.MaxValue;
-            for (int x=0; x < vals.Length; x++)
+            for (int x = 0; x < vals.Length; x++)
             {
-                if (x==0)
+                if (x == 0)
                 {
                     localMax = vals[0];
                     localMin = vals[0];
@@ -2199,9 +2199,9 @@ namespace Algorithms.Scratch_Pad
         //sort(A, B);
         // A is now [D, F, G, C, E];
 
-        public static void Reorder(ref char []A, ref int []B)
+        public static void Reorder(ref char[] A, ref int[] B)
         {
-            for (int x=0; x < A.Length; )
+            for (int x = 0; x < A.Length;)
             {
                 if (B[x] == x)
                 {
@@ -2223,6 +2223,1173 @@ namespace Algorithms.Scratch_Pad
 
         }
 
-    }
 
+        public static Wrapper FindNext(int[] preorder, Stack<int> stack, int index)
+        {
+            while (index < preorder.Length)
+            {
+                if (stack.Count == 0 || preorder[stack.Peek()] > preorder[index])
+                {
+                    stack.Push(index);  //push the index
+                    index++;
+                }
+                else
+                {
+                    return new Wrapper(index, stack.Pop());
+                }
+            }
+            if (stack.Count == 0) return new Wrapper(index, null);
+            return new Wrapper(index, stack.Pop());
+        }
+
+        public class Wrapper
+        {
+            public int index;  //index of currently traversed node in the array (as in pre-order)
+            public int? c;  //index of the next leave (as in in-order)
+
+            public Wrapper(int index, int? c)
+            {
+                this.index = index;
+                this.c = c;
+            }
+        }
+
+        //compare the if the two leaves are equal
+        public static void FirstNonMathcingLeaves(int[] o1, int[] o2)
+        {
+            Stack<int> s1 = new Stack<int>(), s2 = new Stack<int>();
+
+            Wrapper w1 = new Wrapper(0, 0), w2 = new Wrapper(0, 0);
+            while (w1.c != null && w2.c != null && o1[w1.c.Value] == o2[w2.c.Value])
+            {
+                w1 = FindNext(o1, s1, w1.index);
+                w2 = FindNext(o2, s2, w2.index);
+            }
+
+            if (w1.c == null && w2.c == null)
+            {
+                System.Diagnostics.Debug.WriteLine("same"); return;
+            }
+            if (w1.c == null)
+            {
+                System.Diagnostics.Debug.WriteLine(w1.c + " " + o2[w2.c.Value]); return;
+            }
+            if (w2.c == null)
+            {
+                System.Diagnostics.Debug.WriteLine(o1[w1.c.Value] + " " + w2.c); return;
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine(o1[w1.c.Value] + " " + o2[w2.c.Value]);
+            }
+        }
+
+
+        public static int FindBestBuySellStock(int[] stockPrice)
+        {
+            //Find greatest difference between n and n+1 where (n+m) - (n) > 0
+            //stock_prices_yesterday = [10, 7, 5, 8, 11, 9, 8, 4, 3, 6, 5, 11, 12, 10]
+            //get_max_profit(stock_prices_yesterday)
+            //# returns 6 (buying for $5 and selling for $11)
+
+            //v2: buy 4, sell 12
+
+            //min, max
+            //challengeMin, challengeMax
+
+
+            //foreach (int n in stockPrice)
+            //{
+
+            //}
+            bool haveMinMax = false;
+            int min = int.MaxValue;
+            int max = int.MinValue;
+
+            bool haveChallenge = false;
+            int challengeMin = int.MaxValue;
+            int challengeMax = int.MinValue;
+            int buyIndex = -1;
+            int sellIndex = -1;
+
+            for (int x = 0; x < stockPrice.Length; x++)
+            {
+                if (!haveMinMax)
+                {
+                    //Look for first buy sell that is profitable
+                    if (stockPrice[x] < min)
+                        min = stockPrice[x];
+                    else if (stockPrice[x] - min > 0)
+                    {
+                        max = stockPrice[x];
+                        haveMinMax = true;
+                    }
+                }
+                else
+                {
+                    //have min and max positive values
+                    //look for challenging min and max values
+
+                    if (stockPrice[x] > max)
+                    {
+                        max = stockPrice[x];
+                    }
+
+
+                    if (stockPrice[x] < min)
+                    {
+                        if (challengeMin == int.MaxValue)
+                        {
+                            challengeMin = stockPrice[x];
+                            challengeMax = int.MinValue;
+                        }
+                        else if (stockPrice[x] < challengeMin)
+                        {
+                            challengeMin = stockPrice[x];
+                            challengeMax = int.MinValue;
+                        }
+                    }
+                    else if ((challengeMin != int.MaxValue) && stockPrice[x] > challengeMax && stockPrice[x] > challengeMin)
+                    {
+                        challengeMax = stockPrice[x];
+
+                        if (challengeMax - challengeMin > max - min)
+                        {
+                            max = challengeMax;
+                            min = challengeMin;
+                            challengeMin = int.MaxValue;
+                            challengeMax = int.MinValue;
+                        }
+                    }
+
+                }
+
+            }
+
+
+            if (min != int.MaxValue && max != int.MinValue)
+            {
+                System.Diagnostics.Debug.WriteLine("Best Min (" + min + ") Best Max (" + max + ") Profit (" + (max - min) + ")");
+                return max - min;
+            }
+
+            return -1;
+        }
+
+
+        public static int[] GetProductsOfAllIntsExceptAtIndex(int[] vals)
+        {
+            int[] ret = new int[vals.Length];
+            //[1, 7, 3, 4]
+            //[84, 12, 28, 21]
+            //[7*3*4, 1*3*4, 1*7*4, 1*7*3]
+
+            int prev = 1;
+
+            //Create stack of multipled values on the right side
+            Stack<int> right = new Stack<int>();
+            Queue<int> left = new Queue<int>();
+            Stack<int> leftStack = new Stack<int>();
+            for (int z = vals.Length - 1; z > 0; z--)
+            {
+                if (right.Count == 0)
+                {
+                    right.Push(vals[z]);
+                }
+                else
+                {
+                    right.Push(vals[z] * right.Peek());
+                }
+
+                int leftIndex = (vals.Length - 1) - z;
+                if (left.Count == 0)
+                {
+                    left.Enqueue(vals[leftIndex]);
+                }
+                else
+                {
+                    int last = left.Peek();
+                    int last2 = left.Dequeue();
+                    left.Enqueue(last2);
+                    left.Enqueue(vals[leftIndex] * last2);// left.Peek());
+                }
+
+                //leftStack
+                if (leftStack.Count == 0)
+                {
+                    leftStack.Push(vals[leftIndex]);
+                }
+                else
+                {
+                    int last = leftStack.Peek();
+                    leftStack.Push(vals[leftIndex] * last);
+                }
+            }
+
+            //reverse stack
+            Stack<int> leftStack2 = new Stack<int>();
+            while (leftStack.Count > 0)
+                leftStack2.Push(leftStack.Pop());
+
+            for (int j = 0; j < vals.Length; j++)
+            {
+                if (j == 0)
+                {
+                    ret[j] = right.Pop();
+                }
+                else if (j == vals.Length - 1)
+                {
+                    ret[j] = leftStack2.Pop();
+                    //ret[j] = left.Dequeue();
+                }
+                else
+                {
+                    ret[j] = leftStack2.Pop() * right.Pop();
+                    //ret[j] = left.Dequeue() * right.Pop();
+                }
+            }
+
+
+
+
+
+            ////Use prev multipled values to 
+            //for (int x=0; x < vals.Length; x++)
+            //{
+            //    int val = prev;
+
+            //    //for (int y=x+1; y < vals.Length; y++)
+            //    //{
+            //    //    val = val * vals[y];
+            //    //}
+            //    if (right.Count > 0)
+            //        val = val * right.Pop();
+            //    ret[x] = val;
+
+            //    prev = prev * vals[x];
+            //}
+
+            for (int i = 0; i < ret.Length; i++)
+            {
+                System.Diagnostics.Debug.WriteLine(ret[i]);
+            }
+
+            return ret;
+
+        }
+
+        public class MeetingTime : IComparable
+        {
+            public int Start { get; set; }
+            public int End { get; set; }
+
+            public int CompareTo(object obj)
+            {
+                return this.Start.CompareTo(((MeetingTime)obj).Start);
+            }
+        }
+
+        //O(nLogn)
+        //n for pass through list
+        //n Logn for sort
+        public static MeetingTime[] MergeMeetingTimes(MeetingTime[] vals)
+        {
+            List<MeetingTime> list = new List<MeetingTime>(vals);
+            list.Sort();
+
+            for (int x = 1; x < list.Count;)
+            {
+                if (list[x - 1].End >= list[x].Start)
+                {
+                    list[x - 1].End = Math.Max(list[x - 1].End, list[x].End);
+                    list.RemoveAt(x);
+                }
+                else
+                {
+                    x++;
+                }
+            }
+
+            return list.ToArray();
+
+        }
+
+
+        //Example: for amount=4  and denominations=[1,2,3] (1¢, 2¢ and 3¢), your program would output 4, the number of ways to make 4¢ with those denominations:
+        //  1¢, 1¢, 1¢, 1¢
+        //  1¢, 1¢, 2¢
+        //  1¢, 3¢
+        //  2¢, 2¢
+        //Permutations of 1, 2, 3
+        //  1
+        //  1   2
+        //  1   2   3
+        //      2   3
+        //  1       3
+        //      2
+        //          3
+
+        //Given 1
+        //      Amount = 4
+        //      Currency = 1
+        //          use 1
+        //          Make 3 using 1
+        //              use 1
+        //              Make 2 using 1
+        //                  use 1
+        //                  Make 1 using 1
+        //                      use 1
+        //                      Have solution
+
+
+        //Given 1 2
+        //      Amount = 4
+        //      Use 2
+        //          Amount=2
+        //          Solve for 2 with currency 2 -> use 2
+        //          Solve for 2 with currency 1 -> use 1, use 1
+
+        //Given 1 2 3
+        //      Amount = 4
+        //      Use 
+
+        //Given       
+
+
+        public static int ChangePossibilitiesBottomUp(int amount, int[] denominations)
+        {
+            int[] waysOfDoingNCents = new int[amount + 1]; // Array of zeros from 0..amount
+            waysOfDoingNCents[0] = 1;
+
+            foreach (int coin in denominations)
+            {
+                for (int higherAmount = coin; higherAmount < amount + 1; higherAmount++)
+                {
+                    int higherAmountRemainder = higherAmount - coin;
+                    waysOfDoingNCents[higherAmount] += waysOfDoingNCents[higherAmountRemainder];
+                }
+            }
+
+            return waysOfDoingNCents[amount];
+        }
+
+
+        //        I like parentheticals(a lot).
+        //"Sometimes (when I nest them (my parentheticals) too much (like this (and this))) they get confusing."
+
+        //Write a function that, given a sentence like the one above, along with the position of an opening parenthesis, finds the corresponding closing parenthesis.
+
+        //Example: if the example string above is input with the number 10 (position of the first parenthesis), the output should be 79 (position of the last parenthesis).
+
+        public class Paren
+        {
+            public int Position { get; set; }
+            public char Val { get; set; }
+            public int NestingLevel { get; set; }
+        }
+
+        //Can refactor to do this in O(1) space by using the nesting levels and scanning the string once
+
+        public static int FindMatchingParentheses(string input, int val)
+        {
+            //  slkfjlskaf ( aklsdjfslkdfj( sd(k)fj) dfgfg (slk)jdf)
+            //             1s            10s  12s 13e     15e  16s  18e  20e
+
+            // 1s 10s 12s 13e 15e 16s 18e 20e
+
+            //Create array for Start and End tags and associate nesting level with each tag
+            //For requested start, find next end with same level
+
+            List<Paren> parenList = new List<Paren>();
+
+            int nestingLevel = 0;
+            for (int x = 0; x < input.Length; x++)
+            {
+                if (input[x] == '(')
+                {
+                    parenList.Add(new Paren() { Position = x, Val = '(', NestingLevel = nestingLevel });
+                    nestingLevel++;
+                }
+                else if (input[x] == ')')
+                {
+                    nestingLevel--;
+                    parenList.Add(new Paren() { Position = x, Val = ')', NestingLevel = nestingLevel });
+                }
+            }
+
+            int findClosingWithNestingLevel = -1;
+            for (int i = 0; i < parenList.Count; i++)
+            {
+                if (parenList[i].Position == val)
+                {
+                    findClosingWithNestingLevel = parenList[i].NestingLevel;
+                }
+                else if (parenList[i].Val == ')' && parenList[i].NestingLevel == findClosingWithNestingLevel)
+                {
+                    return parenList[i].Position;
+                }
+            }
+
+            return -1;
+
+        }
+
+        //I have a list where every number in the range 1...n1...n appears once except for one number which appears twice.
+        //Write a function for finding the number that appears twice.
+
+        public static int FindAppearingTwice(int[] arr)
+        {
+            Dictionary<int, int> values = new Dictionary<int, int>();
+
+            for (int x = 0; x < arr.Length; x++)
+            {
+                if (values.ContainsKey(arr[x]))
+                    return arr[x];
+                values.Add(arr[x], 0);
+            }
+
+            return -1;
+        }
+
+        //Assume short list and small numbers
+        public static int FindAppearingTwiceV2(int[] arr)
+        {
+            int sum = 0;
+            for (int x = 0; x < arr.Length; x++)
+            {
+                //Don't sum the last place since we are looking for a dup
+                if (x < arr.Length - 1)
+                    sum = sum + (x + 1);        //use x+1 since rance is 1..n not 0..n
+                sum = sum - arr[x];
+            }
+
+            return Math.Abs(sum);
+
+        }
+
+        public static void MoveZerosToEnd(ref int []arr)
+        {
+
+            int i = 0;
+            int j = arr.Length - 1;
+
+            while (i < j)
+            {
+                if (arr[i] == 0)
+                {
+                    while (arr[j] == 0 && i < j)
+                    {
+                        j--;
+                    }
+
+                    if (j <= i)
+                        break;
+                    int tmp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = tmp;
+                }
+                else i++;
+            }
+
+
+        }
+
+        //        Given an input string "aabbccba", find the shortest substring from the alphabet "abc". 
+
+        //In the above example, there are these substrings "aabbc", "aabbcc", "ccba" and "cba". 
+        //However the shortest substring that contains all the characters in the alphabet is "cba", so "cba" must be the output.
+
+        //Output doesnt need to maintain the ordering as in the alphabet. 
+
+        //Other examples: 
+        //input = "abbcac", alphabet= "abc" Output : shortest substring = "bca".
+
+        //Create window size of the string
+        //Count number of occurance of each letter needed in alphabet
+        //Shrink left until condition no longer met
+        //shrink right until condition no longer met
+
+
+        //Window size alphabet left to right and check for a solution
+        //Then window alphabet + 1 left to right anc check for a solution
+        // ...
+        //window size of array and check for a solution
+
+        public static bool CountAlphabet(char []arr, char []alphabet, int start, int length)
+        {
+            //int[] count = new int[alphabet.Length];
+            Dictionary<char, int> counts = new Dictionary<char, int>();
+            for (int index= start; index < start+ length; index++)
+            {
+                char c = arr[index];
+                if (counts.ContainsKey(c))
+                    counts[arr[index]]++;
+                else counts.Add(c, 1);
+            }
+            if (counts.Keys.Count >= alphabet.Length)
+                return true;
+
+            return false;
+        }
+
+        public static string FindShortestSubstringWithAlphabet(char []arr, char []alphabet)
+        {            
+            for (int windowSize = alphabet.Length; windowSize <= arr.Length; windowSize++)
+            {
+                for (int start = 0; start + windowSize <= arr.Length; start++)
+                {
+                    if (CountAlphabet(arr, alphabet, start, windowSize))
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        for (int index = start; index < start + windowSize; index++)
+                        {
+                            sb.Append(arr[index]);
+                        }
+                        return sb.ToString();
+                    }
+                }
+            }
+
+            return string.Empty;
+        }
+
+        static Dictionary<char, int> counts = new Dictionary<char, int>();
+        public static void AlphabetAddChar(char addChar)
+        {
+            if (counts.ContainsKey(addChar))
+                counts[addChar]++;
+            else counts.Add(addChar, 1);
+        }
+
+        public static void AlphabetRemoveChar(char removeChar)
+        {
+            if (counts.ContainsKey(removeChar))
+            {
+                counts[removeChar]--;
+                if (counts[removeChar] <= 0)
+                    counts.Remove(removeChar);
+            }
+        }
+
+        public static bool AlphabetFoundSolution(int alphabetLength)
+        {
+            return counts.Keys.Count == alphabetLength;
+        }
+
+        public static string AlphabetMakeSolution(char[] arr, int start, int length)
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int index = start; index < start + length; index++)
+            {
+                sb.Append(arr[index]);
+            }
+            return sb.ToString();
+        }
+        
+        public static string FindShortestSubstringWithAlphabetV2(char[] arr, char[] alphabet)
+        {
+            Dictionary<char, int> alphabetMap = new Dictionary<char, int>();
+            for (int x=0; x < alphabet.Length; x++)
+            {
+                alphabetMap.Add(alphabet[x], 0);
+            }
+
+            counts = new Dictionary<char, int>();
+            //prime with first chars
+            for (int start=0; start < alphabet.Length; start++)
+            {
+                if (alphabetMap.ContainsKey(arr[start]))
+                    AlphabetAddChar(arr[start]);
+            }
+
+            if (AlphabetFoundSolution(alphabet.Length))
+            {
+                return AlphabetMakeSolution(arr, 0, alphabet.Length);
+            }
+
+            //Use increasing window size moving left to right then right to left
+            bool movingLeftToRight = true;
+            for (int windowSize = alphabet.Length; windowSize <= arr.Length; windowSize++)
+            {
+                char prevChar = 'z';
+                if (movingLeftToRight)
+                {
+                    for (int start = 0; start + windowSize <= arr.Length; start++)
+                    {
+                        //First start left to right using primed values
+                        if (start == 0 && windowSize == alphabet.Length)
+                        {
+                            //Check for solution.  May have it from last return trip when the prevChar was added back on
+                            if (AlphabetFoundSolution(alphabet.Length))
+                                return AlphabetMakeSolution(arr, start, windowSize);
+
+                            //do nothing but record first char so we can remove it.
+                            prevChar = arr[start];
+                        }
+                        else if (start == 0)
+                        {
+                            //nth trip from left to right
+
+                            //Add last char in window size
+                            if (alphabetMap.ContainsKey(arr[start + windowSize - 1]))
+                            {
+                                AlphabetAddChar(arr[start + windowSize - 1]);
+                                if (AlphabetFoundSolution(alphabet.Length))
+                                    return AlphabetMakeSolution(arr, start, windowSize);
+                            }
+
+                            prevChar = arr[start];
+                        }
+                        else
+                        {
+                            if (alphabetMap.ContainsKey(prevChar))
+                                AlphabetRemoveChar(prevChar);
+
+                            if (alphabetMap.ContainsKey(arr[start + windowSize - 1]))
+                            {
+                                AlphabetAddChar(arr[start + windowSize - 1]); //Add the new char that was just included in the window
+                                if (AlphabetFoundSolution(alphabet.Length))
+                                    return AlphabetMakeSolution(arr, start, windowSize);
+                            }
+                                                      
+                            prevChar = arr[start];
+                        }
+                    }
+                    movingLeftToRight = false;
+                    //Add prevChar back to counts for return trip
+                    //AlphabetAddChar(prevChar);
+                }
+                else
+                {
+                    for (int start = arr.Length - windowSize; start >= 0; start--)
+                    {
+                        if (start == arr.Length - windowSize)
+                        {
+                            if (alphabetMap.ContainsKey(arr[start]))
+                            {
+                                //add starting char
+                                AlphabetAddChar(arr[start]);
+
+                                //check for solution
+                                if (AlphabetFoundSolution(alphabet.Length))
+                                    return AlphabetMakeSolution(arr, start, windowSize);
+                            }
+
+                            //prev char is now last char in string
+                            prevChar = arr[start + windowSize - 1];
+                        }
+                        else
+                        {
+                            if (alphabetMap.ContainsKey(prevChar))
+                                AlphabetRemoveChar(prevChar);
+
+                            if (alphabetMap.ContainsKey(arr[start]))
+                            {
+                                AlphabetAddChar(arr[start]);
+                                if (AlphabetFoundSolution(alphabet.Length))
+                                    return AlphabetMakeSolution(arr, start, windowSize);
+                            }
+
+                            prevChar = arr[start + windowSize - 1];
+                        }
+                    }
+
+                    movingLeftToRight = true;
+                    //Add prevChar back to counts for return trip
+                    //AlphabetAddChar(prevChar);
+                }
+            }
+
+            return string.Empty;
+        }
+
+        public class BasicTreeNode
+        {
+            public BasicTreeNode(int val)
+            {
+                Value = val;
+                Left = null;
+                Right = null;
+            }
+            public int Value { get; set; }
+            public BasicTreeNode Left { get; set; }
+            public BasicTreeNode Right { get; set; }
+        }
+
+        //Add elements to a BST
+        public static void AddToBST(BasicTreeNode root, int val)
+        {
+            if (val < root.Value)
+            {
+                if (root.Left == null)
+                {
+                    root.Left = new BasicTreeNode(val);
+                    return;
+                }
+                AddToBST(root.Left, val);
+                return;
+            }
+
+            if (root.Right == null)
+            {
+                root.Right = new BasicTreeNode(val);
+                return;
+            }
+            AddToBST(root.Right, val);
+        }
+
+        public static void PrintTreeInLevelOrder(BasicTreeNode root)
+        {
+            //Level order so do BSF transversal
+
+            Queue<BasicTreeNode> queue = new Queue<BasicTreeNode>();
+            Queue<BasicTreeNode> tmpQueue = new Queue<BasicTreeNode>();
+
+            queue.Enqueue(root);
+            int level = 0;
+            System.Diagnostics.Debug.Write("Level " + level + ": ");
+            while (queue.Count > 0)
+            {
+                //Dequeue element
+                BasicTreeNode current = queue.Dequeue();
+
+                //print current element
+                System.Diagnostics.Debug.Write(current.Value + " ");
+
+                //Enqueue children onto tmpQueue
+                if (current.Left != null)
+                    tmpQueue.Enqueue(current.Left);
+                if (current.Right != null)
+                    tmpQueue.Enqueue(current.Right);
+
+                if (queue.Count == 0)
+                {
+                    //no elements left on the queue, so going down next level
+                    //Move all elements from tmpQueue to queue
+                    while (tmpQueue.Count > 0)
+                        queue.Enqueue(tmpQueue.Dequeue());
+
+                    //If we have elements for the next level, write the leve header
+                    if (queue.Count > 0)
+                    {
+                        System.Diagnostics.Debug.WriteLine("");
+                        level++;
+                        System.Diagnostics.Debug.Write("Level " + level + ": ");
+                    }
+                }
+            }
+
+        }
+
+        /*********************************
+        
+        // Given an array with N elements, find two elements with the given sum K. 
+        // Return a boolean for whether the array contains that the given sum K.
+        //
+        // For example:
+        //   Input: [5, 8, 1, 6, 2], 3
+        //   Output: true
+        */
+
+        public static bool FindSumToK(int[] arr, int k)
+        {
+
+            if (arr.Length < 2)
+                return false;
+
+            //arr.length = 5
+            // i 0 -> 
+            // 5, 8, 1, 6, 2
+            // 0, 1, 2, 3, 4
+            // 0        i     <- 5-2 = 3
+            // 0           j  <- 5-1 = 4
+
+            for (int i = 0; i <= arr.Length - 2; i++)
+            {
+                for (int j = i + 1; i <= arr.Length - 1; j++)
+                {
+                    if (arr[i] + arr[j] == k)
+                        return true;
+                }
+            }
+            return false;
+        }
+
+
+        public bool FindSumToK_sort(int[] arr, int k)
+        {
+
+            if (arr.Length < 2)
+                return false;
+
+            List<int> arrList = new List<int>();
+            foreach (int i in arrList)
+                arrList.Add(i);
+
+            arrList.Sort();
+
+
+            for (int i = 0; i <= arrList.Count - 2 && arrList[i] < k; i++)
+            {
+                for (int j = i + 1; i <= arr.Length - 1; j++)
+                {
+                    if (arr[i] + arr[j] == k)
+                        return true;
+                }
+            }
+            return false;
+        }
+
+
+        // O(n) time  space O(n) 
+        public static bool FindSumToK_hash(int[] arr, int k)
+        {
+            //Input: [5, 8, 1, 6, 2], 3
+
+            if (arr.Length < 2)
+                return false;
+
+            Dictionary<int, int> map = new Dictionary<int, int>();
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                map.Add(arr[i], 0);
+            }
+
+            for (int j = 0; j < arr.Length; j++)
+            {
+                int valueWeNeed = k - arr[j];  // 3 - 5 = -2
+
+                if (map.ContainsKey(valueWeNeed))
+                    return true;
+            }
+
+            return false;
+        }
+
+
+
+        // Your code is stored in a revision control system, let's say something 
+        // like svn, which numbers all versions sequentially.  You see a bug in 
+        // your code, and you know it wasn't there before.  Write a function to 
+        // find the revision that introduced the bug.
+        // 
+        // For example:
+        //   revision 123 <-- good
+        //   revision 124 <--  also good
+        //   ...
+        //   revision ??? <-- introduced the bug
+        //   ...
+        //   revision 544<-- also bad
+        //   revision 545 <-- bad
+
+        // bool isBad(int revision)
+
+
+        //input good and bad revision
+        //return first bad revision
+
+        static int badRevision = 0;
+        static bool isBad(int revision)
+        {
+            return revision >= badRevision;
+
+        }
+
+        public static int FindBadReivision(int start, int end, int badNumber)
+        {
+            badRevision = badNumber;
+            //if (isBad(end))
+            //    return 
+
+            //given the start and end
+            //  if isBad(end) == true
+            //    FindMiddle and search again
+            //  else this segment is ok
+
+
+            // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+            //          ^
+            //             ^
+            // 1 --------  5
+            //       ^
+            //       -------
+            //          ^
+            //       +  -  return 4
+
+
+            bool done = false;
+            while (!done)
+            {
+                int middle = start + (end - start) / 2;
+
+                if (isBad(middle))
+                {
+                    end = middle;
+                }
+                else
+                {
+                    //answer is between middle and end
+                    start = middle;
+                }
+
+                if (start == end)
+                {
+                    if (isBad(end))
+                        return end;
+                    done = true;
+                }
+
+                if (isBad(end) == false)
+                    return end + 1;
+
+                if (end - start == 1)
+                {
+                    if (isBad(start) == false && isBad(end) == true)
+                        return end;
+                    else if (isBad(start))
+                        return start;
+                    done = true;
+                }
+
+            }
+
+            return -1;
+        }
+
+
+        //Find shortest string with all chars in alphabet
+        //O(b*a)
+        public static string FindShortestStringWithAlphabet(string input, string alphabet)
+        {
+
+            //  ADOBECODEBANC
+            //  0123456789111
+            //            012
+            //  ABC
+
+            //  A   0, 10
+            //  B   3, 9
+            //  C   5, 12
+
+
+            //Find minimum distance between A, B, C
+            //
+            // For each character in the alphabet, we need to find the nearest char for every other item in the alphabet
+            // The we find the difference between the minimum and maximum index for each item in the alphabet
+            //
+            // For example, the index of the alphabet input chars are below
+            //
+            //  0   3   5   9   10  12
+            //  A   B   C   B   A   C
+            //  |
+            //  A   nearest B = 3 (index)
+            //      nearest C = 5 (index)
+            //      current A = 0
+            //      total = 5-0 = 5     <-- Max(A, B, C) = Max (0, 3, 5) = 5
+            //                              Min(A, B, C) = Min(0, 3, 5) = 0
+            //                              = Abs(0 - 5) = 5
+            //      |
+            //      B   nearest A = 0
+            //          nearest C = 5
+            //          current B = 3
+            //          total = 5-0 = 5
+            //
+            //          |
+            //          C   nearest A = 0, 10
+            //              nearest B = 3
+            //              current C = 5
+            //              total = 0 -> 3 -> 5 = 5 || 3 -> 5 -> 10 = 7 --> 5
+            //
+            //              |
+            //              B  nearest A = 10
+            //                 nearest C = 12
+            //                 current B = 9
+            //                 total = 9 - 12 = 3                           <--- Solution
+            //
+            //                  |              
+            //                  A   nearest B = 9
+            //                      nearest C = 12
+            //                      current A = 10
+            //                      total = 9 - 12 = 3                      <--- Solution  All 3 are the solution since they are different letters of the alphabet
+            //
+            //                      |
+            //                      C   nearest A = 10
+            //                          nearest B = 9
+            //                          current C = 12
+            //                          total = 9 - 12 = 3                  <--- Solution
+            //
+            //  Minimum substring length = 3
+            //  Starting = 9
+            //  Ending = 12
+            //  return: BANC
+
+            //charMap stores the index of the items in the alphabet
+            Dictionary<int, Item> charMap = new Dictionary<int, Item>();
+
+            //alphabetMap stores the characters in the alphabet for O(1) lookup to find if a character is in the alphabet
+            //It also stores the last index of the character
+            Dictionary<char, int> alphabetMap = new Dictionary<char, int>();
+
+            //charMapStack stores the order we find the items in the input so we can re-process them in reverse to find the closest
+            //character that may appear after the character
+            Stack<int> charMapStack = new Stack<int>();
+
+            //For BigO notation, these values are used
+            //a = length of alphabet
+            //b = length of input string
+            //c = number of alphabet letters in input string.  max is 'b' if only using alphabet chars
+
+            // O(a)
+            //Initalize the alphabetMap and set chars to -1 indicating no values have been seen
+            for (int i = 0; i < alphabet.Length; i++)
+            {
+                if (alphabetMap.ContainsKey((alphabet[i])))
+                    continue;
+                alphabetMap.Add(alphabet[i], -1);
+            }
+
+
+            //Itterate over the input from left to right
+            //If the character is in the alphabet
+            //  1.  add this index position to the charMap hash
+            //  2.  set the alphabetMap last seen location for this character as the current index
+            //  3.  copy the last location for each character into the charMap.nearestChar hash map
+            //  4.  push the current index number onto the charMapStack for the return trip in processing right to left
+            //      we use this so we don't have to process every character on the return trip.  we only have to process
+            //      those that are in the alphabet
+
+            //O(b)
+            for (int x = 0; x < input.Length; x++)
+            {
+                if (alphabetMap.ContainsKey(input[x]))
+                {
+                    charMap.Add(x, new Item(input[x], x));
+                    alphabetMap[input[x]] = x; //set this char as nearest
+
+                    //O(a)
+                    foreach (var i in alphabetMap.Keys)
+                    {
+                        //Add all keys, even if it is -1
+                        charMap[x].nearestChar.Add(i, alphabetMap[i]);
+                    }
+
+                    charMapStack.Push(x);
+                }
+            }
+
+            //First pass is complete and the charMap.nearestChar is populated with the nearest character that occured before that
+            //value in the index.  The next step is to go from right to left and populate the nearest characters going this direction
+
+            //reset alphabetMap to -1 for return trip
+            alphabetMap = new Dictionary<char, int>();
+            //O(a)
+            for (int i = 0; i < alphabet.Length; i++)
+            {
+                if (alphabetMap.ContainsKey((alphabet[i])))
+                    continue;
+                alphabetMap.Add(alphabet[i], -1);
+            }
+
+            //Store solution index as minIndex
+            int minIndex = -1;
+
+            //O(c)
+            //Pop an item off the stack and process it until the stack is empty
+            while (charMapStack.Count > 0)
+            {
+                //x is the key value inside charMap.  It is not the index of the value in the input string unless
+                //the input string only contains characters from the alphabet
+                int x = charMapStack.Pop();
+                char c = charMap[x].C;
+                int index = charMap[x].Index;   //index is the actual index value inside the input string
+
+                //Initialize charMap
+                charMap[x].Size = 0;    //stores the final size (max index - min index)
+                charMap[x].MinChar = index; //init minChar to current index
+                charMap[x].MaxChar = index; //init maxChar to current index
+
+                //update alphabetMap with current character and index position
+                alphabetMap[c] = index;
+
+                //O(a)
+                foreach (char v in alphabetMap.Keys)
+                {
+                    //Check to see if we have a value in the map
+                    if (alphabetMap.ContainsKey(v) && alphabetMap[v] != -1)
+                    {
+                        //if our current nearest is -1, or the new value is < current value, update it
+                        if (charMap[x].nearestChar[v] == -1 ||
+                            alphabetMap[v] < charMap[x].nearestChar[v])
+                        {
+                            charMap[x].nearestChar[v] = alphabetMap[v];
+                        }
+                    }
+
+                    //Check to see if this character is still -1
+                    //If so, then this alphabet character was not found in the forward or reverse
+                    //processing of the input, so the character does not exist.
+                    //Return empty string for failure
+                    if (charMap[x].nearestChar[v] == -1)
+                    {
+                        return "no solution";// string.Empty;
+                    }
+
+                    //At this point charMap.nearestChar[v] has been processed forwards and backwards and contains the closest
+                    //character for character 'v'
+                    //So, check to see if its index is the Min or Max for the nearest alphabet characters
+                    charMap[x].MinChar = Math.Min(charMap[x].MinChar, charMap[x].nearestChar[v]);
+                    charMap[x].MaxChar = Math.Max(charMap[x].MaxChar, charMap[x].nearestChar[v]);
+                }
+
+                //All chracters have been processed forwards and backwards and the Min and Max character is know
+                //We can now calculate the size of the window using the Min and Max values
+                charMap[x].Size = charMap[x].MaxChar - charMap[x].MinChar;
+
+                //Check to see if we found a new minimum
+                if (minIndex < 0)
+                    minIndex = x;
+                else if (charMap[x].Size < charMap[minIndex].Size)
+                    minIndex = x;
+            }
+
+            //Finally find the min and max indexes in the solution set to get the start and end indexes for the answer
+            int start = int.MaxValue;
+            int end = int.MinValue;
+            //O(a)
+            foreach (var key in charMap[minIndex].nearestChar.Keys)
+            {
+                start = Math.Min(start, charMap[minIndex].nearestChar[key]);
+                end = Math.Max(end, charMap[minIndex].nearestChar[key]);
+            }
+
+            string ret = input.Substring(start, end - start + 1);
+
+            return ret;
+        }
+
+
+        public class Item
+        {
+            public char C { get; set; }
+            public int Index { get; set; }
+
+            public Dictionary<char, int> nearestChar { get; set; }
+
+            public int MinChar { get; set; }
+            public int MaxChar { get; set; }
+            public int Size { get; set; }
+
+
+            public Item(char c, int index)
+            {
+                C = c;
+                Index = index;
+                nearestChar = new Dictionary<char, int>();
+            }
+
+        }
+
+
+    }
 }
